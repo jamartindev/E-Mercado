@@ -9,89 +9,28 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
-  <style>
-    body {
-      background-color: white;
-    }
-
-    .container{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      background: rgba(255, 255, 255, 0.33);
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-      backdrop-filter: blur(5.1px);
-      -webkit-backdrop-filter: blur(5.1px);
-      border: 1px solid rgba(255, 255, 255, 0.29);
-      width: 500px;
-      height: 700px;
-      border-radius: 16px;
-      gap: 20px;
-    }
-
-    .inputs {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 20px;
-     
-    }
-
-    .imagen1{
-      width: 300px;
-    }
-
-    .nombre {
-      border-width: 0 0 2px;
-      border-color: rgb(236, 177, 68);
-      background-color: rgba(255, 255, 255, 0.377);
-      width: 250px;
-      height: 25px;
-      outline: none;
-    }
-
-    .nombre:hover{
-      border-color: rgb(173, 114, 5);
-      transition: ease-in 0.2s;
-    }
-
-    .nombre:focus{
-      border-color: rgb(173, 114, 5);
-
-    }
-
-    #btn{
-      
-    }
-
-
-
-
-  </style>
 </head>
 
 <body>
   <main class="mt-5">
-    <div class="container">
+    <div class="container-login">
       <img src="img/login.png" class="imagen1">
       <h2> Ingresar </h2>
       <form> 
         <div class="inputs">
-        <label> Usuario </label>
-        <input type="text" class="nombre" placeholder="Nombre de usuario" name="uname" required>
-        <label> Contraseña </label>
-        <input type="password" class="nombre" placeholder="Contraseña" name="psw" required>
-        <button id="btn"> Entrar </button>
+        <label for="uname"> Usuario </label>
+        <input type="text" class="nombre" id="uname" placeholder="Nombre de usuario" name="uname" required>
+        <label for="pass"> Contraseña </label>
+        <input type="password" class="nombre" id="psw" placeholder="Contraseña" name="psw" required>
+        <button id="btn"> Iniciar sesión </button>
       </div>
       </form>
       <footer class="text-muted">
         <div class="footer">
-          <p class="float-end">
-            <a href="#">Volver arriba</a>
+          <p class="float-none">
+            <a href="index.html">Volver a la página principal</a>
           </p>
-          <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
+          <p class="float-none">Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
         </div>
       </footer>
      
