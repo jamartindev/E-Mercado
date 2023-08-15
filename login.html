@@ -14,10 +14,27 @@
       background-color: rgb(248, 249, 250);
     }
 
+    .container{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: rgba(255, 255, 255, 0.33);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(5.1px);
+      -webkit-backdrop-filter: blur(5.1px);
+      border: 1px solid rgba(255, 255, 255, 0.29);
+      width: 500px;
+      height: 700px;
+      border-radius: 16px;
+    }
+
     .inputs {
       display: flex;
       flex-direction: column;
       justify-content: center;
+      align-items: center;
+      gap: 15px;
     }
 
 
@@ -27,7 +44,7 @@
 <body>
   <main class="mt-5">
     <div class="container">
-      <h2> Login </h2>
+      <h2> Ingresar </h2>
       <form> 
         <div class="inputs">
         <input type="text" class="nombre" placeholder="Nombre de usuario" name="uname" required>
