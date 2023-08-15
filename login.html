@@ -12,6 +12,7 @@
   <style>
     body {
       background-color: white;
+      
     }
 
     .container{
@@ -19,11 +20,10 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      background: rgba(255, 255, 255, 0.33);
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 50px rgb(209, 207, 207);
       backdrop-filter: blur(5.1px);
       -webkit-backdrop-filter: blur(5.1px);
-      border: 1px solid rgba(255, 255, 255, 0.29);
+      border: 1px solid white;
       width: 500px;
       height: 700px;
       border-radius: 16px;
@@ -31,11 +31,12 @@
     }
 
     .inputs {
+      margin-top: 20px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      gap: 20px;
+      gap: 15px;
      
     }
 
@@ -45,7 +46,7 @@
 
     .nombre {
       border-width: 0 0 2px;
-      border-color: rgb(236, 177, 68);
+      border-color: rgb(240, 123, 28);
       background-color: rgba(255, 255, 255, 0.377);
       width: 250px;
       height: 25px;
@@ -62,8 +63,28 @@
 
     }
 
+    .boton{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 25px;
+    }
+
     #btn{
-      
+      appearance: none;
+      border-radius: 6px;
+      border-style: none;
+      align-items: center;
+      color: white;
+      background-color: rgb(240, 123, 28);
+      width: 130px;
+      height: 30px;
+    }
+
+    #btn:hover{
+      box-shadow: 0 0 5px rgb(173, 114, 5);
+      background-color: rgb(236, 144, 69);
+      transition: ease-in 0.2s;
     }
 
 
@@ -76,14 +97,16 @@
   <main class="mt-5">
     <div class="container">
       <img src="img/login.png" class="imagen1">
-      <h2> Ingresar </h2>
+      <h2> Login </h2>
       <form> 
         <div class="inputs">
         <label> Usuario </label>
-        <input type="text" class="nombre" placeholder="Nombre de usuario" name="uname" required>
+        <input type="text" class="nombre"  name="uname" required>
         <label> Contraseña </label>
-        <input type="password" class="nombre" placeholder="Contraseña" name="psw" required>
-        <button id="btn"> Entrar </button>
+        <input type="password" class="nombre"  name="psw" required>
+        <div class="boton">
+        <button id="btn"> Ingresar </button>
+      </div>
       </div>
       </form>
       <footer class="text-muted">
