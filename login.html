@@ -13,25 +13,41 @@
     body {
       background-color: rgb(248, 249, 250);
     }
+
+    .inputs {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+
   </style>
 </head>
 
 <body>
   <main class="mt-5">
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+      <h2> Login </h2>
+      <form> 
+        <div class="inputs">
+        <input type="text" class="nombre" placeholder="Nombre de usuario" name="uname" required>
+        <input type="password" class="nombre" placeholder="Contraseña" name="psw" required>
+        <button> Entrar </button>
       </div>
+      </form>
+      <footer class="text-muted">
+        <div class="footer">
+          <p class="float-end">
+            <a href="#">Volver arriba</a>
+          </p>
+          <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
+        </div>
+      </footer>
+     
+      
     </div>
   </main>
-  <footer class="text-muted">
-    <div class="container">
-      <p class="float-end">
-        <a href="#">Volver arriba</a>
-      </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
-    </div>
-  </footer>
+  
   <script src="js/login.js"></script>
 </body>
 
