@@ -18,15 +18,15 @@ document.addEventListener("DOMContentLoaded", async () => {
     const divs = document.createElement("div");
     divs.innerHTML = `
     
-    <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-        <div class="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-            <div class="my-3 py-3">
-                    <div class="card shadow-sm">
-                        <p class="display-5">${name} - ${currency} ${cost}</p>
-                        <small class="lead ">${description}</small>
-                        <small class="">${soldCount} vendidos</small>
-                        <img src="${image}" class="bg-body-tertiary shadow-sm mx-auto"> 
-                    </div>
+    <div class="">
+        <div class="text-bg-dark me-sm-3 pt-5 px-3 pt-md-5 px-md-5 text-center ">
+            <div class="my-2 py-2">
+
+                  <div class="card shadow-sm"><small class="text-end"> ${soldCount} vendidos</small>
+                    <p class="display-6">${name} - ${currency} ${cost}</p>
+                    <img src="${image}" class="bg-body-secondary shadow-sm mx-auto" width="50%" height="50%">
+                    <p>${description}</p>    
+                  </div>
             </div>
         </div>
     </div>
