@@ -44,7 +44,7 @@
       width: 300px;
     }
 
-    .nombre {
+    .nombre, .apellido {
       border-width: 0 0 2px;
       border-color: rgb(240, 123, 28);
       background-color: rgba(255, 255, 255, 0.377);
@@ -57,8 +57,16 @@
       border-color: rgb(173, 114, 5);
       transition: ease-in 0.2s;
     }
+    .apellido:hover{
+      border-color: rgb(173, 114, 5);
+      transition: ease-in 0.2s;
+    }
 
     .nombre:focus{
+      border-color: rgb(173, 114, 5);
+
+    }
+    .apellido:focus{
       border-color: rgb(173, 114, 5);
 
     }
@@ -70,8 +78,12 @@
       margin-top: 25px;
     }
 
-    #btn{
+    .btn{
       appearance: none;
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      justify-content: center;
       border-radius: 6px;
       border-style: none;
       align-items: center;
@@ -81,21 +93,18 @@
       height: 30px;
     }
 
-    #btn:hover{
+    .btn:hover{
       box-shadow: 0 0 5px rgb(173, 114, 5);
+      color: white;
       background-color: rgb(236, 144, 69);
       transition: ease-in 0.2s;
     }
-
-
-
-
   </style>
 </head>
 
 <body>
   <main class="mt-5">
-    <div class="container-login">
+    <div class="container">
       <img src="img/login.png" class="imagen1">
       <h2> Login </h2>
       <form> 
@@ -103,9 +112,9 @@
         <label> Usuario </label>
         <input type="text" class="nombre"  name="uname" required>
         <label> Contraseña </label>
-        <input type="password" class="nombre"  name="psw" required>
+        <input type="password" class="apellido"  name="psw" required>
         <div class="boton">
-        <button id="btn"> Ingresar </button>
+        <input type="submit" class="btn" value="Ingresar"> 
       </div>
       </div>
       </form>
@@ -113,10 +122,10 @@
       
       <footer class="text-muted">
         <div class="footer">
-          <p class="float-none">
-            <a href="index.html">Volver a la página principal</a>
+          <p class="float-end">
+            <a href="#">Volver arriba</a>
           </p>
-          <p class="float-none">Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
+          <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
         </div>
       </footer>
      
