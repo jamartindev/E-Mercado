@@ -9,11 +9,12 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  
 </head>
 
 <body>
   <main class="mt-5">
-    <div class="container-login">
+    <div class="container">
       <img src="img/login.png" class="imagen1">
       <h2> Login </h2>
       <form class="inputs" id="logForm" method="post" action=""> 
@@ -21,14 +22,16 @@
         <input type="text" class="nombre" id="uname" placeholder="Nombre de usuario" name="uname" required>
         <label for="pass"> Contraseña </label>
         <input type="password" class="nombre" id="psw" placeholder="Contraseña" name="psw" required>
-        <button type="submit" class="btn btn-outline-primary" id="btn" value="submit"> <strong> Iniciar sesión </strong></button>
+        <button type="submit" class="btn" id="btn" value="submit"> <strong> Iniciar sesión </strong></button>
       </form>
+
+      
       <footer class="text-muted">
         <div class="footer">
-          <p class="float-none">
-            <a href="index.html">Volver a la página principal</a>
+          <p class="float-end">
+            <a href="#">Volver arriba</a>
           </p>
-          <p class="float-none">Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
+          <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
         </div>
       </footer>
      
@@ -37,6 +40,7 @@
   </main>
   
   <script src="js/login.js"></script>
+  
 </body>
 
 </html>
