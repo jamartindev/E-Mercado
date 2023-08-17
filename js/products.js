@@ -19,18 +19,23 @@ document.addEventListener("DOMContentLoaded", async () => {
     divs.innerHTML = `
     
     <div class="">
-        <div class="text-bg-dark me-sm-3 pt-5 px-3 pt-md-5 px-md-5 text-center ">
+        <div class="text-bg-dark me-sm-3 pt-5 px-3 pt-md-5 px-md-5">
             <div class="my-2 py-2">
 
-                  <div class="card shadow-sm"><small class="text-end"> ${soldCount} vendidos</small>
-                    <p class="display-6">${name} - ${currency} ${cost}</p>
-                    <img src="${image}" class="bg-body-secondary shadow-sm mx-auto" width="50%" height="50%">
-                    <p>${description}</p>    
+                  <div class="d-flex shadow justify-content-between ">
+                    <div class="d-flex">
+                      <img src="${image}" class="p-2" width="250px">
+                      <div class="ms-3">
+                        <p class="display-6">${name} - ${currency} ${cost}</p>
+                        <p>${description}</p>
+                      </div>   
+                    </div>   
+                    <small class="me-3 mt-2"> ${soldCount} vendidos</small>
                   </div>
             </div>
         </div>
     </div>
         `;
-    container.appendChild(divs);
+        container.appendChild(divs);
   }
 });
