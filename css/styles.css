@@ -29,7 +29,7 @@ nav a {
 }
 
 .jumbotron {
-  height: 50vh;
+  height: 30vh;
   padding: 5em inherit;
   margin-bottom: 0;
   background-color: #53C0FB;
@@ -46,6 +46,7 @@ nav a {
     padding-top: 6rem;
     padding-bottom: 6rem;
   }
+  
 }
 
 .jumbotron p:last-child {
@@ -188,3 +189,96 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+
+body {
+  background-color: white;
+}
+
+.container-login{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.33);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5.1px);
+  -webkit-backdrop-filter: blur(5.1px);
+  border: 1px solid rgba(255, 255, 255, 0.29);
+  width: 500px;
+  height: 750px;
+  border-radius: 16px;
+  gap: 20px;
+  margin: auto;
+  padding: 1rem 0 0 1rem;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  padding: 1rem; 
+ 
+}
+
+.imagen1{
+  width: 300px;
+  margin-right: 1rem;
+}
+
+.nombre {
+  border-width: 0 0 2px;
+  border-color: rgb(236, 177, 68);
+  background-color: rgba(255, 255, 255, 0.377);
+  width: 250px;
+  height: 25px;
+  outline: none;
+  padding: 1.5rem 0 1.5rem 0;
+}
+
+.nombre:hover{
+  border-color: rgb(173, 114, 5);
+  transition: ease-in 0.2s;
+}
+
+.nombre:focus{
+  border-color: rgb(173, 114, 5);
+
+}
+
+.btnSubmit{ 
+
+      margin-top: 15px;
+      margin-left: 60px;
+      appearance: none;
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      justify-content: center;
+      border-radius: 6px;
+      border-style: none;
+      align-items: center;
+      color: white;
+      background-color: rgb(240, 123, 28);
+      width: 130px;
+      height: 30px;
+    }
+
+    .btnSubmit:hover{
+      box-shadow: 0 0 5px rgb(173, 114, 5);
+      color: white;
+      background-color: rgb(236, 144, 69);
+      transition: ease-in 0.2s;
+    }
+
+.ms-6 {
+  margin-left: 5rem !important;
+  
+}
+
+.container-login > h2 {
+  font-weight: 700;
+  margin-right: 13rem;
+}
+
+
