@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     <div class="d-flex">
                       <img src="${image}" class="p-2" width="250px">
                       <div class="ms-3">
-                        <p class="display-6">${name} - ${currency} ${cost}</p>
+                        <p class="h2 fw-normal">${name} - ${currency} ${cost}</p>
                         <p>${description}</p>
                       </div>   
                     </div>   
