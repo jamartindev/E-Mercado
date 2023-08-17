@@ -220,14 +220,14 @@ body {
  
 }
 
-.imagen1{
+.imagen1 {
   width: 300px;
   margin-right: 1rem;
 }
 
-.nombre {
+.nombre, .apellido {
   border-width: 0 0 2px;
-  border-color: rgb(236, 177, 68);
+  border-color: rgb(240, 123, 28);
   background-color: rgba(255, 255, 255, 0.377);
   width: 250px;
   height: 25px;
@@ -239,17 +239,44 @@ body {
   border-color: rgb(173, 114, 5);
   transition: ease-in 0.2s;
 }
+.apellido:hover{
+  border-color: rgb(173, 114, 5);
+  transition: ease-in 0.2s;
+}
 
 .nombre:focus{
   border-color: rgb(173, 114, 5);
 
 }
+.apellido:focus{
+  border-color: rgb(173, 114, 5);
 
-#btn {
-  padding: 0.5rem;
-  margin: 2rem 5.5rem 0 5rem;
-  border-radius: 7px;
 }
+
+.btn {
+    padding: 0.5rem;
+    margin: 2rem 5.5rem 0 5rem;
+    border-radius: 7px;
+    appearance: none;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    border-radius: 6px;
+    border-style: none;
+    align-items: center;
+    color: white;
+    background-color: rgb(240, 123, 28);
+    width: 130px;
+    height: 30px;
+  }
+
+.btn:hover{
+    box-shadow: 0 0 5px rgb(173, 114, 5);
+    color: white;
+    background-color: rgb(236, 144, 69);
+    transition: ease-in 0.2s;
+  }
 
 .ms-6 {
   margin-left: 5rem !important;
@@ -260,5 +287,8 @@ body {
   font-weight: 700;
   margin-right: 13rem;
 }
+
+
+
 
 
