@@ -14,7 +14,7 @@ document.getElementById("form").addEventListener("submit", (e) => {
   e.preventDefault();
   if (document.getElementById("nombre").value && document.getElementById("psw").value) {
     window.location = "/index.html"
-    localStorage.setItem("usuario", username)
+    localStorage.setItem("usuario", document.getElementById("nombre").value);
   }
 })
 
