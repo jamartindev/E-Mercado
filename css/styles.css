@@ -246,7 +246,7 @@ body {
 
 }
 
-.btnSubmit{ 
+#btnSubmit{ 
 
       margin-top: 15px;
       margin-left: 60px;
@@ -264,7 +264,7 @@ body {
       height: 30px;
     }
 
-    .btnSubmit:hover{
+    #btnSubmit:hover{
       box-shadow: 0 0 5px rgb(173, 114, 5);
       color: white;
       background-color: rgb(236, 144, 69);
