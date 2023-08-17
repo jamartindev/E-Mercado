@@ -1,15 +1,6 @@
 document.addEventListener("DOMContentLoaded", function(){
     
-    let user = localStorage.getItem('User');
-    let pass = localStorage.getItem('Pass');
     
-   
-    if (user === null || pass === null) {
-        localStorage.setItem('User',"");
-        localStorage.setItem('Pass',"");
-    } else if (user === "" || pass === "") {
-        window.location.href = "login.html";
-    } 
 
     document.getElementById("autos").addEventListener("click", function() {
         localStorage.setItem("catID", 101);
@@ -23,5 +14,17 @@ document.addEventListener("DOMContentLoaded", function(){
         localStorage.setItem("catID", 103);
         window.location = "products.html"
     });
+
+    let usuario = localStorage.getItem('uname');
+    if(usuario =="" || usuario==null){
+        document.getElementById('uname').innerHTML=usuario;
+    } else {
+    document.getElementById('salir').addEventListener('click', function (){
+        localStorage.removeItem('uname');
+        location.href="login.html"
+       
+    });
+    }
 });
+
 
