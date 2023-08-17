@@ -1,6 +1,14 @@
-const URL = 'https://japceibal.github.io/emercado-api/cats_products/101.json';
-
-fetch(URL)
-.then (response => response.json())
-.then (data => console.log(data));
+        
+    document.addEventListener("DOMContentLoaded", function(){
     
+        let user = sessionStorage.getItem('User');
+        let pass = sessionStorage.getItem('Pass');
+        
+       
+        if (user === null || pass === null) {
+            sessionStorage.setItem('User',"");
+            sessionStorage.setItem('Pass',"");
+        } else if (user === "" || pass === "") {
+            window.location.href = "login.html";
+        } 
+    });

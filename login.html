@@ -16,14 +16,12 @@
     <div class="container-login">
       <img src="img/login.png" class="imagen1">
       <h2> Login </h2>
-      <form> 
-        <div class="inputs">
+      <form class="inputs" id="logForm" method="post" action=""> 
         <label for="uname"> Usuario </label>
         <input type="text" class="nombre" id="uname" placeholder="Nombre de usuario" name="uname" required>
         <label for="pass"> Contraseña </label>
         <input type="password" class="nombre" id="psw" placeholder="Contraseña" name="psw" required>
-        <button class="btn btn-outline-primary" id="btn"> <strong> Iniciar sesión </strong></button>
-      </div>
+        <button type="submit" class="btn btn-outline-primary" id="btn" value="submit"> <strong> Iniciar sesión </strong></button>
       </form>
       <footer class="text-muted">
         <div class="footer">
