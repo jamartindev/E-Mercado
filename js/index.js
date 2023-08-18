@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 let user= localStorage.getItem("User");
 if (!user) {
-    window.location = "/login.html"
+    window.location.href = "login.html"
 }
 
+//https://jamartindev.github.io/login.html
