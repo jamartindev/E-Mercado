@@ -29,7 +29,7 @@ nav a {
 }
 
 .jumbotron {
-  height: 30vh;
+  height: 50vh;
   padding: 5em inherit;
   margin-bottom: 0;
   background-color: #53C0FB;
@@ -236,6 +236,12 @@ body {
   padding: 1.5rem 0 1.5rem 0;
 }
 
+.nombre::placeholder {
+  font-family: Arial, FontAwesome; 
+  font-size: 15px
+  
+}
+
 .nombre:hover{
   border-color: rgb(173, 114, 5);
   transition: ease-in 0.2s;
@@ -261,7 +267,7 @@ body {
       color: white;
       background-color: rgb(240, 123, 28);
       width: 130px;
-      height: 30px;
+      height: 40px;
     }
 
     #btnSubmit:hover{
@@ -280,5 +286,6 @@ body {
   font-weight: 700;
   margin-right: 13rem;
 }
+
 
 

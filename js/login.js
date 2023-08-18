@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
         function submit (event) {
             event.preventDefault();
-            event.stopPropagation();
             window.location.href = "index.html";
             localStorage.setItem('User', usr.value);
             localStorage.setItem('Pass', pwd.value);
