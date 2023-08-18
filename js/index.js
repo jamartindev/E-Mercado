@@ -16,7 +16,9 @@ document.addEventListener("DOMContentLoaded", function(){
 
 let user= localStorage.getItem("User");
 if (!user) {
-    window.location.href = "login.html"
+    location.href = "login.html"
 }
 
-//https://jamartindev.github.io/login.html
+//https://jamartindev.github.io/login.html me sigue dando error a ustedes?? 
+
+//tambien :c
