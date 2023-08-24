@@ -9,7 +9,11 @@ document.addEventListener("DOMContentLoaded", function(){
         localStorage.setItem('Pass',"");
     } else if (user === "" || pass === "") {
         window.location.href = "login.html";
-    } 
+        
+    } else {
+        document.getElementById("spaceUser").innerHTML=user;
+    }
+   
 
     document.getElementById("autos").addEventListener("click", function() {
         localStorage.setItem("catID", 101);
