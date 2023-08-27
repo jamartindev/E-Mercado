@@ -139,8 +139,10 @@ document.addEventListener("DOMContentLoaded", function(e){
         }
 
         showCategoriesList();
+
     });
 
+<<<<<<< Updated upstream
     let user = sessionStorage.getItem('User');
     let pass = sessionStorage.getItem('Pass');
     
@@ -152,4 +154,13 @@ document.addEventListener("DOMContentLoaded", function(e){
         window.location.href = "login.html";
     }
     
+=======
+    function checkLogin() {
+        let user= localStorage.getItem("User");
+            if (!user) {
+                location.href = "login.html"
+            };
+    } checkLogin();
+
+>>>>>>> Stashed changes
 });

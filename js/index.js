@@ -24,9 +24,22 @@ document.addEventListener("DOMContentLoaded", function(){
         window.location = "products.html"
     });
 
+<<<<<<< Updated upstream
 });
 
 
 
+=======
+
+    function checkLogin() {
+        let user= localStorage.getItem("User");
+            if (!user) {
+                location.href = "login.html"
+            };
+    } checkLogin();
+
+});
+
+>>>>>>> Stashed changes
 
 

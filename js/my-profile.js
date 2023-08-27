@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function(){
     
+<<<<<<< Updated upstream
     let user = sessionStorage.getItem('User');
     let pass = sessionStorage.getItem('Pass');
     
@@ -10,4 +11,12 @@ document.addEventListener("DOMContentLoaded", function(){
     } else if (user === "" || pass === "") {
         window.location.href = "login.html";
     } 
+=======
+    function checkLogin() {
+        let user= localStorage.getItem("User");
+            if (!user) {
+                location.href = "login.html"
+            };
+    } checkLogin();
+>>>>>>> Stashed changes
 });
