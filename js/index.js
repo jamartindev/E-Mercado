@@ -1,15 +1,4 @@
 document.addEventListener("DOMContentLoaded", function(){
-    
-    let user = sessionStorage.getItem('User');
-    let pass = sessionStorage.getItem('Pass');
-    
-   
-    if (user === null || pass === null) {
-        sessionStorage.setItem('User',"");
-        sessionStorage.setItem('Pass',"");
-    } else if (user === "" || pass === "") {
-        window.location.href = "login.html";
-    } 
 
     document.getElementById("autos").addEventListener("click", function() {
         localStorage.setItem("catID", 101);
@@ -24,12 +13,6 @@ document.addEventListener("DOMContentLoaded", function(){
         window.location = "products.html"
     });
 
-<<<<<<< Updated upstream
-});
-
-
-
-=======
 
     function checkLogin() {
         let user= localStorage.getItem("User");
@@ -40,6 +23,5 @@ document.addEventListener("DOMContentLoaded", function(){
 
 });
 
->>>>>>> Stashed changes
 
 

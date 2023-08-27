@@ -1,19 +1,3 @@
-<<<<<<< Updated upstream
-        
-    document.addEventListener("DOMContentLoaded", function(){
-    
-        let user = sessionStorage.getItem('User');
-        let pass = sessionStorage.getItem('Pass');
-        
-       
-        if (user === null || pass === null) {
-            sessionStorage.setItem('User',"");
-            sessionStorage.setItem('Pass',"");
-        } else if (user === "" || pass === "") {
-            window.location.href = "login.html";
-        } 
-    });
-=======
 const API = "https://japceibal.github.io/emercado-api/cats_products/101.json";
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -93,4 +77,3 @@ document.addEventListener("DOMContentLoaded", async () => {
         };
 } checkLogin();
 });
->>>>>>> Stashed changes
