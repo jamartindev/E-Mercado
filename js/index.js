@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function(){
         window.location.href = "login.html";
         
     } else {
+        //Llamar al espacio donde se colocara el nombre y colocar la variable usuario para que se visualice.
         document.getElementById("spaceUser").innerHTML=user;
     }
    
