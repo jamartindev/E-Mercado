@@ -1,15 +1,20 @@
 document.addEventListener("DOMContentLoaded", async () => {
-  
   // Obtengo la categoria a base del catID de localStorage
   const catID = localStorage.getItem("catID");
 
   // Esto verifica si existe en el localStorage
   if (catID) {
-
     // Uso el link de la API y cambio el numero del catID por el llamado del catID de localStorage
     const API = `https://japceibal.github.io/emercado-api/cats_products/${catID}.json`;
 
-      // Misma funcion que manejamos para mostrar el resultado de la api
+    fetch(API)
+      .then((response) => response.json())
+      .then((data) => {
+        const catName = data.catName; // Obtener el valor de "catName" del JSON
+        const categoriaElement = document.getElementById("productoCat");
+        categoriaElement.innerHTML = catName;
+      });
+    // Misma funcion que manejamos para mostrar el resultado de la api
     const response = await fetch(API);
     const json = await response.json();
     const container = document.getElementById("container");
@@ -17,6 +22,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     for (let i = 0; i < products.length; i++) {
       console.log(products[i]);
+
       let name = products[i].name;
       let description = products[i].description;
       let cost = products[i].cost;
