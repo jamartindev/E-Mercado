@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const divs = document.createElement("div");
     
-    divs.setAttribute('class', 'hideShow');
+    divs.setAttribute('class', 'hideShow'); //Crea una clase a cada div para referenciar en el DOM.
 
     divs.innerHTML = `
     
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     <div class="d-flex">
                       <img src="${image}" class="p-2" width="250px">
                       <div class="ms-3">
-                        <p class="h2 fw-normal" id=nameDiv${i}>${name} - ${currency} ${cost}</p>
+                        <p class="h2 fw-normal" id=nameDiv${i}>${name} - ${currency} ${cost}</p> 
                         <p id=descDiv${i}>${description}</p>
                       </div>   
                     </div>   
@@ -41,6 +41,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         `;
         container.appendChild(divs);
 
+        /*Agrega un ID dinámico a cada div insertando la variable contador 'i' mediante el uso de ${} 
+        para referenciarla dentro del bloque de arriba llamado template literal.*/
+
     
     };
 
@@ -51,8 +54,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       searchbar.addEventListener('input', () => {
         for (let i = 0; i < products.length; i++) {
+          
           let nameDiv = document.querySelectorAll('#nameDiv0, #nameDiv1, #nameDiv2, #nameDiv3, #nameDiv4');
           let descDiv = document.querySelectorAll('#descDiv0, #descDiv1, #descDiv2, #descDiv3, #descDiv4');
+          
           let inputSearch = searchbar.value.toUpperCase();
 
           let searchObj = nameDiv[i].innerText + descDiv[i].innerText;
@@ -70,6 +75,29 @@ document.addEventListener("DOMContentLoaded", async () => {
         
   } searchFilter();
 
+  /*1- Esta función hace referencia desde el DOM a la barra según su id y a los div agregados por su clase. 
+
+    2- Se agrega un escuchador a la barra según el input del usuario.
+    
+    3- Se inicializa un loop especificando el máximo recorrido de acuerdo al largo de la variable products, que contiene cada producto.
+
+    4- Se declaran variables que tomen mediante querySelectorAll a los párrafos <p> correspondientes al nombre y descripción del producto
+
+    5- Se declara variable que toma el valor del input del usuario mediante el método .value y hace que se interprete en mayúsculas mediante toUpperCase()
+
+    6- Se declara variable que recorre cada párrafo del punto 3, accede a su texto interno con método innerText y luego concatena dichos valores.
+
+    7- Utilizando el condicional if se pasa la condicion que verifica si la descripción y el nombre del producto (con toUpperCase()) estan contenidas en la barra de busqueda.
+     Para esto se utiliza el método de los string indexOf, que retorna un entero correspondiente al valor de cada palabra si esta existe y si no retorna -1. 
+    
+    8- Si el valor existe (es mayor a -1) entonces se ocultan los div que no contienen el valor mediante el uso de display: none. De esta forma solo se visualizan los div 
+    que coinciden con el buscador.
+
+  */ 
+
+  
+
+//Función que verifica mediante getItem si la key llamada User existe. De no existir redirige al usuario a la pestaña de login mediante location.href.
   function checkLogin() {
     let user= localStorage.getItem("User");
         if (!user) {

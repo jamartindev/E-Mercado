@@ -141,7 +141,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         showCategoriesList();
 
     });
-
+    //Función que verifica mediante getItem si la key llamada User existe. De no existir redirige al usuario a la pestaña de login mediante location.href.
     function checkLogin() {
         let user= localStorage.getItem("User");
             if (!user) {
