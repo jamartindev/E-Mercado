@@ -1,8 +1,11 @@
 document.addEventListener("DOMContentLoaded", async () => {
+
   // Obtengo la categoria a base del catID de localStorage
   const catID = localStorage.getItem("catID");
+
   // Esto verifica si existe en el localStorage
   if (catID) {
+
     // Uso el link de la API y cambio el numero del catID por el llamado del catID de localStorage
     const API = `https://japceibal.github.io/emercado-api/cats_products/${catID}.json`;
     fetch(API)
@@ -12,6 +15,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         const categoriaElement = document.getElementById("productoCat");
         categoriaElement.innerHTML = catName;
       });
+
     // Misma funcion que manejamos para mostrar el resultado de la api
     const response = await fetch(API);
     const json = await response.json();
@@ -35,7 +39,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
     };
 
-    // Función para filtrar los productos según el rango de precios
+    // Función para obtener valores del filtrado de los productos
     const filterProducts = () => {
       const minPrice = document.getElementById("rangeFilterCountMin").value;
       const maxPrice = document.getElementById("rangeFilterCountMax").value;
@@ -77,7 +81,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
     };
 
-    // Event listener para los botones de ordenar
+    // Funcion para ordenar los productos
     const sortButtons = document.querySelectorAll('[name="options"]');
     sortButtons.forEach((button) => {
       button.addEventListener("change", (event) => {
@@ -86,14 +90,14 @@ document.addEventListener("DOMContentLoaded", async () => {
       });
     });
 
-    // Event listener para el botón de filtrar
+    // Funcion para Filtrar rangos del producto
     const filterButton = document.getElementById("rangeFilterCount");
     filterButton.addEventListener("click", () => {
       filterProducts();
       displayProducts();
     });
 
-    // Event listener para el botón de limpiar
+    // Funcion para limpiar el filtrado del contenido
     const clearButton = document.getElementById("clearRangeFilter");
     clearButton.addEventListener("click", () => {
       document.getElementById("rangeFilterCountMin").value = "";
@@ -102,7 +106,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       displayProducts();
     });
 
-    // Mostrar los productos por defecto
+    // Mostrar los productos al entrar a los productos sin alguna funcion activada
     displayProducts();
   }
 });
