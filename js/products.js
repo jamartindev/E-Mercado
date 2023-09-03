@@ -18,34 +18,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     const container = document.getElementById("container");
     let products = json.products;
 
-    // Función para ordenar los productos según el botón seleccionado
-    const sortProducts = (option) => {
-      switch (option) {
-        case "sortAsc":
-          products.sort((a, b) => a.cost - b.cost);
-          break;
-        case "sortDesc":
-          products.sort((a, b) => b.cost - a.cost);
-          break;
-        case "sortByCount":
-          products.sort((a, b) => b.soldCount - a.soldCount);
-          break;
-        default:
-          break;
-      }
-    };
+    // hacer una funcion para filtrar por rango de precio (LISTO)
+    // hacer una funcion para mostrar los productos en el div (LISTO, EVALUAR)
+    // llamador de eventos para los botones (LISTO)
+    // llamador de eventos para boton "filtrar" (LISTO)
+    // llamador de eventos para boton "limpiar" (LISTO)
 
-    // Función para filtrar los productos según el rango de precios
-    const filterProducts = () => {
-      const minPrice = document.getElementById("rangeFilterCountMin").value;
-      const maxPrice = document.getElementById("rangeFilterCountMax").value;
-      products = products.filter(
-        (product) => product.cost >= minPrice && product.cost <= maxPrice
-      );
-    };
-
-    // Función para mostrar los productos en el contenedor
-    const displayProducts = () => {
+    // Función para mostrar los productos en el contenedor (ver aún)
+    function mostrarProductos() {
       container.innerHTML = "";
       for (let i = 0; i < products.length; i++) {
         let name = products[i].name;
@@ -54,7 +34,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         let currency = products[i].currency;
         let soldCount = products[i].soldCount;
         let image = products[i].image;
-        const divs = document.createElement("div");
+        let divs = document.createElement("div");
         divs.innerHTML = `
           <div class="">
             <div class="text-bg-dark me-sm-3 pt-5 px-3 pt-md-5 px-md-5">
@@ -77,32 +57,50 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
     };
 
-    // Event listener para los botones de ordenar
-    const sortButtons = document.querySelectorAll('[name="options"]');
-    sortButtons.forEach((button) => {
-      button.addEventListener("change", (event) => {
-        sortProducts(event.target.id);
-        displayProducts();
-      });
-    });
+    //filtrar de menor a mayor precio
+    document.getElementById("sortAsc").addEventListener("click", function(){
+      products.sort((a, b) => a.cost - b.cost);
+      mostrarProductos();
+
+    })
+    // filtrar de mayor a menor
+    document.getElementById("sortDesc").addEventListener("click", function(){
+      products.sort((a, b) => b.cost - a.cost);
+      mostrarProductos();
+
+    })
+    // filtar por relevancia 
+    document.getElementById("sortByCount").addEventListener("click", function(){
+      products.sort((a, b) => b.soldCount - a.soldCount);
+      mostrarProductos();
+
+    })
+
+    // Función para filtrar los productos según el rango de precios
+    function filtrarProductos() {
+      let minPrice = document.getElementById("rangeFilterCountMin").value;
+      let maxPrice = document.getElementById("rangeFilterCountMax").value;
+      products = products.filter((product) => product.cost >= minPrice && product.cost <= maxPrice
+      );
+    }; 
 
     // Event listener para el botón de filtrar
-    const filterButton = document.getElementById("rangeFilterCount");
-    filterButton.addEventListener("click", () => {
-      filterProducts();
-      displayProducts();
+    let btnFiltrar = document.getElementById("rangeFilterCount");
+    btnFiltrar.addEventListener("click", () => {
+      filtrarProductos();
+      mostrarProductos();
     });
 
     // Event listener para el botón de limpiar
-    const clearButton = document.getElementById("clearRangeFilter");
-    clearButton.addEventListener("click", () => {
+    let btnLimpiar = document.getElementById("clearRangeFilter");
+    btnLimpiar.addEventListener("click", () => {
       document.getElementById("rangeFilterCountMin").value = "";
       document.getElementById("rangeFilterCountMax").value = "";
       products = json.products;
-      displayProducts();
+      mostrarProductos();
     });
 
     // Mostrar los productos por defecto
-    displayProducts();
+    mostrarProductos();
   }
 });
