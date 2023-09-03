@@ -22,34 +22,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     const container = document.getElementById("container");
     let products = json.products;
 
-    // Función para ordenar los productos según el botón seleccionado
-    const sortProducts = (option) => {
-      switch (option) {
-        case "sortAsc":
-          products.sort((a, b) => a.cost - b.cost);
-          break;
-        case "sortDesc":
-          products.sort((a, b) => b.cost - a.cost);
-          break;
-        case "sortByCount":
-          products.sort((a, b) => b.soldCount - a.soldCount);
-          break;
-        default:
-          break;
-      }
-    };
-
-    // Función para obtener valores del filtrado de los productos
-    const filterProducts = () => {
-      const minPrice = document.getElementById("rangeFilterCountMin").value;
-      const maxPrice = document.getElementById("rangeFilterCountMax").value;
-      products = products.filter(
-        (product) => product.cost >= minPrice && product.cost <= maxPrice
-      );
-    };
-
     // Función para mostrar los productos en el contenedor
-    const displayProducts = () => {
+    function mostrarProductos() {
       container.innerHTML = "";
       for (let i = 0; i < products.length; i++) {
         let name = products[i].name;
@@ -58,38 +32,86 @@ document.addEventListener("DOMContentLoaded", async () => {
         let currency = products[i].currency;
         let soldCount = products[i].soldCount;
         let image = products[i].image;
-        
-        const divs = document.createElement("div");
-        
-        divs.setAttribute('class', 'hideShow'); //Crea una clase a cada div para referenciar en el DOM.
-
+        let divs = document.createElement("div");
         divs.innerHTML = `
-        
-        <div class="">
+          <div class="">
             <div class="text-bg-dark me-sm-3 pt-5 px-3 pt-md-5 px-md-5">
-                <div class="my-2 py-2">
-
-                      <div class="d-flex shadow justify-content-between ">
-                        <div class="d-flex">
-                          <img src="${image}" class="p-2" width="250px">
-                          <div class="ms-3">
-                            <p class="h2 fw-normal" id=nameDiv${i}>${name} - ${currency} ${cost}</p> 
-                            <p id=descDiv${i}>${description}</p>
-                          </div>   
-                        </div>   
-                        <small class="me-3 mt-2"> ${soldCount} vendidos</small>
-                      </div>
+              <div class="my-2 py-2">
+                <div class="d-flex shadow justify-content-between ">
+                  <div class="d-flex">
+                    <img src="${image}" class="p-2" width="250px">
+                    <div class="ms-3">
+                      <p class="h2 fw-normal">${name} - ${currency} ${cost}</p>
+                      <p>${description}</p>
+                    </div>   
+                  </div>   
+                  <small class="me-3 mt-2"> ${soldCount} vendidos</small>
                 </div>
+              </div>
             </div>
-        </div>
-            `;
+          </div>
+        `;
         container.appendChild(divs);
-
-        /*Agrega un ID dinámico a cada div insertando la variable contador 'i' mediante el uso de ${} 
-        para referenciarla dentro del template literal (bloque de arriba entre backticks ``).*/
       }
     };
 
+    document.getElementById("sortAsc").addEventListener("click", filtrarPrecioAsc)
+
+    function filtrarPrecioAsc() {
+      products.sort((a, b) => a.cost - b.cost);
+      mostrarProductos();
+    }
+    //filtrar de menor a mayor precio
+    //document.getElementById("sortAsc").addEventListener("click", function(){
+      //products.sort((a, b) => a.cost - b.cost);
+      //mostrarProductos();
+
+    //})
+    // filtrar de mayor a menor
+    document.getElementById("sortDesc").addEventListener("click", function(){
+      products.sort((a, b) => b.cost - a.cost);
+      mostrarProductos();
+
+    })
+    // filtar por relevancia 
+    document.getElementById("sortByCount").addEventListener("click", function(){
+      products.sort((a, b) => b.soldCount - a.soldCount);
+      mostrarProductos();
+
+    })
+
+    // Función para filtrar los productos según el rango de precios
+    function filtrarProductos() {
+      let minPrice = document.getElementById("rangeFilterCountMin").value;
+      let maxPrice = document.getElementById("rangeFilterCountMax").value;
+      products = products.filter((product) => product.cost >= minPrice && product.cost <= maxPrice
+      );
+      filtrarPrecioAsc();
+    }; 
+
+    // Event listener para el botón de filtrar
+    let btnFiltrar = document.getElementById("rangeFilterCount");
+    btnFiltrar.addEventListener("click", () => {
+      filtrarProductos();
+      mostrarProductos();
+    });
+
+    // Event listener para el botón de limpiar
+    let btnLimpiar = document.getElementById("clearRangeFilter");
+    btnLimpiar.addEventListener("click", () => {
+      document.getElementById("rangeFilterCountMin").value = "";
+      document.getElementById("rangeFilterCountMax").value = "";
+      products = json.products;
+      mostrarProductos();
+    });
+
+    // Mostrar los productos por defecto
+    mostrarProductos();
+  }
+});
+
+//Desafíate
+    
     function searchFilter () {
       
       let searchbar = document.getElementById('searchProduct');
@@ -139,59 +161,3 @@ document.addEventListener("DOMContentLoaded", async () => {
   */ 
 
   
-
-//Función que verifica mediante getItem si la key llamada User existe. De no existir redirige al usuario a la pestaña de login mediante location.href.
-
-let user= localStorage.getItem("User");
-
-function checkLogin() {
-    if (!user) {
-            location.href = "login.html"
-        };
-} checkLogin();
-
-//Llamar al espacio donde se colocara el nombre y colocar la variable usuario para que se visualice.
-function userName() {
-  document.getElementById("spaceUser").innerHTML=user;
-} userName();
-
-//Al hacer click se elimina al usuario del localStorage y se redirige al login.
-document.getElementById('salir').addEventListener('click', cerrarSesion);
-    
-function cerrarSesion(event) {
-    event.preventDefault();
-    localStorage.removeItem('User');
-    location.href="login.html"
-};
-
-
-
-    // Funcion para ordenar los productos
-    const sortButtons = document.querySelectorAll('[name="options"]');
-    sortButtons.forEach((button) => {
-      button.addEventListener("change", (event) => {
-        sortProducts(event.target.id);
-        displayProducts();
-      });
-    });
-
-    // Funcion para Filtrar rangos del producto
-    const filterButton = document.getElementById("rangeFilterCount");
-    filterButton.addEventListener("click", () => {
-      filterProducts();
-      displayProducts();
-    });
-
-    // Funcion para limpiar el filtrado del contenido
-    const clearButton = document.getElementById("clearRangeFilter");
-    clearButton.addEventListener("click", () => {
-      document.getElementById("rangeFilterCountMin").value = "";
-      document.getElementById("rangeFilterCountMax").value = "";
-      products = json.products;
-      displayProducts();
-    });
-
-    // Mostrar los productos al entrar a los productos sin alguna funcion activada
-    displayProducts();
-  }
-});
