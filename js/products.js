@@ -55,6 +55,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
     };
 
+    //Escuchador del botón para filtrar de menor a mayor. Definido aparte así se puede llamar para ordenar en otras instancias.
     document.getElementById("sortAsc").addEventListener("click", filtrarPrecioAsc)
 
     function filtrarPrecioAsc() {
