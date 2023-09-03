@@ -33,6 +33,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         let soldCount = products[i].soldCount;
         let image = products[i].image;
         let divs = document.createElement("div");
+        divs.setAttribute('class', 'hideShow'); //Crea una clase a cada div para referenciar en el DOM.
         divs.innerHTML = `
           <div class="">
             <div class="text-bg-dark me-sm-3 pt-5 px-3 pt-md-5 px-md-5">
@@ -41,8 +42,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                   <div class="d-flex">
                     <img src="${image}" class="p-2" width="250px">
                     <div class="ms-3">
-                      <p class="h2 fw-normal">${name} - ${currency} ${cost}</p>
-                      <p>${description}</p>
+                    <p class="h2 fw-normal" id=nameDiv${i}>${name} - ${currency} ${cost}</p> 
+                    <p id=descDiv${i}>${description}</p>
                     </div>   
                   </div>   
                   <small class="me-3 mt-2"> ${soldCount} vendidos</small>
@@ -119,7 +120,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       let divsHideShow = document.getElementsByClassName('hideShow');
 
       searchbar.addEventListener('input', () => {
-        for (let i = 0; i < products.length; i++) {
+        for (let i = 0; i < divsHideShow.length; i++) {
           
           let nameDiv = document.querySelectorAll('#nameDiv0, #nameDiv1, #nameDiv2, #nameDiv3, #nameDiv4');
           let descDiv = document.querySelectorAll('#descDiv0, #descDiv1, #descDiv2, #descDiv3, #descDiv4');
