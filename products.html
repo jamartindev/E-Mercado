@@ -47,7 +47,7 @@
         </div>
       </div>
     </nav>
-    <main>
+    <main class="">
       <div class="text-center mt-3">
         <h1>Productos</h1>
         <p>
@@ -55,24 +55,23 @@
           <span id="productoCat"></span>
         </p>
       </div>
-      <div> 
-        <div class="row">
-          <div class="col text-end">
-            <div class="text-end">
-                <p class=" font-weight-normal text-end my-2"> Orden de Precios por </p>
-              </div>
+      
+      <div> <!-- Botones para ordenar de forma ascendente y descendente, o relevante-->
+        <div class="">
+          <div class="text-end me-3 mt-2">    
+                <p> Orden de Precios por </p>
             <div class="btn-group btn-group-toggle mb-4" data-bs-toggle="buttons">
               <input type="radio" class="btn-check" name="options" id="sortAsc">
-              <label class="btn btn-light" for="sortAsc">Min</label>
+              <label class="btn btn-light" for="sortAsc"><i class="fas fa-sort-amount-up-alt"></i></label>
               <input type="radio" class="btn-check" name="options" id="sortDesc">
-              <label class="btn btn-light" for="sortDesc">Max</label>
+              <label class="btn btn-light" for="sortDesc"><i class="fas fa-sort-amount-down"></i></label>
               <input type="radio" class="btn-check" name="options" id="sortByCount" checked>
-              <label class="btn btn-light" for="sortByCount"><i class="fas fa-sort-amount-down mr-1"></i> Rel</label>
+              <label class="btn btn-light" for="sortByCount"><i class="	fas fa-sort-amount-up"></i> Rel</label>
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-lg-6 offset-sm-6 col-sm-12 sm-1 container">
+        <div class="">
+          <div class="col-lg-4 offset-lg-8 col-md-12 mb-1 container">
             <div class="row container p-0 m-0">
               <div class="col">
                 <p class="font-weight-normal text-end my-2">Precio</p>
@@ -93,7 +92,7 @@
           </div>
         </div>
       </div>
-      
+      <!-- div container donde me entrega los datos del producto de las categorias-->
       <div id="container">
 
       </div>
