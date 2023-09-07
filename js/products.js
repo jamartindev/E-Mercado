@@ -171,8 +171,5 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 
-function redirijir(id) {
-  localStorage.setItem("id", id);
-  window.location.href= 'product-info.html';
-}
+
 //FINAL MERGEADO

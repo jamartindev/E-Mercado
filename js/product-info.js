@@ -57,7 +57,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         img.classList.add("image-grid");
         imageContainer.appendChild(img);
 
-        // Creo un evento que al hacer click me muestre el index con el contenido
+        // Creo un evento que al hacer click me muestre el contenido interno
+        // de cada producto
         img.addEventListener("click", () =>{
             indiceImage = index;
             showImage();
