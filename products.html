@@ -52,6 +52,15 @@
             <li class="nav-item ms-6">
               <a class="nav-link" id="salir" href=""> Cerrar Sesion</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" onclick="seleccionarProducto('producto1')">Producto 1</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" onclick="seleccionarProducto('producto2')">Producto 2</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" onclick="seleccionarProducto('producto3')">Producto 3</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -136,5 +145,15 @@
     <script src="js/products.js"></script>
     <script src="js/index.js"></script>
     <script src="https://kit.fontawesome.com/d765d1fb24.js" crossorigin="anonymous"></script>
+    <script>
+      // Esta función se ejecutará cuando el usuario haga clic en un enlace de producto
+      function seleccionarProducto(productoId) {
+        // Guardar el identificador del producto en el almacenamiento local
+        localStorage.setItem('productoSeleccionado', productoId);
+    
+        // Redirigir a product-info.html
+        window.location.href = 'product-info.html';
+      }
+    </script>
   </body>
 </html>
