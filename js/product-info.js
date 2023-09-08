@@ -82,7 +82,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         for (let i = 0; i < comments.length; i++) {
             commentDivs.innerHTML +=  
-                `<div id="comentarios">
+                ` 
+                <div id="comentarios">
+                
                 <div id='commentContainer'>
                     <div id=prod${i}>
                         ${comments[i].product}
@@ -108,11 +110,33 @@ document.addEventListener("DOMContentLoaded", async () => {
                 let commentsBox = document.createElement("div");
                 productInfo.appendChild(commentsBox);
                     commentsBox.innerHTML = `
-                        <br><input type='text' id="commentUser"><br>
-                        <br><textarea name="comentarios" id="txtComment" cols="30" rows="10"></textarea><br><br>
-                        <input type="range" id="userScore" min="0" max="5"><br><br>
-                        <p id="showScore"></p><br>
-                        <button type="button" id="commentBtn">Añadir comentario</button>
+                    <div class="containerBubble">
+  
+                    <img src="img/profile-circle-icon-512x512-zxne30hp.png" alt="" class="profile">
+                    <div class="bubble left">
+  
+                    <div class="comentariosBubble">
+                    <label> Tu nombre: </label>
+                    <input type= "text" id="commentUser">
+          
+                    <label> Tu opinión </label>
+                    <textarea id="txtComment" placeholder="Escribe aquí tu comentario"></textarea>
+                    <label> Tu puntuación</label>
+
+                    <input type="range" id="userScore" min="0" max="5"><br><br>
+                    <p id="showScore"></p><br>
+              
+
+                    </div>
+                    <div class="botonComentarios">
+                    <button class="commentBtn">Enviar 
+              
+                    </button>
+                    </div>
+                    </div>
+  
+                </div>
+                        
                         `
                 }; commentBox();
 

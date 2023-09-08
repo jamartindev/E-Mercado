@@ -349,7 +349,11 @@ padding: 20px;
 
 /*ESTILO DE DIV PARA LOS COMENTARIOS*/
 #comentarios{
-  
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
 }
+
+/*ESTILO BURBUJA COMENTARIOS*/
 
 
