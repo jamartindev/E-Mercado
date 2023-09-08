@@ -29,21 +29,28 @@ document.addEventListener("DOMContentLoaded", async () => {
             <div class="image" id="image">
             </div>
             <div id="informacion">
+            
             <p class="title">
             <span style="font-weight: bold;">
-            Precio</span>:<br>${product.currency}:${product.cost}
+            Descripción:</span> ${product.description}
             </p>
             <p class="title">
             <span style="font-weight: bold;">
-            Descripción:</span><br>${product.description}
+            Categoría</span>: ${product.category}
             </p>
             <p class="title">
             <span style="font-weight: bold;">
-            Categoría</span>:<br>${product.category}
+            Cantidad de vendidos</span>: ${product.soldCount}</p>
+            <p class="title" id="precioProducto">
+ 
+            ${product.currency}:${product.cost}
             </p>
-            <p class="title">
-            <span style="font-weight: bold;">
-            Cantidad de vendidos</span>:<br>${product.soldCount}</p>
+        <div class="botonCarrito">
+            <button class="btnCarro">
+                <i class="fa-solid fa-cart-arrow-down fa-lg"></i>
+            </button>
+        </div>
+            </div>
             </div>
         </div>
         `
@@ -110,33 +117,12 @@ document.addEventListener("DOMContentLoaded", async () => {
                 let commentsBox = document.createElement("div");
                 productInfo.appendChild(commentsBox);
                     commentsBox.innerHTML = `
-                    <div class="containerBubble">
-  
-                    <img src="img/profile-circle-icon-512x512-zxne30hp.png" alt="" class="profile">
-                    <div class="bubble left">
-  
-                    <div class="comentariosBubble">
-                    <label> Tu nombre: </label>
-                    <input type= "text" id="commentUser">
-          
-                    <label> Tu opinión </label>
-                    <textarea id="txtComment" placeholder="Escribe aquí tu comentario"></textarea>
-                    <label> Tu puntuación</label>
-
-                    <input type="range" id="userScore" min="0" max="5"><br><br>
-                    <p id="showScore"></p><br>
-              
-
-                    </div>
-                    <div class="botonComentarios">
-                    <button class="commentBtn">Enviar 
-              
-                    </button>
-                    </div>
-                    </div>
-  
-                </div>
-                        
+                    
+                        <br><input type='text' id="commentUser"><br>
+                        <br><textarea name="comentarios" id="txtComment" cols="30" rows="10"></textarea><br><br>
+                        <input type="range" id="userScore" min="0" max="5"><br><br>
+                        <p id="showScore"></p><br>
+                        <button type="button" id="commentBtn">Añadir comentario</button>
                         `
                 }; commentBox();
 

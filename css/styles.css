@@ -316,6 +316,13 @@ body {
   object-fit: cover;
   opacity: .8;
   transition: .5s ease;
+  
+}
+#image{
+
+
+
+color: rgb(3, 3, 3);
 }
 
 #image .image-grid:hover {
@@ -339,13 +346,29 @@ body {
 
 /*ESTILO DEL DIV DE INFORMACIÓN DE PRODUCTOS*/
 #informacion{
-  background: rgba(248, 141, 50, 0.3);
+  background: rgba(235, 153, 30, 0.774);
 border-radius: 16px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 backdrop-filter: blur(12.1px);
 -webkit-backdrop-filter: blur(12.1px);
 padding: 20px;
+color: rgb(3, 3, 3);
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;
+align-items: flex-start;
 }
+
+.title{
+  font-size: 1.1rem;
+}
+
+#precioProducto{
+  color: rgb(255, 255, 255);
+  font-size: 2rem;
+  
+}
+
 
 /*ESTILO DE DIV PARA LOS COMENTARIOS*/
 #comentarios{
@@ -354,6 +377,126 @@ padding: 20px;
   padding: 50px;
 }
 
-/*ESTILO BURBUJA COMENTARIOS*/
 
+
+
+/*ESTILO BURBUJA COMENTARIOS*/
+.bubble {
+  --r: 90px; /* el radio  */
+  --t: 50px; /* tamaño cola */
+  
+
+  max-height: 600px;
+  padding: calc(2*var(--r)/3);
+  -webkit-mask: 
+  radial-gradient(var(--t) at var(--_d) 0,#0000 98%,#000 102%) 
+  var(--_d) 100%/calc(100% - var(--r)) var(--t) no-repeat,
+  conic-gradient(at var(--r) var(--r),#000 75%,#0000 0) 
+  calc(var(--r)/-2) calc(var(--r)/-2) padding-box, 
+  radial-gradient(50% 50%,#000 98%,#0000 101%) 
+  0 0/var(--r) var(--r) space padding-box;
+  background: linear-gradient(160deg,#e77015,#eeb825) border-box;
+  color: #fff;
+  margin: 30px;
+  
+}
+
+.left {
+--_d: 0%;
+border-left: var(--t) solid #0000;
+margin-right: var(--t);
+place-self: start;
+}
+
+
+.comentariosBubble{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 30px;
+}
+
+#txtComment{
+  background: rgb(219, 215, 215);
+  font-family: Arial, Helvetica, sans-serif;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  width: 300px;
+  height: 100px;
+  color: rgb(70, 67, 67);
+  opacity: 0.7;
+  padding: 5px;
+}
+
+
+
+#txtComment:hover{
+  box-shadow:  0 0 5px whitesmoke;
+  transition: ease-in 0.2s;;
+  opacity: 1;
+}
+
+#txtComment:focus{
+  box-shadow:  0 0 5px whitesmoke;
+  opacity: 1;
+
+}
+
+#txtComment::placeholder{
+  color: gray;
+  padding: 5px;
+  font-size: small;
+}
+
+
+
+
+.botonComentarios{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  
+
+  
+  
+  
+}
+
+.commentBtn{
+  border: none;
+  border-radius: 5px;
+  background-color: #f1710f;
+  color: white;
+  width: 100px;
+  height: 30px;
+  box-shadow:0 4px 4px 1px rgba(0, 0, 0, 0.14)
+  
+
+}
+
+.commentBtn:hover{
+  background-color: rgb(247, 164, 56);
+  transition: ease-in 0.2s;
+  cursor: pointer;
+  
+}
+
+.profile{
+  width: 60px;
+}
+
+/*PROBANDO BOTON CARRITO DE COMPRAS*/
+
+
+.btnCarro{
+  background-color: rgb(39, 112, 134);
+  border: none;
+  border-radius: 5px;
+  width: 60px;
+  height: 60px;
+
+}
 
