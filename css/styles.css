@@ -307,6 +307,8 @@ body {
   height: 530px;
 }
 
+
+
 /*ESTILO DE IMAGENES DE PRODUCTOS*/
 .image-grid{
   width: 0px;
@@ -318,15 +320,36 @@ body {
 
 #image .image-grid:hover {
   cursor: pointer;
-  width: 600px;
+  width: 400px;
   opacity: 1;
   filter: contrast(120%);
 }
 
-
 .infoProductos{
   display: flex;
   flex-direction: column;
+}
+
+/*ESTILO DE DEL DIV GENERAL*/
+.info{
+  display: flex;
+  gap: 40px;
+  
+}
+
+/*ESTILO DEL DIV DE INFORMACIÓN DE PRODUCTOS*/
+#informacion{
+  background: rgba(248, 141, 50, 0.3);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(12.1px);
+-webkit-backdrop-filter: blur(12.1px);
+padding: 20px;
+}
+
+/*ESTILO DE DIV PARA LOS COMENTARIOS*/
+#comentarios{
+  
 }
 
 

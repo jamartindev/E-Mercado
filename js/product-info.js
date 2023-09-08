@@ -17,35 +17,35 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
         productInfo.innerHTML = `
-            <div class="productosInfo">
-                <div id="name">
-                <hr class="linea">
-                <h1>${product.name}<h1>
-                <hr class="linea">
-                </div>
-                <div class="info">
-                <div id="imageBg" class="ImageBg">
-                </div>
-                <div class="image" id="image">
+            <div id="name">
+            <hr class="linea">
+            <h1>${product.name}<h1>
+            <hr class="linea">
             </div>
-            <div class="infoProductos">
-                <p class="title">
-                <span style="font-weight: bold;">
-                Precio</span>:<br>${product.currency}:${product.cost}
-                </p>
-                <p class="title">
-                <span style="font-weight: bold;">
-                Descripción:</span><br>${product.description}
-                </p>
-                <p class="title">
-                <span style="font-weight: bold;">
-                Categoría</span>:<br>${product.category}
-                </p>
-                <p class="title">
-                <span style="font-weight: bold;">
-                Cantidad de vendidos</span>:<br>${product.soldCount}</p>
-                </div>
+        
+            <div class="info"> 
+            <div id="imageBg" class="ImageBg">
             </div>
+            <div class="image" id="image">
+            </div>
+            <div id="informacion">
+            <p class="title">
+            <span style="font-weight: bold;">
+            Precio</span>:<br>${product.currency}:${product.cost}
+            </p>
+            <p class="title">
+            <span style="font-weight: bold;">
+            Descripción:</span><br>${product.description}
+            </p>
+            <p class="title">
+            <span style="font-weight: bold;">
+            Categoría</span>:<br>${product.category}
+            </p>
+            <p class="title">
+            <span style="font-weight: bold;">
+            Cantidad de vendidos</span>:<br>${product.soldCount}</p>
+            </div>
+        </div>
         `
         // Aca me toma el id del div de imagenes creado con el innerHTML
         const imageContainer = document.getElementById("image");
@@ -82,7 +82,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         for (let i = 0; i < comments.length; i++) {
             commentDivs.innerHTML +=  
-                `<div id='commentContainer'>
+                `<div id="comentarios">
+                <div id='commentContainer'>
                     <div id=prod${i}>
                         ${comments[i].product}
                     </div>
@@ -98,6 +99,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                     <div id=dateTime${i}>
                         ${comments[i].dateTime}
                     </div>
+                    
+                </div>
                 </div>
             `;
         };
