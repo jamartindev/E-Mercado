@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         productInfo.appendChild(commentDivs);
 
         for (let i = 0; i < comments.length; i++) {
-            commentDivs.innerHTML =  
+            commentDivs.innerHTML +=  
                 `<div id='commentContainer'>
                     <div id=prod${i}>
                         ${comments[i].product}
@@ -143,6 +143,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                         let newCommentDiv = document.createElement("div");
                         commentDivs.appendChild(newCommentDiv)
                         newCommentDiv.innerHTML = `
+                        <br>
                         <div>
                             <div>
                             ${newComment.product}
@@ -160,9 +161,12 @@ document.addEventListener("DOMContentLoaded", async () => {
                             ${newComment.dateTime}
                             </div>
                         </div>
+                        <br>
                     `
+                    userCmnt.value = ""
+
                     };
-                    document.getElementById('commentBtn').addEventListener('click', pushNewComment)
+                    document.getElementById('commentBtn').addEventListener('click', pushNewComment);
                 }; getNewComment();
 
     }; appendComments();

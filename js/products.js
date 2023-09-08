@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       divs.innerHTML = `
       
-      <div class="articleProduct" id="${productID}" onclick="seleccionarProducto(id)">
+      <div class="articleProduct cursor-active" id="${productID}" onclick="seleccionarProducto(id)">
           <div class="text-bg-dark me-sm-3 pt-5 px-3 pt-md-5 px-md-5">
               <div class="my-2 py-2">
   
