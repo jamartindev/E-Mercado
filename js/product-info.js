@@ -1,68 +1,169 @@
 document.addEventListener("DOMContentLoaded", async () => {
-  const productInfo = document.getElementById("product-info");
   
-  const productID = localStorage.getItem("id");
-  console.log(productID);
+    const productID = localStorage.getItem("id");
+    console.log(productID);
+    const productInfo = document.getElementById("product-info");
+    const respondeID = await getJSONData(
+        PRODUCT_INFO_URL + productID + EXT_TYPE
+        // Aprovecho que ya estan los datos en init y 
+        // pido que me de el url de productos y el tipo de extension
+    );
 
-  const respondeID = await getJSONData(
-    PRODUCT_INFO_URL + productID + EXT_TYPE
-    // Aprovecho que ya estan los datos en init y 
-    // pido que me de el url de productos y el tipo de extension
-  );
-  let product = respondeID.data;
-  console.log(product);
-  // Pido los datos del json en este caso los datos de productos
+    function getProductDetails() {
+    
+        let product = respondeID.data;
+            console.log(product);
+            // Pido los datos del json en este caso los datos de productos
 
-  productInfo.innerHTML = `
-        <div>
-            <div id="name">
-            <hr class="linea">
-            <h1>${product.name}<h1>
-            <hr class="linea">
+
+        productInfo.innerHTML = `
+            <div class="productosInfo">
+                <div id="name">
+                <hr class="linea">
+                <h1>${product.name}<h1>
+                <hr class="linea">
+                </div>
+                <div class="info">
+                <div id="imageBg" class="ImageBg">
+                </div>
+                <div class="image" id="image">
             </div>
-            <div class="info">
-            <div id="imageBg" class="ImageBg">
+            <div class="infoProductos">
+                <p class="title">
+                <span style="font-weight: bold;">
+                Precio</span>:<br>${product.currency}:${product.cost}
+                </p>
+                <p class="title">
+                <span style="font-weight: bold;">
+                Descripción:</span><br>${product.description}
+                </p>
+                <p class="title">
+                <span style="font-weight: bold;">
+                Categoría</span>:<br>${product.category}
+                </p>
+                <p class="title">
+                <span style="font-weight: bold;">
+                Cantidad de vendidos</span>:<br>${product.soldCount}</p>
+                </div>
             </div>
-            <div class="image" id="image">
-        </div>
-            <p class="title">
-            <span style="font-weight: bold;">
-            Precio</span>:<br>${product.currency}:${product.cost}
-            </p>
-            <p class="title">
-            <span style="font-weight: bold;">
-            Descripción:</span><br>${product.description}
-            </p>
-            <p class="title">
-            <span style="font-weight: bold;">
-            Categoría</span>:<br>${product.category}
-            </p>
-            <p class="title">
-            <span style="font-weight: bold;">
-            Cantidad de vendidos</span>:<br>${product.soldCount}</p>
-            </div>
-        </div>
-    `;
+        `
+        // Aca me toma el id del div de imagenes creado con el innerHTML
+        const imageContainer = document.getElementById("image");
+        const imagenes = product.images;
+        
 
-    // Aca me toma el id del div de imagenes creado con el innerHTML
-    const imageContainer = document.getElementById("image");
-    const imagenes = product.images;
-    let indiceImage = 0;
+        //Aca me carga cada imagen del indice
+        imagenes.forEach((image, index) => {
+            let indiceImage = 0;
+            let img = document.createElement("img");
+            img.src = image;
+            img.id = `image-${index}`;
+            img.classList.add("image-grid");
+            imageContainer.appendChild(img);
 
-    //Aca me carga cada imagen del indice
-    imagenes.forEach((image, index) => {
-        let img = document.createElement("img");
-        img.src = image;
-        img.id = `image-${index}`;
-        img.classList.add("image-grid");
-        imageContainer.appendChild(img);
-
-        // Creo un evento que al hacer click me muestre el contenido interno
-        // de cada producto
-        img.addEventListener("click", () =>{
-            indiceImage = index;
-            showImage();
+            // Creo un evento que al hacer click me muestre el contenido interno
+            // de cada producto
+            img.addEventListener("click", () =>{
+                indiceImage = index;
+                showImage();
+            });
         });
-    });
-   
+
+    }; getProductDetails();
+
+    let responseComments = await getJSONData(PRODUCT_INFO_COMMENTS_URL + productID + EXT_TYPE);
+    let comments = responseComments.data;
+        console.log(comments);
+    
+
+    function appendComments() {
+        let commentDivs = document.createElement("div");
+        productInfo.appendChild(commentDivs);
+
+        for (let i = 0; i < comments.length; i++) {
+            commentDivs.innerHTML =  
+                `<div id='commentContainer'>
+                    <div id=prod${i}>
+                        ${comments[i].product}
+                    </div>
+                    <div id=score${i}>
+                        ${comments[i].score}
+                    </div>
+                    <div id=descr${i}>
+                        ${comments[i].description}
+                    </div>
+                    <div id=user${i}>
+                        ${comments[i].user}
+                    </div>
+                    <div id=dateTime${i}>
+                        ${comments[i].dateTime}
+                    </div>
+                </div>
+            `;
+        };
+            function commentBox() {
+                let commentsBox = document.createElement("div");
+                productInfo.appendChild(commentsBox);
+                    commentsBox.innerHTML = `
+                        <br><input type='text' id="commentUser"><br>
+                        <br><textarea name="comentarios" id="txtComment" cols="30" rows="10"></textarea><br><br>
+                        <input type="range" id="userScore" min="0" max="5"><br><br>
+                        <p id="showScore"></p><br>
+                        <button type="button" id="commentBtn">Añadir comentario</button>
+                        `
+                }; commentBox();
+
+                function getNewComment() {
+                    let userN = document.getElementById('commentUser');
+                    let rangeScore = document.getElementById('userScore');
+                    let showUserScore = document.getElementById('showScore');
+                    let user = localStorage.getItem("User");
+                    let userCmnt = document.getElementById('txtComment');
+                    let currentDate = new Date().toJSON().slice(0, 10);
+                    let currentHour = new Date().getHours();
+                    let currentMinute = new Date().getMinutes();
+                    let currentSeconds = new Date().getSeconds();
+            
+                    userN.value = user;
+                    userN.disabled = true;
+                    rangeScore.addEventListener('input', () =>{
+                    showUserScore.innerText = rangeScore.value;
+                    });
+            
+                    function pushNewComment() {
+                    
+                        let newComment = {
+                            "product": productID,
+                            "score": rangeScore.value,
+                            "description": userCmnt.value,
+                            "user": userN.value,
+                            "dateTime": `${currentDate}  ${currentHour}:${currentMinute}:${currentSeconds}`
+                        };
+                        
+                        let newCommentDiv = document.createElement("div");
+                        commentDivs.appendChild(newCommentDiv)
+                        newCommentDiv.innerHTML = `
+                        <div>
+                            <div>
+                            ${newComment.product}
+                            </div>
+                            <div>
+                            ${newComment.score}
+                            </div>
+                            <div>
+                            ${newComment.description}
+                            </div>
+                            <div>
+                            ${newComment.user}
+                            </div>
+                            <div>
+                            ${newComment.dateTime}
+                            </div>
+                        </div>
+                    `
+                    };
+                    document.getElementById('commentBtn').addEventListener('click', pushNewComment)
+                }; getNewComment();
+
+    }; appendComments();
 });

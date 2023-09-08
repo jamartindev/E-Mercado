@@ -22,9 +22,9 @@ let getJSONData = function(url){
     .then(response => {
       if (response.ok) {
         return response.json();
-      }else{
-        throw Error(response.statusText);
-      }
+      } else{
+          throw Error(response.statusText);
+      };
     })
     .then(function(response) {
           result.status = 'ok';
