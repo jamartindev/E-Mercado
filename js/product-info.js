@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             <div class="comentariosGenerales" >
                 <div class="containerBubble" style="display: inline-flex; flex-direction: row; align-content: flex-end;
                     align-items: flex-end;">
-                    <img src="img/profile-circle-icon-512x512-zxne30hp.png" alt="" class="profile">
+                    <img src="img/img_perfil.png" alt="" class="profile pb-4">
                     <div class="bubble left">
                         <div id=user${i} class='fw-bold fs-5 d-block d-md-flex'>
                             ${comments[i].user}
