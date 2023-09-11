@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     function getProductDetails() {
     
         let product = respondeID.data;
-            console.log(product);
             // Pido los datos del json en este caso los datos de productos
 
 
@@ -86,46 +85,60 @@ document.addEventListener("DOMContentLoaded", async () => {
     function appendComments() {
         let commentDivs = document.createElement("div");
         productInfo.appendChild(commentDivs);
-
+        
+        commentDivs.innerHTML += "<h3 class='mt-5'> Comentarios </h3>"
         for (let i = 0; i < comments.length; i++) {
+            let estrellas = `<div class="rating">`;
+            for (let j = 0; j < comments[i].score; j++) {
+                estrellas += `<i class="bi bi-star-fill star"></i>`
+            }
+            let estrellasVacias = 5 - comments[i].score;
+            for ( let k = 0; k < estrellasVacias; k++) {
+                estrellas += `<i class="bi bi-star star"></i>`
+            }
+            estrellas += "</div> "
             commentDivs.innerHTML +=  
-                ` 
-                <div id="comentarios">
-                
-                <div id='commentContainer'>
-                    <div id=prod${i}>
-                        ${comments[i].product}
-                    </div>
-                    <div id=score${i}>
-                        ${comments[i].score}
-                    </div>
-                    <div id=descr${i}>
-                        ${comments[i].description}
-                    </div>
-                    <div id=user${i}>
-                        ${comments[i].user}
-                    </div>
-                    <div id=dateTime${i}>
-                        ${comments[i].dateTime}
+            ` 
+            <div class="comentariosGenerales" >
+                <div class="containerBubble" style="display: inline-flex; flex-direction: row; align-content: flex-end;
+                    align-items: flex-end;">
+                    <img src="img/profile-circle-icon-512x512-zxne30hp.png" alt="" class="profile">
+                    <div class="bubble left">
+                        <div id=user${i} class='fw-bold fs-5 d-block d-md-flex'>
+                            ${comments[i].user}
+                            <div id=score${i} class='ps-md-4'> 
+                                ${estrellas}
+                            </div>
+                        </div>
+                        <div id=dateTime${i} class='small'>
+                            ${comments[i].dateTime}
+                        </div>
+                        <div id=descr${i} class='fst-italic'>
+                            ${comments[i].description}
+                        </div>
                     </div>
                     
                 </div>
-                </div>
-            `;
-        };
+            </div>
+                
+                `;
+            };
+            
+            
+
             function commentBox() {
                 let commentsBox = document.createElement("div");
                 productInfo.appendChild(commentsBox);
-                    commentsBox.innerHTML = `
-                    
-                        <br><input type='text' id="commentUser"><br>
-                        <br><textarea name="comentarios" id="txtComment" cols="30" rows="10"></textarea><br><br>
-                        <input type="range" id="userScore" min="0" max="5"><br><br>
-                        <p id="showScore"></p><br>
-                        <button type="button" id="commentBtn">Añadir comentario</button>
-                        `
-                }; commentBox();
-
+                commentsBox.innerHTML = `
+                
+                <br><input type='text' id="commentUser"><br>
+                <br><textarea name="comentarios" id="txtComment" cols="30" rows="10"></textarea><br><br>
+                <input type="range" id="userScore" min="0" max="5"><br><br>
+                <p id="showScore"></p><br>
+                <button type="button" id="commentBtn">Añadir comentario</button>
+                `
+            }; commentBox();
+            
                 function getNewComment() {
                     let userN = document.getElementById('commentUser');
                     let rangeScore = document.getElementById('userScore');
