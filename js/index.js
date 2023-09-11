@@ -5,15 +5,15 @@ document.addEventListener("DOMContentLoaded", function () {
       window.location = "products.html";
     });
   }
-  if (document.getElementById("jueguetes")) {
-    document.getElementById("jueguetes").addEventListener("click", function () {
-      localStorage.setItem("catID", 101);
+  if (document.getElementById("juguetes")) {
+    document.getElementById("juguetes").addEventListener("click", function () {
+      localStorage.setItem("catID", 102);
       window.location = "products.html";
     });
   }
   if (document.getElementById("muebles")) {
     document.getElementById("muebles").addEventListener("click", function () {
-      localStorage.setItem("catID", 101);
+      localStorage.setItem("catID", 103);
       window.location = "products.html";
     });
   }
