@@ -219,7 +219,6 @@ body {
   justify-content: center;
   gap: 20px;
   padding: 1rem; 
- 
 }
 
 .imagen1{
@@ -246,13 +245,11 @@ body {
   border-radius: 3px;
   background-color: rgba(255, 255, 255, 0.658);
   text-indent: 5px;
-  
 }
 
 .nombre::placeholder {
   font-family: Arial, FontAwesome; 
   font-size: 15px
-  
 }
 
 .nombre:hover{
@@ -262,26 +259,24 @@ body {
 
 .nombre:focus{
   border-color: rgb(173, 114, 5);
-
 }
 
 #btnSubmit{ 
-
-      margin-top: 15px;
-      margin-left: 60px;
-      appearance: none;
-      display: flex;
-      flex-direction: column;
-      align-content: center;
-      justify-content: center;
-      border-radius: 6px;
-      border-style: none;
-      align-items: center;
-      color: white;
-      background-color: rgb(240, 123, 28);
-      width: 130px;
-      height: 40px;
-    }
+  margin-top: 15px;
+  margin-left: 60px;
+  appearance: none;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  border-radius: 6px;
+  border-style: none;
+  align-items: center;
+  color: white;
+  background-color: rgb(240, 123, 28);
+  width: 130px;
+  height: 40px;
+}
 
     #btnSubmit:hover{
       box-shadow: 0 0 5px rgb(173, 114, 5);
@@ -291,10 +286,8 @@ body {
     }
 
 .ms-6 {
-  margin-left: 5rem !important;
-  
+  margin-left: 5rem !important; 
 }
-
 
 .container-login > h2 {
   font-weight: 700;
@@ -307,8 +300,6 @@ body {
   height: 530px;
 }
 
-
-
 /*ESTILO DE IMAGENES DE PRODUCTOS*/
 .image-grid{
   width: 0px;
@@ -316,12 +307,9 @@ body {
   object-fit: cover;
   opacity: .8;
   transition: .5s ease;
-  
 }
+
 #image{
-
-
-
 color: rgb(3, 3, 3);
 }
 
@@ -340,8 +328,7 @@ color: rgb(3, 3, 3);
 /*ESTILO DE DEL DIV GENERAL*/
 .info{
   display: flex;
-  gap: 40px;
-  
+  gap: 40px; 
 }
 
 /*ESTILO DEL DIV DE INFORMACIÓN DE PRODUCTOS*/
@@ -369,14 +356,12 @@ align-items: flex-start;
   
 }
 
-
 /*ESTILO DE DIV PARA LOS COMENTARIOS*/
 #comentarios{
   display: flex;
   flex-direction: column;
   padding: 50px;
 }
-
 
 #txtComment{
   background: rgb(219, 215, 215);
@@ -392,7 +377,6 @@ align-items: flex-start;
 }
 
 
-
 #txtComment:hover{
   box-shadow:  0 0 5px whitesmoke;
   transition: ease-in 0.2s;;
@@ -402,28 +386,12 @@ align-items: flex-start;
 #txtComment:focus{
   box-shadow:  0 0 5px whitesmoke;
   opacity: 1;
-
 }
 
 #txtComment::placeholder{
   color: gray;
   padding: 5px;
   font-size: small;
-}
-
-
-
-
-.botonComentarios{
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-end;
-  
-
-  
-  
-  
 }
 
 .commentBtn{
@@ -434,8 +402,6 @@ align-items: flex-start;
   width: 100px;
   height: 30px;
   box-shadow:0 4px 4px 1px rgba(0, 0, 0, 0.14)
-  
-
 }
 
 .commentBtn:hover{
@@ -445,12 +411,7 @@ align-items: flex-start;
   
 }
 
-.profile{
-  width: 60px;
-}
-
 /*PROBANDO BOTON CARRITO DE COMPRAS*/
-
 
 .btnCarro{
   background-color: rgb(39, 112, 134);
@@ -458,14 +419,11 @@ align-items: flex-start;
   border-radius: 5px;
   width: 60px;
   height: 60px;
-
 }
 
-/* aca chanchada de la branch coemtnarios*/
 .bubble {
   --r: 90px; /* el radio  */
   --t: 50px; /* tamaño cola */
-  
 
   max-width: 500px;
   padding: calc(2*var(--r)/3);
@@ -478,7 +436,6 @@ align-items: flex-start;
   0 0/var(--r) var(--r) space padding-box;
   background: linear-gradient(160deg,#e77015,#eeb825) border-box;
   color: #fff;
-  
 }
 
 .left {
@@ -510,8 +467,6 @@ place-self: start;
   padding: 5px;
 }
 
-
-
 #textarea:hover{
   box-shadow:  0 0 5px whitesmoke;
   transition: ease-in 0.2s;;
@@ -521,7 +476,6 @@ place-self: start;
 #textarea:focus{
   box-shadow:  0 0 5px whitesmoke;
   opacity: 1;
-
 }
 
 #textarea::placeholder{
@@ -529,7 +483,6 @@ place-self: start;
   padding: 5px;
   font-size: small;
 }
-
 
 #select{
   background-color: rgb(219, 215, 215);
@@ -539,7 +492,6 @@ place-self: start;
   height: 20px;
   outline: none;
   text-align: center;
-  
 }
 
 .botonComentarios{
@@ -549,9 +501,6 @@ place-self: start;
   align-items: flex-end;
   margin-top: 30px;
   gap: 5px;
-  
-  
-  
 }
 
 .btnComentarios{
@@ -562,15 +511,12 @@ place-self: start;
   width: 100px;
   height: 30px;
   box-shadow:0 4px 4px 1px rgba(0, 0, 0, 0.14)
-  
-
 }
 
 .btnComentarios:hover{
   background-color: rgb(247, 164, 56);
   transition: ease-in 0.2s;
   cursor: pointer;
-  
 }
 
 .profile{
@@ -579,8 +525,6 @@ place-self: start;
 
 .comentariosGenerales{
   padding: 30px;
-  
-  
 }
 
 .comentariosGenerales .bubble{
@@ -590,7 +534,6 @@ place-self: start;
 
   padding: calc(2*var(--r)/4);
 
-  
   -webkit-mask: 
   radial-gradient(var(--t) at var(--_d) 0,#0000 98%,#000 102%) 
   var(--_d) 100%/calc(100% - var(--r)) var(--t) no-repeat,
@@ -600,10 +543,8 @@ place-self: start;
   0 0/var(--r) var(--r) space padding-box;
   background: linear-gradient(160deg,#246cf1,#c768ec) border-box;
   color: #fff;
-  
 }
 
 .comentariosGenerales .profile{
   width: 40px;
-
 }
