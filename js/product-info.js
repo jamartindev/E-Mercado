@@ -31,21 +31,22 @@ document.addEventListener("DOMContentLoaded", async () => {
             
             <p class="title">
             <span style="font-weight: bold;">
-            Descripción:</span> ${product.description}
+            </span> ${product.description}
             </p>
             <p class="title">
             <span style="font-weight: bold;">
-            Categoría</span>: ${product.category}
+            Categoría</span><br> ${product.category}
             </p>
             <p class="title">
             <span style="font-weight: bold;">
-            Cantidad de vendidos</span>: ${product.soldCount}</p>
+            Cantidad de vendidos</span><br> ${product.soldCount}</p>
             <p class="title" id="precioProducto">
  
             ${product.currency}:${product.cost}
             </p>
         <div class="botonCarrito">
             <button class="btnCarro">
+            Añadir al carrito
                 <i class="fa-solid fa-cart-arrow-down fa-lg"></i>
             </button>
         </div>
@@ -163,7 +164,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                                     <label> Tu puntuación</label>
                                     <input type="range" id="userScore" min="0" max="5">
                                     <p id="showScore" class="m-0"></p>
-                                    <div class="botonComentarios m-0">
+                                    <div class="botonComentarios ">
                                         <button id="commentBtn" class="btnComentarios">Enviar </button>
                                     </div>
                             </div>

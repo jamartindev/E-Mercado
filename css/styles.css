@@ -296,8 +296,8 @@ body {
 
 #image{
   display: flex;
-  width: 900px;
-  height: 530px;
+  width: 700px;
+  height: 500px;
 }
 
 /*ESTILO DE IMAGENES DE PRODUCTOS*/
@@ -333,7 +333,7 @@ color: rgb(3, 3, 3);
 
 /*ESTILO DEL DIV DE INFORMACIÓN DE PRODUCTOS*/
 #informacion{
-  background: rgba(235, 153, 30, 0.774);
+  background: #f0a970;
 border-radius: 16px;
 box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 backdrop-filter: blur(12.1px);
@@ -344,6 +344,7 @@ display: flex;
 flex-direction: column;
 justify-content: space-evenly;
 align-items: flex-start;
+width: 400px;
 }
 
 .title{
@@ -411,15 +412,8 @@ align-items: flex-start;
   
 }
 
-/*PROBANDO BOTON CARRITO DE COMPRAS*/
 
-.btnCarro{
-  background-color: rgb(39, 112, 134);
-  border: none;
-  border-radius: 5px;
-  width: 60px;
-  height: 60px;
-}
+
 
 .bubble {
   --r: 90px; /* el radio  */
@@ -434,7 +428,7 @@ align-items: flex-start;
   calc(var(--r)/-2) calc(var(--r)/-2) padding-box, 
   radial-gradient(50% 50%,#000 98%,#0000 101%) 
   0 0/var(--r) var(--r) space padding-box;
-  background: linear-gradient(160deg,#e77015,#eeb825) border-box;
+  background: linear-gradient(160deg,#eea46b,#f18a35) border-box;
   color: #fff;
 }
 
@@ -531,6 +525,7 @@ place-self: start;
   --r: 40px; /* el radio  */
   --t: 20px; /* tamaño cola */
   width: 500px;
+  
 
   padding: calc(2*var(--r)/4);
 
@@ -541,10 +536,48 @@ place-self: start;
   calc(var(--r)/-2) calc(var(--r)/-2) padding-box, 
   radial-gradient(50% 50%,#000 98%,#0000 101%) 
   0 0/var(--r) var(--r) space padding-box;
-  background: linear-gradient(160deg,#246cf1,#c768ec) border-box;
+  background: linear-gradient(160deg,#B8B8FF,#8d7af8) border-box;
   color: #fff;
 }
 
 .comentariosGenerales .profile{
   width: 40px;
 }
+
+
+
+/*PROBANDO BOTON CARRITO DE COMPRAS*/
+
+.botonCarrito{
+  display: flex;
+  flex-direction: flex-end;
+
+}
+.btnCarro{
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 5px;
+  width: 200px;
+  height: 35px;
+  color: white;
+
+}
+
+.btnCarro:hover{
+  box-shadow: 0 0 5px white;
+  transform: scale(1.03);
+  transition: ease 0.2s;
+
+}
+
+/*NAVBAR ICONOS*/
+ul li i:hover{
+  transform: scale(1.4);
+  transition: ease 0.2s;
+  
+}
+
+ul li i:not(:hover){
+  transition: ease-in-out 0.4s;
+}
+
