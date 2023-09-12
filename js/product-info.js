@@ -189,26 +189,26 @@ document.addEventListener("DOMContentLoaded", async () => {
                         let newCommentDiv = document.createElement("div");
                         commentDivs.appendChild(newCommentDiv)
                         newCommentDiv.innerHTML = `
-                        <br>
-                        <div>
-                            <div>
-                            ${newComment.product}
-                            </div>
-                            <div>
-                            ${newComment.score}
-                            </div>
-                            <div>
-                            ${newComment.description}
-                            </div>
-                            <div>
-                            ${newComment.user}
-                            </div>
-                            <div>
-                            ${newComment.dateTime}
+                        <div class="comentariosGenerales"
+                            <div class="containerBubble" style="display: inline-flex; flex-direction: row; align-content: flex-end; align-items: flex-end;">
+                                <img src="img/img_perfil.png" alt="" class="profile pb-4">
+                                <div class="bubble left">
+                                    <div class='fw-bold fs-5 d-block d-md-flex'>
+                                        ${newComment.user}
+                                        <div class='ps-md-4'> 
+                                            ${newComment.score}
+                                        </div>
+                                    </div>
+                                        <div class='small'>
+                                            ${newComment.dateTime}
+                                        </div>
+                                        <div class='fst-italic'>
+                                            ${newComment.description}
+                                        </div>
                             </div>
                         </div>
-                        <br>
                     `
+
                     userCmnt.value = ""
 
                     };
