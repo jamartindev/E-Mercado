@@ -378,45 +378,6 @@ align-items: flex-start;
 }
 
 
-
-
-/*ESTILO BURBUJA COMENTARIOS*/
-.bubble {
-  --r: 90px; /* el radio  */
-  --t: 50px; /* tamaño cola */
-  
-
-  max-height: 600px;
-  padding: calc(2*var(--r)/3);
-  -webkit-mask: 
-  radial-gradient(var(--t) at var(--_d) 0,#0000 98%,#000 102%) 
-  var(--_d) 100%/calc(100% - var(--r)) var(--t) no-repeat,
-  conic-gradient(at var(--r) var(--r),#000 75%,#0000 0) 
-  calc(var(--r)/-2) calc(var(--r)/-2) padding-box, 
-  radial-gradient(50% 50%,#000 98%,#0000 101%) 
-  0 0/var(--r) var(--r) space padding-box;
-  background: linear-gradient(160deg,#e77015,#eeb825) border-box;
-  color: #fff;
-  margin: 30px;
-  
-}
-
-.left {
---_d: 0%;
-border-left: var(--t) solid #0000;
-margin-right: var(--t);
-place-self: start;
-}
-
-
-.comentariosBubble{
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: 30px;
-}
-
 #txtComment{
   background: rgb(219, 215, 215);
   font-family: Arial, Helvetica, sans-serif;
@@ -500,3 +461,149 @@ place-self: start;
 
 }
 
+/* aca chanchada de la branch coemtnarios*/
+.bubble {
+  --r: 90px; /* el radio  */
+  --t: 50px; /* tamaño cola */
+  
+
+  max-width: 500px;
+  padding: calc(2*var(--r)/3);
+  -webkit-mask: 
+  radial-gradient(var(--t) at var(--_d) 0,#0000 98%,#000 102%) 
+  var(--_d) 100%/calc(100% - var(--r)) var(--t) no-repeat,
+  conic-gradient(at var(--r) var(--r),#000 75%,#0000 0) 
+  calc(var(--r)/-2) calc(var(--r)/-2) padding-box, 
+  radial-gradient(50% 50%,#000 98%,#0000 101%) 
+  0 0/var(--r) var(--r) space padding-box;
+  background: linear-gradient(160deg,#e77015,#eeb825) border-box;
+  color: #fff;
+  
+}
+
+.left {
+--_d: 0%;
+border-left: var(--t) solid #0000;
+margin-right: var(--t);
+place-self: start;
+}
+
+
+.comentariosBubble{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+#textarea{
+  background: rgb(219, 215, 215);
+  font-family: Arial, Helvetica, sans-serif;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  width: 300px;
+  height: 100px;
+  color: rgb(70, 67, 67);
+  opacity: 0.7;
+  padding: 5px;
+}
+
+
+
+#textarea:hover{
+  box-shadow:  0 0 5px whitesmoke;
+  transition: ease-in 0.2s;;
+  opacity: 1;
+}
+
+#textarea:focus{
+  box-shadow:  0 0 5px whitesmoke;
+  opacity: 1;
+
+}
+
+#textarea::placeholder{
+  color: gray;
+  padding: 5px;
+  font-size: small;
+}
+
+
+#select{
+  background-color: rgb(219, 215, 215);
+  border: none;
+  border-radius: 5px;
+  width: 70px;
+  height: 20px;
+  outline: none;
+  text-align: center;
+  
+}
+
+.botonComentarios{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-top: 30px;
+  gap: 5px;
+  
+  
+  
+}
+
+.btnComentarios{
+  border: none;
+  border-radius: 5px;
+  background-color: #f1710f;
+  color: white;
+  width: 100px;
+  height: 30px;
+  box-shadow:0 4px 4px 1px rgba(0, 0, 0, 0.14)
+  
+
+}
+
+.btnComentarios:hover{
+  background-color: rgb(247, 164, 56);
+  transition: ease-in 0.2s;
+  cursor: pointer;
+  
+}
+
+.profile{
+  width: 60px;
+}
+
+.comentariosGenerales{
+  padding: 30px;
+  
+  
+}
+
+.comentariosGenerales .bubble{
+  --r: 40px; /* el radio  */
+  --t: 20px; /* tamaño cola */
+  width: 500px;
+
+  padding: calc(2*var(--r)/4);
+
+  
+  -webkit-mask: 
+  radial-gradient(var(--t) at var(--_d) 0,#0000 98%,#000 102%) 
+  var(--_d) 100%/calc(100% - var(--r)) var(--t) no-repeat,
+  conic-gradient(at var(--r) var(--r),#000 75%,#0000 0) 
+  calc(var(--r)/-2) calc(var(--r)/-2) padding-box, 
+  radial-gradient(50% 50%,#000 98%,#0000 101%) 
+  0 0/var(--r) var(--r) space padding-box;
+  background: linear-gradient(160deg,#246cf1,#c768ec) border-box;
+  color: #fff;
+  
+}
+
+.comentariosGenerales .profile{
+  width: 40px;
+
+}

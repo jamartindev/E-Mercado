@@ -132,21 +132,23 @@ document.addEventListener("DOMContentLoaded", async () => {
                 commentsBox.innerHTML = `
                 
                 <div class="tuComentario" style="padding: 30px">
- 	<h3 class='mt-4'> Escribe tu comentario </h3>
+ 	<h3 class='mt-4 mb-4'> Escribe tu comentario </h3>
         <div class="containerBubble" style="display: inline-flex;
         	flex-direction: row;
                 align-content: flex-end;
                 align-items: flex-end;">
-                <div class="comentariosBubble">
-                	<label class='mt-2'> Tu opinión </label>
-                        <input type='text' id="commentUser">
-                        <textarea id="txtComment" name="comentarios" placeholder="Escribe aquí tu comentario"></textarea>
-                         <label> Tu puntuación</label>
-                         <input type="range" id="userScore" min="0" max="5">
-                         <p id="showScore"></p>
-                </div>
-                <div class="botonComentarios">
-                	<button id="commentBtn" class="btnComentarios">Enviar </button>
+                <div class="bubble left">
+                    <div class="comentariosBubble">
+                        <label class='mt-2'> Tu opinión </label>
+                            <input type='text' id="commentUser">
+                            <textarea id="txtComment" name="comentarios" placeholder="Escribe aquí tu comentario"></textarea>
+                            <label> Tu puntuación</label>
+                            <input type="range" id="userScore" min="0" max="5">
+                            <p id="showScore" class="m-0"></p>
+                            <div class="botonComentarios m-0">
+                                <button id="commentBtn" class="btnComentarios">Enviar </button>
+                            </div>
+                    </div>
                 </div>
           </div>
 </div>
