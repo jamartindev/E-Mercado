@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             <div class="comentariosGenerales" >
                 <div class="containerBubble" style="display: inline-flex; flex-direction: row; align-content: flex-end;
                     align-items: flex-end;">
-                    <img src="img/img_perfil.png" alt="" class="profile pb-4">
+                    <img src="img/img_perfil.png" alt="" class="profile pb-4    ">
                     <div class="bubble left">
                         <div id=user${i} class='fw-bold fs-5 d-block d-md-flex'>
                             ${comments[i].user}
@@ -131,12 +131,28 @@ document.addEventListener("DOMContentLoaded", async () => {
                 productInfo.appendChild(commentsBox);
                 commentsBox.innerHTML = `
                 
-                <br><input type='text' id="commentUser"><br>
-                <br><textarea name="comentarios" id="txtComment" cols="30" rows="10"></textarea><br><br>
-                <input type="range" id="userScore" min="0" max="5"><br><br>
-                <p id="showScore"></p><br>
-                <button type="button" id="commentBtn">Añadir comentario</button>
+                <div class="tuComentario" style="padding: 30px">
+ 	<h3 class='mt-4'> Escribe tu comentario </h3>
+        <div class="containerBubble" style="display: inline-flex;
+        	flex-direction: row;
+                align-content: flex-end;
+                align-items: flex-end;">
+                <div class="comentariosBubble">
+                	<label class='mt-2'> Tu opinión </label>
+                        <input type='text' id="commentUser">
+                        <textarea id="txtComment" name="comentarios" placeholder="Escribe aquí tu comentario"></textarea>
+                         <label> Tu puntuación</label>
+                         <input type="range" id="userScore" min="0" max="5">
+                         <p id="showScore"></p>
+                </div>
+                <div class="botonComentarios">
+                	<button id="commentBtn" class="btnComentarios">Enviar </button>
+                </div>
+          </div>
+</div>
+
                 `
+
             }; commentBox();
             
                 function getNewComment() {
@@ -150,6 +166,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                     let currentMinute = new Date().getMinutes();
                     let currentSeconds = new Date().getSeconds();
             
+
+                    
                     userN.value = user;
                     userN.disabled = true;
                     rangeScore.addEventListener('input', () =>{
