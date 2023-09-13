@@ -699,3 +699,21 @@ a:hover span {
   opacity: 1;
 }
 
+/*Termina navbar iconos*/
+
+/* IMAGENES DEL INDEX*/
+.card{
+  border-radius: 20px;
+  opacity: 0.9;
+}
+
+.card:hover  {
+  transform: scale(1.04);
+  transition: ease 0.2s;
+  opacity: 1;
+}
+
+.card:not(:hover){
+  transition: ease 0.2s;
+}
+
