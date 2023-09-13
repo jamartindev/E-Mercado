@@ -544,6 +544,34 @@ place-self: start;
   width: 40px;
 }
 
+/*ESTRELLAS*/
+
+.rating {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: row;
+  width: 300px;
+  gap: 5px;
+}
+
+.card-text {
+  text-align: justify;
+}
+
+.star {
+  font-size: 25px;
+  color: white;
+  transition: color 0.2s;
+  cursor: pointer;
+}
+
+.star:hover,
+.star.checked {
+  color: gold;
+}
+/*termina estrellas*/
+
 
 
 /*PROBANDO BOTON CARRITO DE COMPRAS*/

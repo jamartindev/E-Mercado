@@ -162,7 +162,15 @@ document.addEventListener("DOMContentLoaded", async () => {
                                     <input type='text' id="commentUser">
                                     <textarea id="txtComment" name="comentarios" placeholder="Escribe aquí tu comentario"></textarea>
                                     <label> Tu puntuación</label>
-                                    <input type="range" id="userScore" min="0" max="5">
+                                    <div class="rating">
+                                    <i class="bi bi-star-fill star"></i>
+                                    <i class="bi bi-star-fill star"></i>
+                                    <i class="bi bi-star-fill star"></i>
+                                    <i class="bi bi-star-fill star"></i>
+                                    <i class="bi bi-star-fill star"></i>
+                                    </div>
+                                    
+                                    
                                     <p id="showScore" class="m-0"></p>
                                     <div class="botonComentarios ">
                                         <button id="commentBtn" class="btnComentarios">Enviar </button>
