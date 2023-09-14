@@ -1,20 +1,20 @@
 document.addEventListener("DOMContentLoaded", async () => {
-  
+    // Constante que me toma el id de cada producto
     const productID = localStorage.getItem("id");
     console.log(productID);
     const productInfo = document.getElementById("product-info");
     const respondeID = await getJSONData(
         PRODUCT_INFO_URL + productID + EXT_TYPE
-        // Aprovecho que ya estan los datos en init y 
+        // Usando los datos en init llamo las url de otro script 
         // pido que me de el url de productos y el tipo de extension
     );
-
+    // En esta funcion pido los datos para poner la informacion del contenido
     function getProductDetails() {
     
         let product = respondeID.data;
             // Pido los datos del json en este caso los datos de productos
 
-
+        // Armo esta funcion para mostrar el contenido en el html usando el div del html product-info
         productInfo.innerHTML = `
             <div id="name">
             <hr class="linea">
@@ -54,12 +54,14 @@ document.addEventListener("DOMContentLoaded", async () => {
             </div>
         </div>
         `
-        // Aca me toma el id del div de imagenes creado con el innerHTML
+        // Me toma el id del div de imagenes creado con el innerHTML
+        // para llamar las imagenes como el resto del contenido
         const imageContainer = document.getElementById("image");
         const imagenes = product.images;
         
 
-        //Aca me carga cada imagen del indice
+        //Me carga cada imagen del indice
+        // Hago una funcion forEach donde me muestra un indice creando elementos img con todas las imagenes y una clase
         imagenes.forEach((image, index) => {
             let indiceImage = 0;
             let img = document.createElement("img");
@@ -68,7 +70,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             img.classList.add("image-grid");
             imageContainer.appendChild(img);
 
-            // Creo un evento que al hacer click me muestre el contenido interno
+            // Evento que al hacer click me muestre el contenido interno
             // de cada producto
             img.addEventListener("click", () =>{
                 indiceImage = index;
