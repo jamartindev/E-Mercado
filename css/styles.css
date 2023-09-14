@@ -566,10 +566,20 @@ place-self: start;
   cursor: pointer;
 }
 
-.star:hover,
-.star.checked {
+.star:hover {
   color: gold;
 }
+
+#userScore1,
+#userScore2,
+#userScore3,
+#userScore4,
+#userScore5 {
+  padding: 0;
+  border: none;
+  background: none;
+}
+
 /*termina estrellas*/
 
 

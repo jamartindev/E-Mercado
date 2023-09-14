@@ -163,11 +163,11 @@ document.addEventListener("DOMContentLoaded", async () => {
                                     <textarea id="txtComment" name="comentarios" placeholder="Escribe aquí tu comentario"></textarea>
                                     <label> Tu puntuación</label>
                                     <div class="rating">
-                                    <i class="bi bi-star-fill star"></i>
-                                    <i class="bi bi-star-fill star"></i>
-                                    <i class="bi bi-star-fill star"></i>
-                                    <i class="bi bi-star-fill star"></i>
-                                    <i class="bi bi-star-fill star"></i>
+                                    <button id='userScore1' class="bi bi-star-fill star" value='1 Estrella'></button>
+                                    <button id='userScore2' class="bi bi-star-fill star" value='2 Estrellas'></button>
+                                    <button id='userScore3' class="bi bi-star-fill star" value='3 Estrellas'></button>
+                                    <button id='userScore4' class="bi bi-star-fill star" value='4 Estrellas'></button>
+                                    <button id='userScore5' class="bi bi-star-fill star" value='5 Estrellas'></button>
                                     </div>
                                     
                                     
@@ -188,7 +188,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     function getNewComment() {
 
         let userN = document.getElementById('commentUser');
-        let rangeScore = document.getElementById('userScore');  // Refs a los inputs del usuario 
+        let rangeScore = document.querySelectorAll('#userScore1, #userScore2, #userScore3, #userScore4, #userScore5');  // Refs a los inputs del usuario 
         let showUserScore = document.getElementById('showScore'); 
         let userCmnt = document.getElementById('txtComment');
 
@@ -201,17 +201,19 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         userN.value = user;  
         userN.disabled = true; // En lugar de que usuario ingrese nombre para comentar, se ingresa su id desde el localStorage y se deshabilita el campo.
-        rangeScore.addEventListener('input', () =>{ //Asigna a un range un evento de escucha según input para la calificación del producto. 
-        showUserScore.innerText = rangeScore.value; //Muestra en pantalla el valor mientras se elige
-        });
+        
+        for (let i = 0 ; i < rangeScore.length; i++) {
+            rangeScore[i].addEventListener('click', () =>{ //Asigna a las estrellas un evento de escucha para la calificación del producto. 
+            showUserScore.innerText = rangeScore[i].value; //Muestra en pantalla el valor mientras se elige
+            });
+        };
 
         //Func que crea nuevo comment. Pushea a un array y permite guardar el comentario de cada producto mientras se navega.
         function pushNewComment() {
-            
             //Crea un objeto dinámico de acuerdo a los distintos valores que se obtengan.
             let newComment = {
                 "product": Number(productID),
-                "score": Number(rangeScore.value),
+                "score": Number(showUserScore.innerText.slice(0, 2)),
                 "description": userCmnt.value,
                 "user": userN.value,
                 "dateTime": `${currentDate}  ${currentHour}:${currentMinute}:${currentSeconds}`
