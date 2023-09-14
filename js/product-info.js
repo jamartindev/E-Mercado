@@ -78,6 +78,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     }; getProductDetails();
 
+
+    //DESAFIATE
     let responseComments = await getJSONData(PRODUCT_INFO_COMMENTS_URL + productID + EXT_TYPE);
     let comments;
 
@@ -86,6 +88,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     En caso de que exista al haberse seteado más abajo, va a utilizar el mismo como valor del array comments.
     De esta forma se pueden seguir viendo los nuevos comentarios al seguir navegando, sin necesidad de hacer un POST request.*/
+    
     function getComments() {
         let verifyComment = localStorage.getItem(`cmnts${productID}`);
         if (!verifyComment) {
@@ -97,7 +100,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }; getComments();
     
 
-    
+    //Punto 3 y 4
     let commentDivs = document.createElement("div");
         productInfo.appendChild(commentDivs);
 
@@ -184,6 +187,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     }; commentBox();
 
+
+    //DESAFIATE
     //Funcion que obtiene diversos datos para inicializar la carga del nuevo comentario.
     function getNewComment() {
 
