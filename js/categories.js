@@ -50,7 +50,26 @@ function showCategoriesList(){
             ((maxCount == undefined) || (maxCount != undefined && parseInt(category.productCount) <= maxCount))){
 
             htmlContentToAppend += `
-            <div onclick="setCatID(${category.id})" class="list-group-item list-group-item-action cursor-active">
+
+            <div class="card"  onclick="setCatID(${category.id})">
+            <img src="${category.imgSrc}" alt="${category.description}" class="img-thumbnail">
+            <div class="card__content">
+              <p class="card__title">${category.name}</p>
+              <p class="card__description">${category.description}</p>
+              <p class="card__description">Articulos:${category.productCount}</p>
+            </div>
+          </div>
+
+
+            
+            `
+        }
+
+        document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
+    }
+}
+
+/*<div onclick="setCatID(${category.id})" class="list-group-item list-group-item-action cursor-active">
                 <div class="row">
                     <div class="col-3">
                         <img src="${category.imgSrc}" alt="${category.description}" class="img-thumbnail">
@@ -64,12 +83,7 @@ function showCategoriesList(){
                     </div>
                 </div>
             </div>
-            `
-        }
-
-        document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
-    }
-}
+            */
 
 function sortAndShowCategories(sortCriteria, categoriesArray){
     currentSortCriteria = sortCriteria;
