@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }; getComments();
     
 
-    //Punto 3 y 4
+    //PUNTO 3 Y 4
     let commentDivs = document.createElement("div");
         productInfo.appendChild(commentDivs);
 
@@ -188,7 +188,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         `
 
     }; commentBox();
-
+    
+    //TERMINA PUNTO 3 Y 4
 
     //DESAFIATE
     //Funcion que obtiene diversos datos para inicializar la carga del nuevo comentario.
