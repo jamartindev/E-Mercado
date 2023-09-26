@@ -842,3 +842,18 @@ a:hover span {
 .cursorPointer {
   cursor:pointer;
 }
+
+/* Estilos para el efecto hover de productos-relacionados*/
+.d-flex :hover {
+  
+  background-color: lightgray; 
+  transition:  0.4s ease;
+  transform: scale(1.1);
+  
+}
+
+.d-flex  {
+
+  gap: 20px;
+
+}
