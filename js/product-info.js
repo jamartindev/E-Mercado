@@ -8,6 +8,26 @@ document.addEventListener("DOMContentLoaded", async () => {
         // Usando los datos en init llamo las url de otro script 
         // pido que me de el url de productos y el tipo de extension
     );
+
+    //agrega el html de los productos relacionados 
+    let relatedProduct = ` 
+    <div>
+        <h3 class='mt-5 mb-5'> Productos relacionados </h3>
+    </div>
+    <div class="d-flex">`
+    for (let i=0; i<respondeID.data.relatedProducts.length; i++) {
+        let eachRelatedProduct = `
+        <div class="d-flex align-items-center flex-column cursorPointer divSuggestedElement" dataID="${respondeID.data.relatedProducts[i].id}">
+            <img src="${respondeID.data.relatedProducts[i].image}" width="200"  dataID="${respondeID.data.relatedProducts[i].id}">
+            <p class="mt-3" dataID="${respondeID.data.relatedProducts[i].id}"> ${respondeID.data.relatedProducts[i].name} </p>
+        </div>
+        `
+        relatedProduct += eachRelatedProduct
+    }
+    relatedProduct += `</div>`
+
+
+
     // En esta funcion pido los datos para poner la informacion del contenido
     function getProductDetails() {
     
@@ -53,6 +73,9 @@ document.addEventListener("DOMContentLoaded", async () => {
             </div>
             </div>
         </div>
+        <div>
+            ${relatedProduct}
+        </div>
         `
         // Me toma el id del div de imagenes creado con el innerHTML
         // para llamar las imagenes como el resto del contenido
@@ -80,6 +103,39 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     }; getProductDetails();
 
+
+    //Continua punto 1 de la entrega 4 
+    //luego de agregado al dom el productsRelated, agregar los escuhcadores para que guarde el id y redirija a su propia cosa
+    for (let element of document.getElementsByClassName("divSuggestedElement")) {
+        element.addEventListener("click", showNewProduct);
+    }
+
+    function showNewProduct (event) {
+        let element = event.currentTarget;
+        let dataID = element.getAttribute("dataID"); 
+        localStorage.setItem("id", dataID);
+        let newProductID = parseInt(localStorage.getItem("id"));
+        getJSONData(PRODUCT_INFO_URL + newProductID + EXT_TYPE);
+        window.location.reload();
+        //window.scrollTo(0, 0);
+        //(window).on('beforeunload', function() {
+          //  (window).scrollTop(0)
+        //})
+        //(document).ready(function(){
+        //    ('html').animate({scrollTop:0}, 1);
+        //    ('body').animate({scrollTop:0}, 1);
+        //});
+        //window.onload = function() {document.body.scrollTop = document.documentElement.scrollTop = 0;};
+        (document).ready(function(){
+            ('html, body').scrollTop(0);
+        
+            (window).on('load', function() {
+            setTimeout(function(){
+                ('html, body').scrollTop(0);
+            }, 0);
+         });
+        });
+    }
 
     //DESAFIATE
     let responseComments = await getJSONData(PRODUCT_INFO_COMMENTS_URL + productID + EXT_TYPE);

@@ -839,4 +839,6 @@ a:hover span {
   line-height: 1.4;
 }
 
-
+.cursorPointer {
+  cursor:pointer;
+}
