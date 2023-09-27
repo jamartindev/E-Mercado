@@ -844,19 +844,28 @@ a:hover span {
 }
 
 /* Estilos para el efecto hover de productos-relacionados*/
-.d-flex :hover {
-  
-  background-color: lightgray; 
+.divSuggestedElement:hover {
+  cursor: pointer;
+  background-color: #B8B8FF; 
   transition:  0.4s ease;
   transform: scale(1.1);
-  
 }
 
-.d-flex  {
+.divSuggestedElement{
+  text-align: center;
+  border-radius: 5px;
+}
 
+.divSuggestedElement:not(:hover){
+  transition:  0.4s ease;
+}
+
+
+#relacionados{
   gap: 20px;
-
 }
+
+
 
 
 /*MENU*/

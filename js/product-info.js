@@ -14,10 +14,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     <div>
         <h3 class='mt-5 mb-5'> Productos relacionados </h3>
     </div>
-    <div class="d-flex">`
+    <div id="relacionados" class="d-flex">`
     for (let i=0; i<respondeID.data.relatedProducts.length; i++) {
         let eachRelatedProduct = `
-        <div class="d-flex align-items-center flex-column cursorPointer divSuggestedElement" dataID="${respondeID.data.relatedProducts[i].id}">
+        <div class="divSuggestedElement" dataID="${respondeID.data.relatedProducts[i].id}">
             <img src="${respondeID.data.relatedProducts[i].image}" width="200"  dataID="${respondeID.data.relatedProducts[i].id}">
             <p class="mt-3" dataID="${respondeID.data.relatedProducts[i].id}"> ${respondeID.data.relatedProducts[i].name} </p>
         </div>
