@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("salir").addEventListener("click", cerrarSesion);
 
   function cerrarSesion(event) {
-    console.log("pedo");
+    
     event.preventDefault();
     localStorage.removeItem("User");
     location.href = "login.html";
