@@ -45,15 +45,3 @@ document.addEventListener("DOMContentLoaded", function () {
     location.href = "login.html";
   }
 });
-
-let btnDark = document.getElementById('btn-dark');
-let btnIcon = document.getElementById('btnIcon');
-
-btnDark.onclick = function () {
-  document.body.classList.toggle('dark-theme');
-  if(document.body.classList.contains("dark-theme")){
-    btnIcon.src = "img/theme_light.png";
-  } else {
-    btnIcon.src = "img/theme_dark.png";
-  }
-}
