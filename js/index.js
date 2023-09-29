@@ -57,3 +57,10 @@ btnDark.onclick = function () {
     btnIcon.src = "img/theme_dark.png";
   }
 }
+
+document.getElementById("btnAtrasProductInfo").addEventListener("click", function(){
+  location.href = "products.html"
+});
+
+
+

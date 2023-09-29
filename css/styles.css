@@ -981,3 +981,29 @@ a:hover span {
 
 
 
+/*BOTON PARA ATRAS EN PRODUCT INFO*/
+.btnAtras{
+  display: flex;
+  margin-left: 30px;
+  margin-top: 15px;
+  height:30px;
+}
+
+#btnAtrasProductInfo{
+  border: none;
+  background-color: #e99c5e;
+  border-radius: 10px;
+  color:white;
+}
+
+#btnAtrasProductInfo:hover{
+  transform: scale(1.1);
+  transition: ease 0.2s;
+  box-shadow: 0 0 6px rgb(240, 206, 175);
+}
+
+#btnAtrasProductInfo:not(:hover){
+  transition: ease 0.2s;
+}
+
+
