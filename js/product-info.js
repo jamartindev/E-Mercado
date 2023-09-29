@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", async () => {
+
     // Constante que me toma el id de cada producto
     const productID = localStorage.getItem("id");
     console.log(productID);
@@ -8,6 +9,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         // Usando los datos en init llamo las url de otro script 
         // pido que me de el url de productos y el tipo de extension
     );
+
 
     //agrega el html de los productos relacionados 
     let relatedProduct = ` 
@@ -135,7 +137,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             }, 0);
          });
         });
-    }
+    };
 
     //DESAFIATE
     let responseComments = await getJSONData(PRODUCT_INFO_COMMENTS_URL + productID + EXT_TYPE);
@@ -161,11 +163,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     //PUNTO 3 Y 4
     let commentDivs = document.createElement("div");
         productInfo.appendChild(commentDivs);
+        let counter = 0;
 
     // Función que anexa los comentarios y puntuaciones en pantalla según valores del array comentarios. 
     function appendComments() {
-        
+        let carouselComments = [];
+
         commentDivs.innerHTML += "<h3 class='mt-5'> Comentarios </h3>"
+
         for (let i = 0; i < comments.length; i++) {
             let estrellas = `<div class="rating">`;
             for (let j = 0; j < comments[i].score; j++) {
@@ -176,34 +181,82 @@ document.addEventListener("DOMContentLoaded", async () => {
                 estrellas += `<i class="bi bi-star star"></i>`
             }
             estrellas += "</div> "
-            commentDivs.innerHTML +=  
-            ` 
-            <div class="comentariosGenerales" >
-                <div class="containerBubble" style="display: inline-flex; flex-direction: row; align-content: flex-end;
-                    align-items: flex-end;">
-                    <img src="img/img_perfil.png" alt="" class="profile pb-4    ">
-                    <div class="bubble left">
-                        <div id=user${i} class='fw-bold fs-5 d-block d-md-flex'>
-                            ${comments[i].user}
-                            <div id=score${i} class='ps-md-4'> 
-                                ${estrellas}
+
+            carouselComments.push(() =>    
+                `
+                <div class="comentariosGenerales" >
+                    <div class="containerBubble" style="display: inline-flex; flex-direction: row; align-content: flex-end;
+                        align-items: flex-end;">
+                        <img src="img/img_perfil.png" alt="" class="profile pb-4    ">
+                        <div class="bubble left">
+                            <div id=user${i} class='fw-bold fs-5 d-block d-md-flex'>
+                                ${comments[i].user}
+                                <div id=score${i} class='ps-md-4'> 
+                                    ${estrellas}
+                                </div>
+                            </div>
+                            <div id=dateTime${i} class='small'>
+                                ${comments[i].dateTime}
+                            </div>
+                            <div id=descr${i} class='fst-italic'>
+                                ${comments[i].description}
                             </div>
                         </div>
-                        <div id=dateTime${i} class='small'>
-                            ${comments[i].dateTime}
-                        </div>
-                        <div id=descr${i} class='fst-italic'>
-                            ${comments[i].description}
-                        </div>
+                        
                     </div>
-                    
                 </div>
-            </div>
-                
-                `;
+                `
+            );
+            
+        };
+        
+        
+        let otroDiv = document.createElement("div");
+
+        productInfo.appendChild(otroDiv);
+
+        commentDivs.innerHTML += `<input type="button" id="carouselComments2" value="Prev" <br> 
+        <input type="button" id="carouselComments" value="Next">`;
+
+        let btnCarouselPrev = commentDivs.querySelector("#carouselComments2");
+        let btnCarouselNext = commentDivs.querySelector("#carouselComments");
+
+        btnCarouselNext.addEventListener("click", nextComment);
+        btnCarouselPrev.addEventListener("click", prevComment);
+
+        function disableButtons() {
+            if (counter <= 0) {
+                btnCarouselPrev.disabled = true;
+            } else {
+                btnCarouselPrev.disabled = false;
             };
+
+            if (counter === (comments.length-1)) {
+                btnCarouselNext.disabled = true;
+            } else {
+                btnCarouselNext.disabled = false;
+            };
+        } disableButtons();
+        
+        function displayComments(){
+            otroDiv.innerHTML = carouselComments[counter]();
+        } displayComments();
+
+        function nextComment() {
+            counter++;
+            disableButtons();
+            displayComments();
+        };
+
+        function prevComment() {
+            counter--;
+            disableButtons();
+            displayComments();
+        };
             
     }; appendComments();
+
+    
 
     //Se crea la caja de comentarios y se anexa al div principal.
     function commentBox() {
@@ -296,11 +349,15 @@ document.addEventListener("DOMContentLoaded", async () => {
             appendComments();
 
         userCmnt.value = ""
+        location.reload(true);
 
         };
         document.getElementById('commentBtn').addEventListener('click', pushNewComment);
     }; getNewComment();
+
+
 });
+
 
 
 //Cacho que arranqué para probar lo mismo con menos código
