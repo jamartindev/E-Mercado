@@ -43,4 +43,6 @@ document.addEventListener("DOMContentLoaded", function () {
     localStorage.removeItem("User");
     location.href = "login.html";
   }
+
+
 });

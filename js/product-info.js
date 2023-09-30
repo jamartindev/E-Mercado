@@ -163,10 +163,15 @@ document.addEventListener("DOMContentLoaded", async () => {
     //PUNTO 3 Y 4
     let commentDivs = document.createElement("div");
         productInfo.appendChild(commentDivs);
+
+        /*Inicializo variable contador para acceder al comentario en el array 
+        y para deshabilitar botón segun cantidad de comentarios*/
         let counter = 0;
 
     // Función que anexa los comentarios y puntuaciones en pantalla según valores del array comentarios. 
     function appendComments() {
+
+        //Variable con array vacío que va a contener el template con los comentarios a anexar
         let carouselComments = [];
 
         commentDivs.innerHTML += "<h3 class='mt-5'> Comentarios </h3>"
@@ -182,6 +187,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             }
             estrellas += "</div> "
 
+            //Encierro el template dentro de una funcion anónima y pusheo cada uno al array creado.
             carouselComments.push(() =>    
                 `
                 <div class="comentariosGenerales" >
@@ -210,20 +216,25 @@ document.addEventListener("DOMContentLoaded", async () => {
             
         };
         
-        
+        //Divs para encerrar el carrusel y botones
         let otroDiv = document.createElement("div");
+        let botonDiv = document.createElement("div");
 
+        //Anexo carrusel al html
         productInfo.appendChild(otroDiv);
+        productInfo.appendChild(botonDiv);
 
-        commentDivs.innerHTML += `<input type="button" id="carouselComments2" value="Prev" <br> 
-        <input type="button" id="carouselComments" value="Next">`;
+        //Anexo botones al div botones
+        botonDiv.innerHTML += `<input type="button" id="carouselComments2" class="btnComentarios" value="Prev" <br> 
+        <input type="button" id="carouselComments" class="btnComentarios" value="Next">`;
 
-        let btnCarouselPrev = commentDivs.querySelector("#carouselComments2");
-        let btnCarouselNext = commentDivs.querySelector("#carouselComments");
-
+        let btnCarouselPrev = botonDiv.querySelector("#carouselComments2");
+        let btnCarouselNext = botonDiv.querySelector("#carouselComments");
+        //Tomo a los botones y les asigno escuchadores
         btnCarouselNext.addEventListener("click", nextComment);
         btnCarouselPrev.addEventListener("click", prevComment);
 
+        //Función que desactiva botones según contador
         function disableButtons() {
             if (counter <= 0) {
                 btnCarouselPrev.disabled = true;
@@ -238,10 +249,13 @@ document.addEventListener("DOMContentLoaded", async () => {
             };
         } disableButtons();
         
+        /*Función que muestra comentarios accediendo al array segun el valor del contador 
+        y llamando a cada función anónima*/
         function displayComments(){
             otroDiv.innerHTML = carouselComments[counter]();
         } displayComments();
 
+        //Funciones que hacen los llamados a las funciones anteriores y aumentan o reducen valor del contador
         function nextComment() {
             counter++;
             disableButtons();
@@ -355,6 +369,12 @@ document.addEventListener("DOMContentLoaded", async () => {
         document.getElementById('commentBtn').addEventListener('click', pushNewComment);
     }; getNewComment();
 
+
+    //Botón para atrás
+    document.getElementById("btnAtrasProductInfo").addEventListener("click", function(){
+    location.href = "products.html"
+  });
+  
 
 });
 

@@ -545,8 +545,30 @@ place-self: start;
   box-shadow:0 4px 4px 1px rgba(0, 0, 0, 0.14)
 }
 
-.btnComentarios:hover{
+.btnComentarios#carouselComments2, .btnComentarios#carouselComments{
+  border: none;
+  border-radius: 5px;
+  background-color: #652fe2c9;
+  color: white;
+  width: 100px;
+  height: 30px;
+  box-shadow:0 4px 4px 1px rgba(0, 0, 0, 0.14)
+}
+
+.btnComentarios:disabled, .btnComentarios#carouselComments2:disabled, .btnComentarios#carouselComments:disabled {
+  background-color: dimgrey;
+  color: linen;
+  opacity: 1;
+}
+
+.btnComentarios:hover:enabled {
   background-color: rgb(247, 164, 56);
+  transition: ease-in 0.2s;
+  cursor: pointer;
+}
+
+.btnComentarios#carouselComments2:hover:enabled, .btnComentarios#carouselComments:hover:enabled{
+  background-color: rgb(167, 142, 236);
   transition: ease-in 0.2s;
   cursor: pointer;
 }
@@ -906,4 +928,45 @@ a:hover span {
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+/*Dropdown profile*/
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+
+/*BOTON PARA ATRAS EN PRODUCT INFO*/
+.btnAtras{
+  display: flex;
+  margin-left: 30px;
+  margin-top: 15px;
+  height:30px;
+}
+
+#btnAtrasProductInfo{
+  border: none;
+  background-color: #e99c5e;
+  border-radius: 10px;
+  color:white;
+}
+
+#btnAtrasProductInfo:hover{
+  transform: scale(1.1);
+  transition: ease 0.2s;
+  box-shadow: 0 0 6px rgb(240, 206, 175);
+}
+
+#btnAtrasProductInfo:not(:hover){
+  transition: ease 0.2s;
 }

@@ -12,7 +12,7 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark p-1">
+  <<nav class="navbar navbar-expand-md navbar-dark bg-dark p-1">
     <div class="container">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,21 +20,39 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav w-100 justify-content-between">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="categories.html">Categorías</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="sell.html">Vender</a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" id="spaceUser" href="my-profile.html"></a>
+          <li class="nav-item ms-6">
+            
+            <a class="nav-link active" href="index.html"> <!--AGREGUÉ ICONOS AL NAVBAR-->
+              <i class="fa-solid fa-house fa-lg" style="color: #f38d3a;"></i>
+              <span class="homeIcon">Inicio</span>
+              
+            </a>
           </li>
           <li class="nav-item ms-6">
-            <a class="nav-link" id="salir" href=""> Cerrar Sesion</a>
+            <a class="nav-link" href="categories.html">
+              <i class="fa-solid fa-list fa-lg" style="color: #f5c49c;"></i>
+              <span class="categoryIcon">Categorias</span>
+            </a>
           </li>
+          <li class="nav-item ms-6">
+            <a class="nav-link" href="sell.html">
+              <i class="fa-solid fa-handshake fa-lg" style="color: #f5c49c;"></i>
+              <span class="venderIcon">Vender</span>
+            </a>
+          </li>
+          <li class="nav-item ms-6">
+            
+            <div class="dropdown"> 
+              <i class="fa-solid fa-user"></i>
+            <a class="nav-link" id="spaceUser" href="my-profile.html"></a>
+            <div class="dropdown-content">
+              <a href="cart.html"> <i class="fa-solid fa-cart-shopping"></i> Mi carrito</a>
+              <a href="my-profile.html"><i class="fa-solid fa-user"></i> Mi perfil </a>
+              <a id="salir" href=""><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</a>
+            </div>
+            </div>
+          </li>
+          
         </ul>
       </div>
     </div>
@@ -229,6 +247,7 @@
   <script src="js/dropzone.js"></script>
   <script src="js/init.js"></script>
   <script src="js/sell.js"></script>
+  <script src="https://kit.fontawesome.com/d765d1fb24.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
