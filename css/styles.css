@@ -1,3 +1,49 @@
+:root {
+  --background-color:#fff;
+  --text-color:#555;
+  --title-color:#000;
+}
+.dark-theme {
+  --background-color:#000;
+  --text-color:#999;
+  --title-color:#fff;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background 0.8s, color 0.8s;
+  -webkit-transition: background 0.8s, color 0.8s;
+  -moz-transition: background 0.8s, color 0.8s;
+  -ms-transition: background 0.8s, color 0.8s;
+  -o-transition: background 0.8s, color 0.8s;
+}
+.toggle-btn {
+  
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 40px;
+  border-radius: 20px;
+  cursor: pointer;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+.toggle-btn img {
+  width: 25px;
+  margin-left: 10px;
+}
+
+.content {
+  margin-top: 10%;
+  color: var(--title-color);
+}
+
+
 .jumbotron,
 .card-body,
 .container,
@@ -60,7 +106,6 @@ nav a {
 
 .jumbotron .container {
   max-width: 40rem;
-  background-color: rgba(255, 255, 255, 0.5);
   border-radius: 10px;
   text-shadow: 1px 1px 2px grey;
 }
@@ -90,7 +135,6 @@ footer p {
 .dropzone {
   border: 2px dashed #0087F7;
   border-radius: 5px;
-  background: white;
 }
 
 .img-fit {
@@ -191,9 +235,7 @@ a.custom-card:hover {
   color: orange;
 }
 
-body {
-  background-color: white;
-}
+
 
 .container-login{
   display: flex;
@@ -459,7 +501,6 @@ width: 400px;
 
   max-width: 500px;
   padding: calc(2*var(--r)/3);
-  -webkit-mask: 
   radial-gradient(var(--t) at var(--_d) 0,#0000 98%,#000 102%) 
   var(--_d) 100%/calc(100% - var(--r)) var(--t) no-repeat,
   conic-gradient(at var(--r) var(--r),#000 75%,#0000 0) 
@@ -588,8 +629,6 @@ place-self: start;
   
 
   padding: calc(2*var(--r)/4);
-
-  -webkit-mask: 
   radial-gradient(var(--t) at var(--_d) 0,#0000 98%,#000 102%) 
   var(--_d) 100%/calc(100% - var(--r)) var(--t) no-repeat,
   conic-gradient(at var(--r) var(--r),#000 75%,#0000 0) 
@@ -969,4 +1008,50 @@ a:hover span {
 
 #btnAtrasProductInfo:not(:hover){
   transition: ease 0.2s;
+}/*MENU DE USER*/
+
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
 }
