@@ -25,6 +25,6 @@ btnDark.onclick = function () {
     localStorage.setItem("themePreference", "dark-theme");
   } else {
     btnIcon.src = "img/theme_dark.svg";
-    localStorage.setItem("themePreference", "");
+    localStorage.removeItem("themePreference");
   }
 };

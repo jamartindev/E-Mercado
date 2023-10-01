@@ -165,11 +165,6 @@ document.addEventListener("DOMContentLoaded", function(e){
     //Al hacer click se elimina al usuario del localStorage y se redirige al login.
     document.getElementById('salir').addEventListener('click', cerrarSesion);
     
-    function cerrarSesion(event) {
-        event.preventDefault();
-        localStorage.removeItem('User');
-        location.href="login.html"
-    };
 
 
 });
