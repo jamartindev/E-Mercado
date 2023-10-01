@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         // pido que me de el url de productos y el tipo de extension
     );
 
-
+    //Parte 1 del punto 1, entrega 4
     //agrega el html de los productos relacionados 
     let relatedProduct = ` 
     <div>
@@ -116,24 +116,15 @@ document.addEventListener("DOMContentLoaded", async () => {
         let element = event.currentTarget;
         let dataID = element.getAttribute("dataID"); 
         localStorage.setItem("id", dataID);
-        let newProductID = parseInt(localStorage.getItem("id"));
+        let newProductID = localStorage.getItem("id");
         getJSONData(PRODUCT_INFO_URL + newProductID + EXT_TYPE);
         window.location.reload();
-        //window.scrollTo(0, 0);
-        //(window).on('beforeunload', function() {
-          //  (window).scrollTop(0)
-        //})
-        //(document).ready(function(){
-        //    ('html').animate({scrollTop:0}, 1);
-        //    ('body').animate({scrollTop:0}, 1);
-        //});
-        //window.onload = function() {document.body.scrollTop = document.documentElement.scrollTop = 0;};
         (document).ready(function(){
-            ('html, body').scrollTop(0);
+            $('html, body').scrollTop(0);
         
-            (window).on('load', function() {
+            $(window).on('load', function() {
             setTimeout(function(){
-                ('html, body').scrollTop(0);
+                $('html, body').scrollTop(0);
             }, 0);
          });
         });
