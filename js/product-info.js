@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             ${product.currency}:${product.cost}
             </p>
         <div class="botonCarrito">
-            <button class="btnCarro">
+            <button class="btnCarro" onclick="addToCart()">
             Añadir al carrito
                 <i class="fa-solid fa-cart-arrow-down fa-lg"></i>
             </button>
@@ -369,7 +369,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 });
 
-
+// Function añadir al carrito y redireccion tomando el id del producto
+// Donde me toma el id del localstorage y me redirecciona al carrito
+// Al añadirlo y usa el id del producto mismo
+function addToCart() {
+    window.location = "cart.html"
+}
 
 //Cacho que arranqué para probar lo mismo con menos código
 
