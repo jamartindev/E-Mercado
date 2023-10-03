@@ -1058,13 +1058,60 @@ a:hover span {
 }
 
 /*CARRITO DATOS DE COMPRA*/
+/*ESTILO DE LOS DIVS*/
 #compraCarrito{
-  display: flex;
-  flex-direction: column;
-  margin-top: 30px;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 4rem;
+  padding: 2rem;
 }
 
+#direccionEnvio{
+  display: flex;
+  flex-direction: column;
+  width: 40rem;
+  background: rgba(235, 164, 50, 0.568);
+  backdrop-filter: blur( 4.5px );
+  -webkit-backdrop-filter: blur( 4.5px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  padding: 10px;
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  gap: 20px;
+}
+
+#tipoEnvio{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 4.5px );
+  -webkit-backdrop-filter: blur( 4.5px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  padding: 10px;
+  background: rgba(235, 164, 50, 0.568);
+}
+
+.inputDireccion{
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  opacity: 0.6;
+}
+
+.inputDireccion:hover{
+  opacity: 1;
+  box-shadow: 0 0 5px white;
+}
+
+.inputDireccion:focus{
+  outline: none;
+  opacity: 1;
+  box-shadow: 0 0 5px white;
+}
+
+/*TARJETAS DE TIPOS DE ENVIO*/
 .wrapper {
   position: relative;
   display: flex;
@@ -1085,7 +1132,7 @@ a:hover span {
   transform: scale(1.05);
 }
 
-.input {
+.inputTipoEnvio {
   position: relative;
   top: 0;
   left: 0;
@@ -1100,7 +1147,7 @@ a:hover span {
               -1px -1px 10px #ffffff;
 }
 
-.input + .check::before {
+.inputTipoEnvio + .check::before {
   content: "";
   position: absolute;
   top: 15px;
@@ -1112,38 +1159,41 @@ a:hover span {
   background-color: #E8E8E8;
 }
 
-.input:checked + .check::after {
+.inputTipoEnvio:checked + .check::after {
   content: '';
   position: absolute;
-  top: 19px;
-  right: 19px;
+  top: 17px;
+  right: 17px;
   width: 12px;
   height: 12px;
   background-color: rgba(255,0,0,0.7);
   border-radius: 50%;
 }
 
-.input[value="standart"]:checked + .check::after {
-  background-color: rgba(255,165,0,0.7);
+.inputTipoEnvio[value="standar"]:checked + .check::after {
+  background-color: rgba(255, 0, 0, 0.7);
 }
 
-.input[value="premium"]:checked + .check::after {
+.inputTipoEnvio[value="premium"]:checked + .check::after {
   background-color: rgba(0,128,0,0.7);
 }
-
-.input[value="basic"]:checked {
-  border: 1.5px solid rgba(255,0,0,0.7);
+.inputTipoEnvio[value="express"]:checked + .check::after {
+  background-color: rgb(248, 234, 38);
 }
 
-.input[value="standart"]:checked {
-  border: 1.5px solid rgba(255,165,0,0.7);
+.inputTipoEnvio[value="express"]:checked {
+  border: 1.5px solid rgba(255, 230, 0, 0.7);
 }
 
-.input[value="premium"]:checked {
+.inputTipoEnvio[value="standar"]:checked {
+  border: 1.5px solid rgba(241, 86, 80, 0.7);
+}
+
+.inputTipoEnvio[value="premium"]:checked {
   border: 1.5px solid rgba(0,128,0,0.7);
 }
 
-.label {
+.labelTipoEnvio {
   color: #323232;
   position: absolute;
   top: 0;
@@ -1151,22 +1201,15 @@ a:hover span {
   z-index: 0;
 }
 
-.label .title {
+.labelTipoEnvio .title {
   margin: 15px 0 0 15px;
-  font-weight: 900;
   font-size: 15px;
-  letter-spacing: 1.5px;
 }
 
-.label .price {
-  margin: 20px 0 0 15px;
-  font-size: 20px;
-  font-weight: 900;
-}
 
-.label .span {
+
+.labelTipoEnvio .span {
   color: gray;
-  font-weight: 700;
-  font-size: 15px;
+  padding: 15px;
 }
 
