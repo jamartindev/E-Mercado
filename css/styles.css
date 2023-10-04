@@ -829,14 +829,15 @@ a:hover span {
 
 /*CATEGORIA*/
 
-.list-group{
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  grid-column-gap: 30px;
-  grid-row-gap: 30px;
-  display: grid;
-  margin-top: 20px;
+
+#cat-list-container{
+  gap: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
 }
+
 
 .card {
   position: relative;
@@ -1059,38 +1060,37 @@ a:hover span {
 
 /*CARRITO DATOS DE COMPRA*/
 /*ESTILO DE LOS DIVS*/
-#compraCarrito{
-  display: grid;
-  grid-template-columns: 2fr 3fr;
-  gap: 4rem;
-  padding: 2rem;
+#datosCompra{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem;
+  background: #f19d57cb;
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 7px );
+-webkit-backdrop-filter: blur( 7px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+color: #000;
+max-width: 700px;
+  
 }
 
 #direccionEnvio{
   display: flex;
   flex-direction: column;
-  width: 40rem;
-  background: rgba(235, 164, 50, 0.568);
-  backdrop-filter: blur( 4.5px );
-  -webkit-backdrop-filter: blur( 4.5px );
-  border-radius: 10px;
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
-  padding: 10px;
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
   gap: 20px;
 }
 
 #tipoEnvio{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 10px;
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-  backdrop-filter: blur( 4.5px );
-  -webkit-backdrop-filter: blur( 4.5px );
-  border-radius: 10px;
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
-  padding: 10px;
-  background: rgba(235, 164, 50, 0.568);
+  justify-content: center;
+  align-items: center;
+  
 }
 
 .inputDireccion{
