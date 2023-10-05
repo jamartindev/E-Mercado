@@ -21,10 +21,10 @@ if (themePreference) {
 btnDark.onclick = function () {
   document.body.classList.toggle("dark-theme");
   if (document.body.classList.contains("dark-theme")) {
-    btnIcon.src = "img/theme_light.svg";
+    btnIcon.src = "img/sun.png";
     localStorage.setItem("themePreference", "dark-theme");
   } else {
-    btnIcon.src = "img/theme_dark.svg";
+    btnIcon.src = "img/night-mode.png";
     localStorage.removeItem("themePreference");
   }
 };

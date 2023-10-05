@@ -96,6 +96,8 @@ nav a {
   
 }
 
+
+
 .jumbotron p:last-child {
   margin-bottom: 0;
 }
@@ -406,9 +408,11 @@ color: rgb(3, 3, 3);
 }
 
 /*ESTILO DE DEL DIV GENERAL*/
-.info{
+#infoDivs{
   display: flex;
-  gap: 40px; 
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
 }
 
 /*ESTILO DEL DIV DE INFORMACIÓN DE PRODUCTOS*/
@@ -422,9 +426,12 @@ padding: 20px;
 color: rgb(3, 3, 3);
 display: flex;
 flex-direction: column;
-justify-content: space-evenly;
+justify-content: space-between;
 align-items: flex-start;
 width: 400px;
+height: 500px;
+
+
 }
 
 .title{
@@ -437,11 +444,18 @@ width: 400px;
   
 }
 
+
+
 /*ESTILO DE DIV PARA LOS COMENTARIOS*/
 #comentarios{
   display: flex;
   flex-direction: column;
   padding: 50px;
+}
+
+#tuComentario{
+  display: flex;
+  flex-direction: column;
 }
 
 #txtComment{
@@ -619,11 +633,13 @@ place-self: start;
   width: 60px;
 }
 
-.comentariosGenerales{
+#comentariosGenerales{
   padding: 30px;
+  display: flex;
+  justify-content: start
 }
 
-.comentariosGenerales .bubble{
+#comentariosGenerales .bubble{
   --r: 40px; /* el radio  */
   --t: 20px; /* tamaño cola */
   width: 500px;
@@ -640,7 +656,7 @@ place-self: start;
   color: #fff;
 }
 
-.comentariosGenerales .profile{
+#comentariosGenerales .profile{
   width: 40px;
 }
 
@@ -925,7 +941,11 @@ a:hover span {
 
 
 #relacionados{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 20px;
+
 }
 
 

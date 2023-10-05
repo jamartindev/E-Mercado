@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     <div>
         <h3 class='mt-5 mb-5'> Productos relacionados </h3>
     </div>
-    <div id="relacionados" class="d-flex">`
+    <div id="relacionados" class="container">`
     for (let i=0; i<respondeID.data.relatedProducts.length; i++) {
         let eachRelatedProduct = `
         <div class="divSuggestedElement" dataID="${respondeID.data.relatedProducts[i].id}">
@@ -44,34 +44,35 @@ document.addEventListener("DOMContentLoaded", async () => {
             <hr class="linea">
             </div>
         
-            <div class="info"> 
-            <div id="imageBg" class="ImageBg">
-            </div>
-            <div class="image" id="image">
-            </div>
-            <div id="informacion">
+            <div id="infoDivs" class="row"> 
+                <div id="imageBg" class="ImageBg">
+                </div>
+                <div class="image" id="image">
+                </div>
+
+                <div id="informacion">
             
-            <p class="title">
-            <span style="font-weight: bold;">
-            </span> ${product.description}
+                <span style="font-weight: bold;">
+                </span> ${product.description}
+                </p>
+                <p class="title">
+                <span style="font-weight: bold;">
+                Categoría</span><br> ${product.category}
+                </p>
+                <p class="title">
+                <span style="font-weight: bold;">
+                Cantidad de vendidos</span><br> ${product.soldCount}</p>
+                <p class="title" id="precioProducto">
+                <p id="precioProducto" class="title">
+                
+                ${product.currency}:${product.cost}
             </p>
-            <p class="title">
-            <span style="font-weight: bold;">
-            Categoría</span><br> ${product.category}
-            </p>
-            <p class="title">
-            <span style="font-weight: bold;">
-            Cantidad de vendidos</span><br> ${product.soldCount}</p>
-            <p class="title" id="precioProducto">
- 
-            ${product.currency}:${product.cost}
-            </p>
-        <div class="botonCarrito">
+            <div class="botonCarrito">
             <button class="btnCarro" onclick="addToCart()">
             Añadir al carrito
                 <i class="fa-solid fa-cart-arrow-down fa-lg"></i>
             </button>
-        </div>
+                </div>
             </div>
             </div>
         </div>
@@ -181,7 +182,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             //Encierro el template dentro de una funcion anónima y pusheo cada uno al array creado.
             carouselComments.push(() =>    
                 `
-                <div class="comentariosGenerales" >
+                <div id="comentariosGenerales" class="container" >
                     <div class="containerBubble" style="display: inline-flex; flex-direction: row; align-content: flex-end;
                         align-items: flex-end;">
                         <img src="img/img_perfil.png" alt="" class="profile pb-4    ">
@@ -269,7 +270,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         productInfo.appendChild(commentsBox);
         commentsBox.innerHTML = `
         
-        <div class="tuComentario" style="padding: 30px">
+        <div id="tuComentario" class="container" style="padding: 30px">
             <h3 class='mt-4 mb-4'> Escribe tu comentario </h3>
                 <div class="containerBubble" style="display: inline-flex;
                     flex-direction: row;

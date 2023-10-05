@@ -18,7 +18,7 @@
       `;
     }
     document.getElementById('contenidoCarrito').innerHTML = body
-  }
+  } 
 
 // Esta a medio camino pero solo falta mostrar los datos como cualquier fetch
 // Ya tiene una funcion de onclick que me redirije al carrito
