@@ -13,10 +13,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     //Parte 1 del punto 1, entrega 4
     //agrega el html de los productos relacionados 
     let relatedProduct = ` 
-    <div>
-        <h3 class='mt-5 mb-5'> Productos relacionados </h3>
+    <div class="container-fluid">
+        <h3 class='titulosP mt-5 mb-5'> Productos relacionados </h3>
     </div>
-    <div id="relacionados" class="container">`
+    <div id="relacionados" class="container-fluid">`
     for (let i=0; i<respondeID.data.relatedProducts.length; i++) {
         let eachRelatedProduct = `
         <div class="divSuggestedElement" dataID="${respondeID.data.relatedProducts[i].id}">
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         productInfo.innerHTML = `
             <div id="name">
             <hr class="linea">
-            <h1>${product.name}<h1>
+            <h1 class="titulosP">${product.name}<h1>
             <hr class="linea">
             </div>
         
@@ -166,7 +166,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         //Variable con array vacío que va a contener el template con los comentarios a anexar
         let carouselComments = [];
 
-        commentDivs.innerHTML += "<h3 class='mt-5'> Comentarios </h3>"
+        commentDivs.innerHTML += "<h3 class='titulosP mt-5'> Comentarios </h3>"
 
         for (let i = 0; i < comments.length; i++) {
             let estrellas = `<div class="rating">`;
@@ -182,9 +182,8 @@ document.addEventListener("DOMContentLoaded", async () => {
             //Encierro el template dentro de una funcion anónima y pusheo cada uno al array creado.
             carouselComments.push(() =>    
                 `
-                <div id="comentariosGenerales" class="container" >
-                    <div class="containerBubble" style="display: inline-flex; flex-direction: row; align-content: flex-end;
-                        align-items: flex-end;">
+                <div id="comentariosGenerales" class="container-fluid">
+                    <div class="mx-auto" style="display: flex; flex-direction: row; width: 50vh; align-items: flex-end">
                         <img src="img/img_perfil.png" alt="" class="profile pb-4    ">
                         <div class="bubble left">
                             <div id=user${i} class='fw-bold fs-5 d-block d-md-flex'>
@@ -217,8 +216,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         productInfo.appendChild(botonDiv);
 
         //Anexo botones al div botones
-        botonDiv.innerHTML += `<input type="button" id="carouselComments2" class="btnComentarios" value="Prev" <br> 
-        <input type="button" id="carouselComments" class="btnComentarios" value="Next">`;
+        botonDiv.innerHTML += `<div class="container-fluid"> <div class="mx-auto"> <input type="button" id="carouselComments2" class="btnComentarios" value="Prev"> 
+        <input type="button" id="carouselComments" class="btnComentarios" value="Next"> </div> </div>`;
 
         let btnCarouselPrev = botonDiv.querySelector("#carouselComments2");
         let btnCarouselNext = botonDiv.querySelector("#carouselComments");
@@ -270,9 +269,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         productInfo.appendChild(commentsBox);
         commentsBox.innerHTML = `
         
-        <div id="tuComentario" class="container" style="padding: 30px">
-            <h3 class='mt-4 mb-4'> Escribe tu comentario </h3>
-                <div class="containerBubble" style="display: inline-flex;
+        <div id="tuComentario" class="container-fluid" style="padding: 30px">
+            <h3 class='titulosP mt-5 mb-4'> Escribe tu comentario </h3>
+                <div class="mx-auto" style="display: inline-flex;
                     flex-direction: row;
                         align-content: flex-end;
                         align-items: flex-end;">

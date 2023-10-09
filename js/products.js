@@ -24,6 +24,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   // Función para mostrar los productos en el contenedor.
   function mostrarProductos() {
     container.innerHTML = "";
+    let xMedia = window.matchMedia("(max-width: 786px)");
+
 
     for (let i = 0; i < products.length; i++) {
       let name = products[i].name;
@@ -38,29 +40,47 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       divs.setAttribute("class", "hideShow"); //Crea una clase a cada div para referenciar en el DOM.
 
-      divs.innerHTML = `
+      function checkMedia (mediaQ) {
+        if (mediaQ.matches) {
+          divs.innerHTML = 
+          `
+          <div class="card" id="${productID}" onclick="seleccionarProducto(id)">
+          <img src="${image}" class="img-thumbnail" alt="${description}">
+          <div class="card__content">
+            <p class="card__title" id=nameDiv${i}${name} - ${currency} ${cost}</p>
+            <p class="card__description" id=descDiv${i}> ${description} </p>
+            <small class="card__description"> ${soldCount} vendidos</small>
+          </div>`
+        } else {
+          divs.innerHTML = `
       
-      <div class="articleProduct cursor-active" id="${productID}" onclick="seleccionarProducto(id)">
-          <div class="text-bg-dark me-sm-3 pt-5 px-3 pt-md-5 px-md-5">
-              <div class="my-2 py-2">
-  
-                    <div class="d-flex shadow justify-content-between ">
-                      <div class="d-flex">
-                        <img src="${image}" class="p-2" width="250px">
-                        <div class="ms-3">
-                          <p class="h2 fw-normal" id=nameDiv${i}>${name} - ${currency} ${cost}</p> 
-                          <p id=descDiv${i}>${description}</p>
-                        </div>   
-                      </div>   
-                      <small class="me-3 mt-2"> ${soldCount} vendidos</small>
-                    </div>
+          <div class="container-fluid cursor-active" id="${productID}" onclick="seleccionarProducto(id)">
+              <div class="text-bg-dark me-sm-3 pt-5 px-3 pt-md-5 px-md-5">
+                  <div class="my-2 py-2">
+      
+                        <div class="d-flex shadow justify-content-between ">
+                          <div class="d-flex">
+                            <img src="${image}" class="p-2" width="250px" height="200px">
+                            <div class="ms-3">
+                              <p class="h2 fw-normal" id=nameDiv${i}>${name} - ${currency} ${cost}</p> 
+                              <p id=descDiv${i}>${description}</p>
+                            </div>   
+                          </div>   
+                          <small class="me-3 mt-2"> ${soldCount} vendidos</small>
+                        </div>
+                  </div>
               </div>
           </div>
-      </div>
           `;
+        }
+      };
+
+      checkMedia (xMedia);
       container.appendChild(divs);
     }
 
+    
+    
     document
       .getElementById("sortAsc")
       .addEventListener("click", filtrarPrecioAsc);
@@ -119,6 +139,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
   // Mostrar los productos por defecto
   mostrarProductos();
+
 
   //Desafíate
 

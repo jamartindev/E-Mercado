@@ -21,7 +21,9 @@ if (themePreference) {
 btnDark.onclick = function () {
   document.body.classList.toggle("dark-theme");
   if (document.body.classList.contains("dark-theme")) {
+    if (btnIcon.src !== "img/sun.png"){
     btnIcon.src = "img/sun.png";
+    };
     localStorage.setItem("themePreference", "dark-theme");
   } else {
     btnIcon.src = "img/night-mode.png";

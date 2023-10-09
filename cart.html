@@ -13,57 +13,56 @@
 
 <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark p-1">
-    <div class="container">
+    <div class="container-fluid w-100" >
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav w-100 justify-content-between">
-          <li class="nav-item ms-6">
-            
+        <ul class="navbar-nav flex-row w-100 justify-content-between">
+          <li class="nav-item  px-lg-5 px-sm-3 px-1">
+
             <a class="nav-link active" href="index.html"> <!--AGREGUÉ ICONOS AL NAVBAR-->
               <i class="fa-solid fa-house fa-lg" style="color: #f38d3a;"></i>
               <span class="homeIcon">Inicio</span>
-              
+
             </a>
           </li>
-          <li class="nav-item ms-6">
+          <li class="nav-item  px-lg-5 px-sm-3 px-1">
             <a class="nav-link" href="categories.html">
               <i class="fa-solid fa-list fa-lg" style="color: #f5c49c;"></i>
               <span class="categoryIcon">Categorias</span>
             </a>
           </li>
-          <li class="nav-item ms-6">
+          <li class="nav-item  px-lg-5 px-sm-3 px-1">
             <a class="nav-link" href="sell.html">
               <i class="fa-solid fa-handshake fa-lg" style="color: #f5c49c;"></i>
               <span class="venderIcon">Vender</span>
             </a>
           </li>
-          <li class="nav-item ms-6">
+          <li class="nav-item  px-lg-5 px-sm-3 px-1">
             <div class="toggle-btn" id="btn-dark">
-            <img src="img/theme_dark.svg" id="btnIcon">
-          </div>
+              <img src="img/night-mode.png" id="btnIcon">
+            </div>
           </li>
-          </li>
-          <li class="nav-item ms-6">
-            
-            <div class="dropdown"> 
+          <li class="nav-item  px-lg-5 px-sm-3 px-1">
+
+            <div class="dropdown">
               <i class="fa-solid fa-user"></i>
-            <a class="nav-link" id="spaceUser" href="my-profile.html"></a>
-            <div class="dropdown-content">
-              <a href="cart.html"> <i class="fa-solid fa-cart-shopping"></i> Mi carrito</a>
-              <a href="my-profile.html"><i class="fa-solid fa-user"></i> Mi perfil </a>
-              <a id="salir" href=""><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</a>
-            </div>
+              <a class="nav-link" id="spaceUser" href="my-profile.html"></a>
+              <div class="dropdown-content">
+                <a href="cart.html"> <i class="fa-solid fa-cart-shopping"></i> Mi carrito</a>
+                <a href="my-profile.html"><i class="fa-solid fa-user"></i> Mi perfil </a>
+                <a id="salir" href=""><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</a>
+              </div>
             </div>
           </li>
-          
+
         </ul>
       </div>
     </div>
   </nav>
-  <div class="container mt-4 shadow-lg p3 mb-5 bg-body rounded">
+  <div class="table-responsive mt-4 shadow-lg p3 mb-5 bg-body rounded">
     <table class="table table-bordered table-striped">
       <thead>
         <tr>
@@ -77,19 +76,20 @@
 
       </tbody>
     </table>
+    </div>
   </div>
-  <main>
+  <main class="container-fluid">
 
 <!--DIVS PARA TIPO DE ENVIO Y DATOS DE ENVIO-->
-    <div id="datosCompra" class="container d-flex">
+    <div id="datosCompra" class="container-fluid">
       <h2>Tipo de envio</h2>
-        <div id="tipoEnvio"  class="flex-container">
+        <div id="tipoEnvio"  class="container-fluid">
           
           <div class="cardCompras">
           <input class="inputTipoEnvio" type="radio" name="card" value="standar">
           <span class="check"></span>
           <label class="labelTipoEnvio">
-            <div class="title"><h5>Standar</h5></div>
+            <div class="title"><h5 class="title">Standard</h5></div>
             <div class="price">
               <span class="span">12 a 15 días</span>
               
@@ -100,7 +100,7 @@
           <input class="inputTipoEnvio" type="radio" name="card" value="express">
           <span class="check"></span>
           <label class="labelTipoEnvio">
-            <div class="title"><h5>Express</h5></div>
+            <div class="title"><h5 class="title">Express</h5></div>
             <div class="price">
               <span class="span">5 a 8 días</span>
               
@@ -112,7 +112,7 @@
           <input class="inputTipoEnvio" type="radio" name="card" value="premium">
           <span class="check"></span>
           <label class="labelTipoEnvio">
-            <div class="title"><h5>Premium</h5></div>
+            <div class="title"><h5 class="title">Premium</h5></div>
             <div class="price">
               <span class="span">2 a 5 días</span>
             
