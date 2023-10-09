@@ -14,12 +14,13 @@
 
 <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark p-1">
-    <div class="container">
+    <div class="container-fluid w-100" >
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
+<<<<<<< Updated upstream
         <ul class="navbar-nav w-100 justify-content-between">
           <li class="nav-item ms-6">
             <a class="nav-link active" href="index.html">Inicio</a>
@@ -36,15 +37,63 @@
           <li class="nav-item ms-6">
             <a class="nav-link" id="salir" href=""> Cerrar Sesion</a>
           </li>
+=======
+        <ul class="navbar-nav flex-row w-100 justify-content-between">
+          <li class="nav-item  px-lg-5 px-sm-3 px-1">
+
+            <a class="nav-link active" href="index.html"> <!--AGREGUÉ ICONOS AL NAVBAR-->
+              <i class="fa-solid fa-house fa-lg" style="color: #f38d3a;"></i>
+              <span class="homeIcon">Inicio</span>
+
+            </a>
+          </li>
+          <li class="nav-item  px-lg-5 px-sm-3 px-1">
+            <a class="nav-link" href="categories.html">
+              <i class="fa-solid fa-list fa-lg" style="color: #f5c49c;"></i>
+              <span class="categoryIcon">Categorias</span>
+            </a>
+          </li>
+          <li class="nav-item  px-lg-5 px-sm-3 px-1">
+            <a class="nav-link" href="sell.html">
+              <i class="fa-solid fa-handshake fa-lg" style="color: #f5c49c;"></i>
+              <span class="venderIcon">Vender</span>
+            </a>
+          </li>
+          <li class="nav-item  px-lg-5 px-sm-3 px-1">
+            <div class="toggle-btn" id="btn-dark">
+              <img src="img/night-mode.png" id="btnIcon">
+            </div>
+          </li>
+          <li class="nav-item  px-lg-5 px-sm-3 px-1">
+
+            <div class="dropdown">
+              <i class="fa-solid fa-user"></i>
+              <a class="nav-link" id="spaceUser" href="my-profile.html"></a>
+              <div class="dropdown-content">
+                <a href="cart.html"> <i class="fa-solid fa-cart-shopping"></i> Mi carrito</a>
+                <a href="my-profile.html"><i class="fa-solid fa-user"></i> Mi perfil </a>
+                <a id="salir" href=""><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</a>
+              </div>
+            </div>
+          </li>
+
+>>>>>>> Stashed changes
         </ul>
       </div>
     </div>
   </nav>
   <main>
+<<<<<<< Updated upstream
     <div class="container">
       <div class="alert alert-danger text-center" role="alert">
         <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
       </div>
+=======
+    <div class="btnAtras">
+      <button id="btnAtrasProductInfo"><i class="fa-solid fa-arrow-left fa-l" style="color: white;"></i> Volver </button>
+    </div>
+    <div class="container-fluid" id="product-info">
+>>>>>>> Stashed changes
     </div>
   </main>
   <footer class="text-muted">
