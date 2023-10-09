@@ -1,3 +1,5 @@
+document.addEventListener('DOMContentLoaded', ()=> {
+
 let url = 'https://japceibal.github.io/emercado-api/user_cart/25801.json';
 // Fetch a la url para obtener los datos
 fetch(url)
@@ -27,3 +29,5 @@ let Subtotal = (precioUnit, cantidad, indice) => {
   const subtotal = precioUnit * cantidad;
   document.getElementById(`subtotal${indice}`).textContent = subtotal;
 };
+
+});

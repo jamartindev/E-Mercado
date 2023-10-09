@@ -1,3 +1,5 @@
+document.addEventListener('DOMContentLoaded', ()=> {
+
 // Busco los botones y llamo sus id para vincularlos con la funcion del modo oscuro
 let btnDark = document.getElementById('btn-dark');
 let btnIcon = document.getElementById('btnIcon');
@@ -30,3 +32,5 @@ btnDark.onclick = function () {
     localStorage.removeItem("themePreference");
   }
 };
+
+});
