@@ -24,6 +24,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   // Función para mostrar los productos en el contenedor.
   function mostrarProductos() {
     container.innerHTML = "";
+
+    //Variable que verifica si el tamaño de pantalla concuerda con pantallas chicas
     let xMedia = window.matchMedia("(max-width: 786px)");
 
 
@@ -40,6 +42,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       divs.setAttribute("class", "hideShow"); //Crea una clase a cada div para referenciar en el DOM.
 
+      /*Función que verifica si el tamaño de pantalla actual está dentro de un rango de tamaños y 
+      cambia la manera en que se ven los productos si estos se visualizan desde pantallas en ese rango.
+      Se aplica el mismo formato de categorías */
+      
       function checkMedia (mediaQ) {
         if (mediaQ.matches) {
           divs.innerHTML = 

@@ -23,14 +23,23 @@ if (themePreference) {
 btnDark.onclick = function () {
   document.body.classList.toggle("dark-theme");
   if (document.body.classList.contains("dark-theme")) {
-    if (btnIcon.src !== "img/sun.png"){
-    btnIcon.src = "img/sun.png";
-    };
+    changeIcon();
     localStorage.setItem("themePreference", "dark-theme");
   } else {
-    btnIcon.src = "img/night-mode.png";
     localStorage.removeItem("themePreference");
+    changeIcon();
   }
 };
+
+//Función que cambia ícono de sol/luna en cada página según el tema elegido
+function changeIcon() {
+  if (document.body.classList.contains("dark-theme")) {
+    btnIcon.src = "img/sun.png";
+  } else {
+    btnIcon.src = "img/night-mode.png";
+  }
+};
+
+window.addEventListener('load', changeIcon);
 
 });
