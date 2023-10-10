@@ -1379,3 +1379,20 @@ max-width: 70vh;
   padding: 1.5vh;
   font-size: 1.5vh;
 }
+
+#botonEnviar{
+  
+  position: relative;
+  width: 75px;
+  height: 50px;
+  background: #fff;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  border-radius: 10px;
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 7px );
+  transition: all 0.3s;
+}
+
+#botonEnviar:hover {
+transform: scale(1.05);
+}

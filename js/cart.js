@@ -31,3 +31,25 @@ let Subtotal = (precioUnit, cantidad, indice) => {
 };
 
 });
+
+// button id="botonEnviar"
+
+//   Primero encontramos el elemento con ID=boton
+let boton = document.getElementById("botonEnviar");
+
+ //   Agregamos EventListener para que al hacer Click,
+  //     se cambie  el boton a color blue
+  boton.addEventListener("click", function () {
+    boton.style.color = " #f19d57cb";
+    boton.disable = true
+  });
+
+  // 👇️ Cambiar color al PONERLE el mouse arriba
+  boton.addEventListener("mouseover", function handleMouseOver() {
+    boton.style.color = " #f19d57cb"; // Esto cambia el color del texto
+  });
+
+  // 👇️ Cambiar color al SACARLE el mouse de arriba al mismo color
+  boton.addEventListener("mouseout", function handleMouseOut() {
+    boton.style.color = "black"
+  });
