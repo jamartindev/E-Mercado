@@ -1371,13 +1371,13 @@ max-width: 70vh;
 
 .labelTipoEnvio .title {
   margin: 1.8vh 0 0 0.5vh;
-  font-size: 2vh;
+  font-size: 2.5vh;
 }
 
 .labelTipoEnvio .span {
   color: gray;
   padding: 1.5vh;
-  font-size: 1.5vh;
+  font-size: 2vh;
 }
 
 #botonEnviar{
