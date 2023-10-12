@@ -1,8 +1,9 @@
 function addToCart(producto) {
-  if (!localStorage.getItem("carrito")) {
-    localStorage.setItem("carrito", JSON.stringify([]))
+  let carritoKey = "carrito";
+  if (!localStorage.getItem(carritoKey)) {
+    localStorage.setItem(carritoKey, JSON.stringify([]))
   }
-  let carrito = (JSON.parse(localStorage.getItem("carrito")));
+  let carrito = (JSON.parse(localStorage.getItem(carritoKey)));
   carrito.push(producto);
-  localStorage.setItem("carrito", JSON.stringify(carrito));
+  localStorage.setItem(carritoKey, JSON.stringify(carrito));
 }
