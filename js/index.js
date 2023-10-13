@@ -47,3 +47,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 });
+
+//funcion para botones volver atras
+function goBack() {
+  // Vuelve a la página anterior
+  window.history.back();
+}
+

@@ -275,11 +275,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         
         <div id="tuComentario" class="container-fluid" style="padding: 30px">
             <h3 class='titulosP mt-5 mb-4'> Escribe tu comentario </h3>
-                <div class="mx-auto" style="display: inline-flex;
+                <div  id="comentarioPersonal" class="mx-auto" style="display: inline-flex;
                     flex-direction: row;
                         align-content: flex-end;
                         align-items: flex-end;">
-                        <div class="bubble left">
+                        
                             <div class="comentariosBubble">
                                 <label class='mt-2'> Tu opinión </label>
                                     <input type='text' id="commentUser">
@@ -299,7 +299,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                                         <button id="commentBtn" class="btnComentarios">Enviar </button>
                                     </div>
                             </div>
-                        </div>
+                       
                 </div>
         </div>
 
@@ -365,10 +365,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }; getNewComment();
 
 
-    //Botón para atrás
-    document.getElementById("btnAtrasProductInfo").addEventListener("click", function(){
-    location.href = "products.html"
-  });
+   
   
 
 });
