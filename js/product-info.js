@@ -1,3 +1,5 @@
+let product
+
 document.addEventListener("DOMContentLoaded", async () => {
 
     // Constante que me toma el id de cada producto
@@ -33,7 +35,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     // En esta funcion pido los datos para poner la informacion del contenido
     function getProductDetails() {
     
-        let product = respondeID.data;
+        product = respondeID.data;
             // Pido los datos del json en este caso los datos de productos
 
         // Armo esta funcion para mostrar el contenido en el html usando el div del html product-info
@@ -68,7 +70,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 ${product.currency}:${product.cost}
             </p>
             <div class="botonCarrito">
-            <button class="btnCarro" onclick="addToCart()">
+            <button class="btnCarro" id="btnCarro">
             Añadir al carrito
                 <i class="fa-solid fa-cart-arrow-down fa-lg"></i>
             </button>
@@ -80,6 +82,8 @@ document.addEventListener("DOMContentLoaded", async () => {
             ${relatedProduct}
         </div>
         `
+        productoCargado (); 
+          
         // Me toma el id del div de imagenes creado con el innerHTML
         // para llamar las imagenes como el resto del contenido
         const imageContainer = document.getElementById("image");
@@ -369,34 +373,41 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 });
 
-// Function añadir al carrito y redireccion tomando el id del producto
-// Donde me toma el id del localstorage y me redirecciona al carrito
-// Al añadirlo y usa el id del producto mismo
-function addToCart() {
-    window.location = "cart.html"
+
+//Función para agregar en un arreglo al localStorage los datos del producto
+//Chequea: si no existe en el localStorage el "carrito", lo crea como un arreglo vacío, 
+//luego pushea el producto que se le de de parámetro al arreglo y lo guarda en el localStorage
+//Si el producto estaba agregado al carrito, quantity (en el html es cantidad), se suma 1 en vez de agregar otro elemento html al navegador
+
+let carritoKey = "carrito";
+
+function addToCart(producto) {
+    if (!localStorage.getItem(carritoKey)) {
+        localStorage.setItem(carritoKey, JSON.stringify([]))
+    }
+    
+    let carrito = (JSON.parse(localStorage.getItem(carritoKey)));
+    let esta = -1;
+
+    for (let i = 0; i < carrito.length; i++) {
+        if (carrito[i].id == producto.id) {
+            esta = i;
+        }
+    }
+    if (esta > -1) {
+        carrito[esta].quantity += 1
+    } else {
+        producto.quantity = 1
+        carrito.push(producto);
+    }
+    localStorage.setItem(carritoKey, JSON.stringify(carrito));
 }
 
-//Cacho que arranqué para probar lo mismo con menos código
+// esta función es para escuchar el botón y llamar a la función addToCart, redirige a cart.html
 
-/*let newCommentDiv = document.createElement("div");
-            commentDivs.appendChild(newCommentDiv)
-            newCommentDiv.innerHTML = `
-            <div class="comentariosGenerales"
-                <div class="containerBubble" style="display: inline-flex; flex-direction: row; align-content: flex-end; align-items: flex-end;">
-                    <img src="img/img_perfil.png" alt="" class="profile pb-4">
-                    <div class="bubble left">
-                        <div class='fw-bold fs-5 d-block d-md-flex'>
-                            ${newComment.user}
-                            <div class='ps-md-4'> 
-                                ${newComment.score}
-                            </div>
-                        </div>
-                            <div class='small'>
-                                ${newComment.dateTime}
-                            </div>
-                            <div class='fst-italic'>
-                                ${newComment.description}
-                            </div>
-                </div>
-            </div>
-        `*/
+function productoCargado () {
+    document.getElementById("btnCarro").addEventListener("click", () => {
+        addToCart(product)
+        window.location = "cart.html"
+    })
+}
