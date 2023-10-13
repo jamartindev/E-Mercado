@@ -112,6 +112,15 @@ nav a {
   
 }
 
+.megatron-light {
+  background-image: url('../img/cover_back.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100%;
+  
+}
+
 @media (max-width: 767px) {
   .container-megatron {
     width: 95%;
@@ -120,6 +129,15 @@ nav a {
 
   .megatron {
     background-image: url('../img/login.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100%;
+    
+  }
+
+  .megatron-light {
+    background-image: url('../img/loginLight.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -155,9 +173,6 @@ nav a {
   }
 }
 
-/*FIN IMAGEN DE PORTADA RESPONSIVE*/
-
-
 .megatron p:last-child {
   margin-bottom: 0;
 }
@@ -175,6 +190,10 @@ nav a {
 .megatron .lead {
   font-size: 38px;
 }
+
+/*FIN IMAGEN DE PORTADA RESPONSIVE*/
+
+
 
 footer {
   padding-top: 3rem;
