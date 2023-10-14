@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     for (let i=0; i<respondeID.data.relatedProducts.length; i++) {
         let eachRelatedProduct = `
         <div class="divSuggestedElement" dataID="${respondeID.data.relatedProducts[i].id}">
-            <img src="${respondeID.data.relatedProducts[i].image}" width="200"  dataID="${respondeID.data.relatedProducts[i].id}">
+            <img src="${respondeID.data.relatedProducts[i].image}" width="150"  dataID="${respondeID.data.relatedProducts[i].id}">
             <p class="mt-3" dataID="${respondeID.data.relatedProducts[i].id}"> ${respondeID.data.relatedProducts[i].name} </p>
         </div>
         `
