@@ -1441,3 +1441,20 @@ max-width: 70vh;
 #botonEnviar:hover {
 transform: scale(1.05);
 }
+
+
+/*METODO DE PAGO*/
+
+.payment-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.payment-container label {
+  margin-right: 10px;
+}
+
+.payment-details {
+  display: none;
+}

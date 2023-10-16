@@ -89,3 +89,16 @@ function dibujarCarrito() {
   }
   document.getElementById('contenidoCarrito').innerHTML += body
 }
+
+function togglePaymentDetails(paymentMethod) {
+  const bankTransferDetails = document.getElementById('bankTransferDetails');
+  const creditCardDetails = document.getElementById('creditCardDetails');
+
+  if (paymentMethod === 'bankTransfer') {
+    bankTransferDetails.style.display = 'block';
+    creditCardDetails.style.display = 'none';
+  } else if (paymentMethod === 'creditCard') {
+    bankTransferDetails.style.display = 'none';
+    creditCardDetails.style.display = 'block';
+  }
+}

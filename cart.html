@@ -138,6 +138,57 @@
                 <button id="botonEnviar">Comprar</button>
         </div>
 
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Forma de pago </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body"> <!--metodos de pago-->
+        <div class="payment-container">
+          <label>
+            <input type="radio" name="paymentMethod" value="bankTransfer" onclick="togglePaymentDetails('bankTransfer')"> Transferencia Bancaria
+          </label>
+        </div>
+        
+        <div class="payment-details" id="bankTransferDetails">
+          <!-- Contenido para transferencia bancaria -->
+          <label for="accountNumber">Número de cuenta:</label>
+          <input type="text" id="accountNumber" name="accountNumber">
+        </div>
+        
+        <div class="payment-container">
+          <label>
+            <input type="radio" name="paymentMethod" value="creditCard" onclick="togglePaymentDetails('creditCard')"> Tarjeta de Crédito
+          </label>
+        </div>
+        
+        <div class="payment-details" id="creditCardDetails">
+          <!-- Contenido para tarjeta de crédito -->
+          <label for="cardNumber">Número de tarjeta:</label>
+          <input type="text" id="cardNumber" name="cardNumber">
+          <label for="cvv"> Código de seguridad</label>
+          <input type="number" max="3">
+          <label for="expiryDate">Fecha de expiración:</label>
+          <input type="date" id="expiryDate" name="expiryDate">
+        </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
 
