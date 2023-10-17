@@ -137,9 +137,9 @@
             <!--<button id="botonEnviar">Comprar</button>-->
           
           </div> 
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Launch demo modal
-          </button>      
+          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Selecciona un método de pago <i class="fa-solid fa-money-check-dollar fa-xl" style="color: #ffffff;"></i>
+          </button>       
         </div>
 
 
@@ -155,30 +155,44 @@
       <div class="modal-body"> 
         <!--metodos de pago-->
         <div id="payment-container" class="flex-container d-flex">
-          <label>
-            <input type="radio" name="paymentMethod" value="bankTransfer"  required onclick="togglePaymentDetails('bankTransfer')"> Transferencia Bancaria
+          <div class="metodoPagoTituloTransferencia">
+          <label class="contenedorTituloPago">
+            
+            <i class="fa-solid fa-money-bill-transfer" style="color: #f38d3a;"></i>
+            Transferencia Bancaria
+            <input class="checkPago" type="radio" name="paymentMethod" value="bankTransfer"  required onclick="togglePaymentDetails('bankTransfer')"> 
           </label>
-          <label>
-            <input type="radio" name="paymentMethod" value="creditCard"  required onclick="togglePaymentDetails('creditCard')"> Tarjeta de Crédito
+        </div>
+        <div class="metodoPagoTitulo">
+          <label class="contenedorTituloPago">
+            <i class="fa-regular fa-credit-card" style="color: #ffffff;"></i>
+            Tarjeta de Crédito
+            <input class="checkPago" type="radio" name="paymentMethod" value="creditCard"  required onclick="togglePaymentDetails('creditCard')"> 
           </label>
+          </div>
         </div>
         
         <div class="payment-details" id="bankTransferDetails">
           <!-- Contenido para transferencia bancaria -->
+          <div class="contenidoPago">
           <label for="accountNumber">Número de cuenta:</label>
-          <input type="text" id="accountNumber" name="accountNumber">
+          <input class="inputPago" type="text" id="accountNumber" name="accountNumber">
+          </div>
         </div>
         
         
         
         <div class="payment-details" id="creditCardDetails">
           <!-- Contenido para tarjeta de crédito -->
+         <div class="contenidoPago">
+
           <label for="cardNumber">Número de tarjeta:</label>
-          <input type="text" id="cardNumber" name="cardNumber">
+          <input class="inputPago" type="text" id="cardNumber" name="cardNumber">
           <label for="cvv"> Código de seguridad</label>
-          <input type="number" max="3">
+          <input class="inputPago" type="number" max="3">
           <label for="expiryDate">Fecha de expiración:</label>
-          <input type="date" id="expiryDate" name="expiryDate">
+          <input class="inputPago" type="date" id="expiryDate" name="expiryDate">
+        </div>
         </div>
         
       </div>

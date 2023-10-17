@@ -1445,18 +1445,11 @@ transform: scale(1.05);
 
 /*METODO DE PAGO*/
 #payment-container{
-  gap: 10px;
-}
-#transferenciaBancaria{
-  border: 1px solid red;
-  width: 20vh;
-  
+  gap: 20px;
+  justify-content: center;
+  padding: 3vh;
 }
 
-#tarjetaCredito{
-  border: 1px solid red;
-  width: 20vh;
-}
 
 .payment-container label {
   margin-right: 10px;
@@ -1464,4 +1457,44 @@ transform: scale(1.05);
 
 .payment-details {
   display: none;
+}
+
+.metodoPagoTitulo{
+  background-color: #f09f53;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  color: white;
+}
+.metodoPagoTituloTransferencia{
+  background-color: transparent;
+  border: 1px solid #da7d27;
+  border-radius: 5px;
+  padding: 5px;
+  color: #da7d27;
+  
+}
+
+.contenidoPago{
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+}
+
+.inputPago{
+  border: none;
+  border-bottom: 1px solid #f18a35;
+}
+
+.contenedorTituloPago{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  
+}
+
+.contenedorTituloPago:hover{
+  scale: 0.5vh;
 }
