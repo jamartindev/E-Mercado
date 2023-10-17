@@ -1444,11 +1444,18 @@ transform: scale(1.05);
 
 
 /*METODO DE PAGO*/
+#payment-container{
+  gap: 10px;
+}
+#transferenciaBancaria{
+  border: 1px solid red;
+  width: 20vh;
+  
+}
 
-.payment-container {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
+#tarjetaCredito{
+  border: 1px solid red;
+  width: 20vh;
 }
 
 .payment-container label {

@@ -134,14 +134,15 @@
             <input type="text" name="" class="inputDireccion" placeholder="Calle">
             <input type="number" name="" class="inputDireccion" placeholder="Numero">
             <input type="text" class="inputDireccion" placeholder="Esquina">
-                </div> 
-                <button id="botonEnviar">Comprar</button>
+            <!--<button id="botonEnviar">Comprar</button>-->
+          
+          </div> 
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Launch demo modal
+          </button>      
         </div>
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
-</button>
+
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -151,10 +152,14 @@
         <h1 class="modal-title fs-5" id="exampleModalLabel">Forma de pago </h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body"> <!--metodos de pago-->
-        <div class="payment-container">
+      <div class="modal-body"> 
+        <!--metodos de pago-->
+        <div id="payment-container" class="flex-container d-flex">
           <label>
-            <input type="radio" name="paymentMethod" value="bankTransfer" onclick="togglePaymentDetails('bankTransfer')"> Transferencia Bancaria
+            <input type="radio" name="paymentMethod" value="bankTransfer"  required onclick="togglePaymentDetails('bankTransfer')"> Transferencia Bancaria
+          </label>
+          <label>
+            <input type="radio" name="paymentMethod" value="creditCard"  required onclick="togglePaymentDetails('creditCard')"> Tarjeta de Crédito
           </label>
         </div>
         
@@ -164,11 +169,7 @@
           <input type="text" id="accountNumber" name="accountNumber">
         </div>
         
-        <div class="payment-container">
-          <label>
-            <input type="radio" name="paymentMethod" value="creditCard" onclick="togglePaymentDetails('creditCard')"> Tarjeta de Crédito
-          </label>
-        </div>
+        
         
         <div class="payment-details" id="creditCardDetails">
           <!-- Contenido para tarjeta de crédito -->
