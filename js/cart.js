@@ -90,15 +90,31 @@ function dibujarCarrito() {
   document.getElementById('contenidoCarrito').innerHTML += body
 }
 
-function togglePaymentDetails(paymentMethod) {
+//Se crea una funcion para mostrar en el modal la eleccion de usuario, 
+//si selecciona Transferencia bancaria se "nonea" el display de opciones de credit card, y asi al reves.
+function detallePago(option) {
   const bankTransferDetails = document.getElementById('bankTransferDetails');
   const creditCardDetails = document.getElementById('creditCardDetails');
 
-  if (paymentMethod === 'bankTransfer') {
+  if (option === 'bankTransfer') {
     bankTransferDetails.style.display = 'block';
     creditCardDetails.style.display = 'none';
-  } else if (paymentMethod === 'creditCard') {
+    resetCreditCardDetails();
+  } else if (option === 'creditCard') {
     bankTransferDetails.style.display = 'none';
     creditCardDetails.style.display = 'block';
+    resetBankTransferDetails();
   }
+} 
+
+//Funcion para borrar datos cuando se escriba en otro medio de pago seleccionado 
+
+function resetBankTransferDetails() {
+  document.getElementById('accountNumber').value = '';
+}
+
+function resetCreditCardDetails() {
+  document.getElementById('cardNumber').value = '';
+  document.getElementById('cvv').value = '';
+  document.getElementById('expiryDate').value = '';
 }

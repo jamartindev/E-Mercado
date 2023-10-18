@@ -89,7 +89,7 @@
 
 <!--DIVS PARA TIPO DE ENVIO Y DATOS DE ENVIO, punto 2 entrega 5-->
     <div id="datosCompra" class="container-fluid">
-      <h2>Tipo de envio</h2>
+      <h2 style="color: darkslategray;">Tipo de envio</h2>
         <div id="tipoEnvio"  class="container-fluid">
           
           <div class="cardCompras"> <!--tarjetitas de los tipos de envio con sus respectivos radiobuttons-->
@@ -130,15 +130,15 @@
           </div>
 
           <div id="direccionEnvio" class="flex-container"> <!--contenedor para los datos de la dirección a enviar-->
-            <h2>Direccion de envio</h2>
+            <h2 style="color: darkslategray;">Dirección de envío</h2>
             <input type="text" name="" class="inputDireccion" placeholder="Calle">
             <input type="number" name="" class="inputDireccion" placeholder="Numero">
             <input type="text" class="inputDireccion" placeholder="Esquina">
             <!--<button id="botonEnviar">Comprar</button>-->
           
           </div> 
-          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Selecciona un método de pago <i class="fa-solid fa-money-check-dollar fa-xl" style="color: #ffffff;"></i>
+          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" style="color: darkslategrey; border: 1px solid darkslategrey">
+            Selecciona un método de pago <i class="fa-solid fa-money-check-dollar fa-xl" style="color: darkslategrey"></i>
           </button>       
         </div>
 
@@ -157,26 +157,25 @@
         <div id="payment-container" class="flex-container d-flex">
           <div class="metodoPagoTituloTransferencia">
           <label class="contenedorTituloPago">
-            
             <i class="fa-solid fa-money-bill-transfer" style="color: #f38d3a;"></i>
             Transferencia Bancaria
-            <input class="checkPago" type="radio" name="paymentMethod" value="bankTransfer"  required onclick="togglePaymentDetails('bankTransfer')"> 
+            <input type="radio" name="paymentMethod" value="bankTransfer"  required onclick="detallePago('bankTransfer')" > 
           </label>
         </div>
         <div class="metodoPagoTitulo">
           <label class="contenedorTituloPago">
-            <i class="fa-regular fa-credit-card" style="color: #ffffff;"></i>
+            <i class="fa-regular fa-credit-card" style="color: white"></i>
             Tarjeta de Crédito
-            <input class="checkPago" type="radio" name="paymentMethod" value="creditCard"  required onclick="togglePaymentDetails('creditCard')"> 
+            <input type="radio" name="paymentMethod" value="creditCard"  required onclick="detallePago('creditCard')"> 
           </label>
           </div>
         </div>
         
         <div class="payment-details" id="bankTransferDetails">
           <!-- Contenido para transferencia bancaria -->
-          <div class="contenidoPago">
+          <div class="contenidoPagoBanco">
           <label for="accountNumber">Número de cuenta:</label>
-          <input class="inputPago" type="text" id="accountNumber" name="accountNumber">
+          <input class="inputPago" type="text" id="accountNumber" name="accountNumber" onchange="resetCreditCardDetails()">
           </div>
         </div>
         
@@ -184,21 +183,21 @@
         
         <div class="payment-details" id="creditCardDetails">
           <!-- Contenido para tarjeta de crédito -->
-         <div class="contenidoPago">
+         <div class="contenidoPagoCredito">
 
-          <label for="cardNumber">Número de tarjeta:</label>
-          <input class="inputPago" type="text" id="cardNumber" name="cardNumber">
+          <label for="cardNumber">Número de tarjeta</label>
+          <input class="inputPago" type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9101" onchange="resetBankTransferDetails()">
           <label for="cvv"> Código de seguridad</label>
-          <input class="inputPago" type="number" max="3">
-          <label for="expiryDate">Fecha de expiración:</label>
-          <input class="inputPago" type="date" id="expiryDate" name="expiryDate">
+          <input class="inputPago" id="cvv" type="number" placeholder="123" onchange="resetBankTransferDetails()">
+          <label for="expiryDate">Fecha de expiración</label>
+          <input class="inputPago" type="date" id="expiryDate" name="expiryDate" onchange="resetBankTransferDetails()">
         </div>
         </div>
         
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary">Confirmar</button>
       </div>
     </div>
   </div>
