@@ -74,21 +74,33 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   
   //Tomé el body que antes estaba en el fetch para ponerlo en una función que dibuja en cart.html el carrito del localStorage
-function dibujarCarrito() {
-  let carrito = JSON.parse(localStorage.getItem(carritoKey))
-  let body = ""
-  for (let i = 0; i < carrito.length; i++) {
-    body += `
-        <tr>
-          <td> <img src="${carrito[i].images[0]}" width="150vh"> ${carrito[i].name}</td>
-          <td>${carrito[i].currency} ${carrito[i].cost}</td>
-          <td><input value="${carrito[i].quantity}" type="number" min="0" max="100" oninput="Subtotal(${carrito[i].cost}, this.value, ${i})"></td>
-          <td class="subtotal">${carrito[i].currency} <span id="subtotal${i}">${carrito[i].cost}</span></td>
-        </tr>
-    `
+  function dibujarCarrito() {
+    let carrito = JSON.parse(localStorage.getItem(carritoKey)) || []; 
+    let body = "";
+    for (let i = 0; i < carrito.length; i++) {
+      body += `
+          <tr>
+            <td> <img src="${carrito[i].images[0]}" width="150vh"> ${carrito[i].name}</td>
+            <td>${carrito[i].currency} ${carrito[i].cost}</td>
+            <td><input value="${carrito[i].quantity}" type="number" min="0" max="100" oninput="Subtotal(${carrito[i].cost}, this.value, ${i})"></td>
+            <td class="subtotal">${carrito[i].currency} <span id="subtotal${i}">${carrito[i].cost * carrito[i].quantity}</span></td>
+            <td><button onclick="eliminarProducto(${i})">Eliminar</button></td>
+          </tr>
+      `;
+    }
+  
+    document.getElementById('contenidoCarrito').innerHTML = body; 
   }
-  document.getElementById('contenidoCarrito').innerHTML += body
-}
+  
+  // Función para eliminar los articulos agrrgados a carrito...
+  function eliminarProducto(indice) {
+    let carrito = JSON.parse(localStorage.getItem(carritoKey)) || []; // esto es por si ni tengo datos en el local storage
+    carrito.splice(indice, 1);
+    localStorage.setItem(carritoKey, JSON.stringify(carrito)); 
+    dibujarCarrito();
+  }
+  
+  dibujarCarrito();
 
 //Se crea una funcion para mostrar en el modal la eleccion de usuario, 
 //si selecciona Transferencia bancaria se "nonea" el display de opciones de credit card, y asi al reves.
