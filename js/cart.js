@@ -27,10 +27,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let carrito = (JSON.parse(localStorage.getItem(carritoKey)));
     //la variable está es para verificar si está agregado al carrito o no y agregarlo en caso negativo
-    let esta = -1;
+    
     for (let i = 0; i < carrito.length; i++) {
-        if (carrito[i].id == articles[0].id) {
-            esta = i;
+        if (carrito[i].id == articles[i].id) {
+          
         }
     }
     if (esta == -1) {
@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <td>${carrito[i].currency} ${carrito[i].cost}</td>
             <td><input value="${carrito[i].quantity}" type="number" min="0" max="100" oninput="Subtotal(${carrito[i].cost}, this.value, ${i})"></td>
             <td class="subtotal">${carrito[i].currency} <span id="subtotal${i}">${carrito[i].cost * carrito[i].quantity}</span></td>
-            <td><button onclick="eliminarProducto(${i})">Eliminar</button></td>
+            <td><button  class="btneliminar" onclick="eliminarProducto(${i})">Eliminar</button></td>
           </tr>
       `;
     }
