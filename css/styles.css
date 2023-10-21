@@ -1458,3 +1458,13 @@ max-width: 70vh;
 #botonEnviar:hover {
 transform: scale(1.05);
 }
+/*estilo de Costos*/
+.table-responsive {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  box-shadow: 0 0 40px  rgba(17, 12, 8, 0.322);
+  padding: 50px;
+  background-color:rgb(255, 255, 255) ;
+  border-radius: 15px;
+  text-align: left;
+}
