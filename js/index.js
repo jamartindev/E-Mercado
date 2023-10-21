@@ -40,8 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function cerrarSesion(event) {
     event.preventDefault();
-    localStorage.removeItem("User");
-    localStorage.removeItem("themePreference");
+    localStorage.clear();
     location.href = "login.html";
   }
 

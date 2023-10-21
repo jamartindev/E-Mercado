@@ -1270,6 +1270,23 @@ a:hover span {
   background-color: #3e8e41;
 }
 
+/*CARRITO DATOS DE COSTOS*/
+/*ESTILO DE LOS DIVS*/
+#datosCostos{
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
+  gap: 2rem;
+  background:rgb(255, 255, 255);
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  color: #000;
+  max-width: 70vh;
+  
+}
+
 /*CARRITO DATOS DE COMPRA*/
 /*ESTILO DE LOS DIVS*/
 #datosCompra{

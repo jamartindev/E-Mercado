@@ -84,8 +84,8 @@
   
         </tbody>
       </table>
-      </div>
     </div>
+    
 
 <!--DIVS PARA TIPO DE ENVIO Y DATOS DE ENVIO, punto 2 entrega 5-->
     <div id="datosCompra" class="container-fluid">
@@ -137,42 +137,59 @@
                 </div> 
                 <button id="botonEnviar">Comprar</button>
         </div>
-
-
-
-
-
-        
+        <div id="datosCostos" class="container-fluid mt-4">
+          <div class="text-center">
+            <h1>Costos</h1>
+          </div>
+          <div class="table-responsive mt-4 shadow-lg p3 mb-5 bg-body border rounded">
+            <table class=" table table-responsive mx-auto w-100  text-left table-hover align-middle">
+              <thead>
+                <tr>
+                  <th><strong>Subtotal</strong><br><small class="text-muted">Costo unitario del producto por cantidad</small></th>
+                  <td class="cost"></td>
+                </tr>
+                <tr>
+                  <th><strong>Costo de envío</strong><br><small class="text-muted">Según el tipo de envío</small></th>
+                  <td class="cost"></td>
+                </tr>
+                <tr>
+                  <th><strong>Total ($)</strong><br></th>
+                  <td class="cost"></td>
+                </tr>
+              </thead>
+            </table>
+          </div>
+        </div>
+            
+            <!--<tbody id="contenidoCostos">
+      
+            </tbody>-->
           
         
-        
-  
-    
-
-      
-  </main>
-  <footer class="text-muted">
-    <div class="container">
-      <p class="float-end">
-        <a href="#">Volver arriba</a>
-      </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
+      </div>
+    </main>
+    <footer class="text-muted">
+      <div class="container">
+        <p class="float-end">
+          <a href="#">Volver arriba</a>
+        </p>
+        <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
+      </div>
+    </footer>
+    <div id="spinner-wrapper">
+      <div class="lds-ring">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
     </div>
-  </footer>
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/index.js"></script>
-  <script src="js/init.js"></script>
-  <script src="js/cart.js"></script>
-  <script src="https://kit.fontawesome.com/d765d1fb24.js" crossorigin="anonymous"></script>
-  <script src="js/dark-mode.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="https://kit.fontawesome.com/d765d1fb24.js" crossorigin="anonymous"></script>
+    <script src="js/dark-mode.js"></script>
 </body>
 
 </html>
