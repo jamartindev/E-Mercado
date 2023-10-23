@@ -27,10 +27,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let carrito = (JSON.parse(localStorage.getItem(carritoKey)));
     //la variable está es para verificar si está agregado al carrito o no y agregarlo en caso negativo
-    let esta = -1;
+    
     for (let i = 0; i < carrito.length; i++) {
-        if (carrito[i].id == articles[0].id) {
-            esta = i;
+        if (carrito[i].id == articles[i].id) {
+          
         }
     }
     if (esta == -1) {
@@ -84,7 +84,11 @@ document.addEventListener("DOMContentLoaded", () => {
             <td>${carrito[i].currency} ${carrito[i].cost}</td>
             <td><input value="${carrito[i].quantity}" type="number" min="0" max="100" oninput="Subtotal(${carrito[i].cost}, this.value, ${i})"></td>
             <td class="subtotal">${carrito[i].currency} <span id="subtotal${i}">${carrito[i].cost * carrito[i].quantity}</span></td>
+<<<<<<< HEAD
             <td><button onclick="eliminarProducto(${i})"><i class="fa-regular fa-trash-can"></i></button></td>
+=======
+            <td><button  class="btneliminar" onclick="eliminarProducto(${i})">Eliminar</button></td>
+>>>>>>> ded4d30370428dbc8aae4d45472f88debdc26078
           </tr>
       `;
     }
@@ -131,3 +135,60 @@ function resetCreditCardDetails() {
   document.getElementById('cvv').value = '';
   document.getElementById('expiryDate').value = '';
 }
+
+//Función para validar los datos ingresados por el usuario
+/*const calleInput = document.getElementById("inputCalleEnvio").value;
+const numeroInput = document.getElementById("inputNumeroEnvio");
+const esquinaInput = document.getElementById("inputEsquinaEnvio");
+const calleError= document.getElementById("calleEnvio")
+
+document.getElementById("finalizaCompra").addEventListener("click", function () {
+  if (calleInput.trim() === "") {
+    // Mostrar el mensaje de error debajo del campo "Calle"
+    calleError.innerHTML = "Ingresa una calle";
+    // Cambiar el color del borde del campo "Calle" a rojo
+    document.getElementById("inputCalleEnvio").classList.add("incompleto");
+} else {
+    // Limpiar el mensaje de error y restaurar el color del borde si el campo no está vacío
+    calleError.innerHTML = "";
+    document.getElementById("inputCalleEnvio").classList.remove("incompleto");
+}*/
+
+document.getElementById("finalizaCompra").addEventListener("click", function () {
+
+  const calleInput = document.getElementById("inputCalleEnvio").value;
+  const calleError = document.getElementById("calleEnvio");
+  const numeroInput = document.getElementById("inputNumeroEnvio").value;
+  const esquinaInput = document.getElementById("inputEsquinaEnvio").value;
+  const numError = document.getElementById("numeroEnvio");
+  const esquinaError = document.getElementById("esquinaEnvio");
+
+  if (calleInput.trim() === "") {
+      calleError.innerHTML = "Ingresa una calle";
+      document.getElementById("inputCalleEnvio").classList.add("incompleto");
+  } else {
+      calleError.innerHTML = "";
+      document.getElementById("inputCalleEnvio").classList.remove("incompleto");
+  }
+
+  if(numeroInput==""){
+    numError.innerHTML= "Ingresa un número"
+    document.getElementById("inputNumeroEnvio").classList.add("incompleto");
+  } else {
+    numError.innerHTML = "";
+      document.getElementById("inputNumeroEnvio").classList.remove("incompleto");
+  }
+
+  if(esquinaInput==""){
+    esquinaError.innerHTML= "Ingresa una esquina"
+    document.getElementById("inputEsquinaEnvio").classList.add("incompleto");
+  } else {
+    esquinaError.innerHTML = "";
+      document.getElementById("inputEsquinaEnvio").classList.remove("incompleto");
+  }
+  
+
+  
+
+
+})
