@@ -93,7 +93,7 @@
         <div id="tipoEnvio"  class="container-fluid">
           
           <div class="cardCompras"> <!--tarjetitas de los tipos de envio con sus respectivos radiobuttons-->
-          <input class="inputTipoEnvio" type="radio" name="card" value="standar">
+          <input class="inputTipoEnvio" type="radio" name="card" value="standar" required>
           <span class="check"></span>
           <label class="labelTipoEnvio">
             <div class="title"><h5 class="title">Standard</h5></div>
@@ -104,7 +104,7 @@
           </label>
         </div>
         <div class="cardCompras"> <!--tarjetitas de los tipos de envio con sus respectivos radiobuttons-->
-          <input class="inputTipoEnvio" type="radio" name="card" value="express">
+          <input class="inputTipoEnvio" type="radio" name="card" value="express" required>
           <span class="check"></span>
           <label class="labelTipoEnvio">
             <div class="title"><h5 class="title">Express</h5></div>
@@ -116,7 +116,7 @@
           </label>
         </div>
         <div class="cardCompras"> <!--tarjetitas de los tipos de envio con sus respectivos radiobuttons-->
-          <input class="inputTipoEnvio" type="radio" name="card" value="premium">
+          <input class="inputTipoEnvio" type="radio" name="card" value="premium" required>
           <span class="check"></span>
           <label class="labelTipoEnvio">
             <div class="title"><h5 class="title">Premium</h5></div>
@@ -131,15 +131,19 @@
 
           <div id="direccionEnvio" class="flex-container"> <!--contenedor para los datos de la dirección a enviar-->
             <h2 style="color: darkslategray;">Dirección de envío</h2>
-            <input type="text" name="" class="inputDireccion" placeholder="Calle">
-            <input type="number" name="" class="inputDireccion" placeholder="Numero">
-            <input type="text" class="inputDireccion" placeholder="Esquina">
+            <input type="text" name="" class="inputDireccion"  id="inputCalleEnvio" placeholder="Calle" required>
+            <span id="calleEnvio"></span>
+            <input type="number" name="" class="inputDireccion"  id="inputNumeroEnvio" placeholder="Numero" required>
+            <span id="numeroEnvio"></span>
+            <input type="text" class="inputDireccion"  id="inputEsquinaEnvio" placeholder="Esquina" required>
+            <span id="esquinaEnvio"></span>
             <!--<button id="botonEnviar">Comprar</button>-->
           
           </div> 
           <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" style="color: darkslategrey; border: 1px solid darkslategrey">
             Selecciona un método de pago <i class="fa-solid fa-money-check-dollar fa-xl" style="color: darkslategrey"></i>
-          </button>       
+          </button>
+          <button id="finalizaCompra">Finalizar compra </button>     
         </div>
 
 
@@ -159,14 +163,14 @@
           <label class="contenedorTituloPago">
             <i class="fa-solid fa-money-bill-transfer" style="color: #f38d3a;"></i>
             Transferencia Bancaria
-            <input type="radio" name="paymentMethod" value="bankTransfer"  required onclick="detallePago('bankTransfer')" > 
+            <input type="radio" name="paymentMethod" value="bankTransfer"  required onclick="detallePago('bankTransfer')"> 
           </label>
         </div>
         <div class="metodoPagoTitulo">
           <label class="contenedorTituloPago">
             <i class="fa-regular fa-credit-card" style="color: white"></i>
             Tarjeta de Crédito
-            <input type="radio" name="paymentMethod" value="creditCard"  required onclick="detallePago('creditCard')"> 
+            <input type="radio" name="paymentMethod" value="creditCard"  required onclick="detallePago('creditCard')" > 
           </label>
           </div>
         </div>
@@ -175,7 +179,7 @@
           <!-- Contenido para transferencia bancaria -->
           <div class="contenidoPagoBanco">
           <label for="accountNumber">Número de cuenta:</label>
-          <input class="inputPago" type="text" id="accountNumber" name="accountNumber" onchange="resetCreditCardDetails()">
+          <input class="inputPago" type="text" id="accountNumber" name="accountNumber" onchange="resetCreditCardDetails()" required>
           </div>
         </div>
         
@@ -186,18 +190,18 @@
          <div class="contenidoPagoCredito">
 
           <label for="cardNumber">Número de tarjeta</label>
-          <input class="inputPago" type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9101" onchange="resetBankTransferDetails()">
+          <input class="inputPago" type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9101" onchange="resetBankTransferDetails()" required>
           <label for="cvv"> Código de seguridad</label>
-          <input class="inputPago" id="cvv" type="number" placeholder="123" onchange="resetBankTransferDetails()">
+          <input class="inputPago" id="cvv" type="number" placeholder="123"  min="3" max="3" onchange="resetBankTransferDetails()" required>
           <label for="expiryDate">Fecha de expiración</label>
-          <input class="inputPago" type="date" id="expiryDate" name="expiryDate" onchange="resetBankTransferDetails()">
+          <input class="inputPago" type="date" id="expiryDate" name="expiryDate" onchange="resetBankTransferDetails()" required>
         </div>
         </div>
         
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Confirmar</button>
+        <button type="button" class="btn" data-bs-dismiss="modal" style="background-color: darkslategrey; color: white;">Confirmar</button>
+        
       </div>
     </div>
   </div>

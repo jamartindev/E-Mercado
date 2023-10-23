@@ -1573,3 +1573,14 @@ transform: scale(1.05);
     opacity: 0;
   }
 }
+
+
+.incompleto {
+  border: 2px solid red;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}

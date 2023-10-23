@@ -130,3 +130,60 @@ function resetCreditCardDetails() {
   document.getElementById('cvv').value = '';
   document.getElementById('expiryDate').value = '';
 }
+
+//Función para validar los datos ingresados por el usuario
+/*const calleInput = document.getElementById("inputCalleEnvio").value;
+const numeroInput = document.getElementById("inputNumeroEnvio");
+const esquinaInput = document.getElementById("inputEsquinaEnvio");
+const calleError= document.getElementById("calleEnvio")
+
+document.getElementById("finalizaCompra").addEventListener("click", function () {
+  if (calleInput.trim() === "") {
+    // Mostrar el mensaje de error debajo del campo "Calle"
+    calleError.innerHTML = "Ingresa una calle";
+    // Cambiar el color del borde del campo "Calle" a rojo
+    document.getElementById("inputCalleEnvio").classList.add("incompleto");
+} else {
+    // Limpiar el mensaje de error y restaurar el color del borde si el campo no está vacío
+    calleError.innerHTML = "";
+    document.getElementById("inputCalleEnvio").classList.remove("incompleto");
+}*/
+
+document.getElementById("finalizaCompra").addEventListener("click", function () {
+
+  const calleInput = document.getElementById("inputCalleEnvio").value;
+  const calleError = document.getElementById("calleEnvio");
+  const numeroInput = document.getElementById("inputNumeroEnvio").value;
+  const esquinaInput = document.getElementById("inputEsquinaEnvio").value;
+  const numError = document.getElementById("numeroEnvio");
+  const esquinaError = document.getElementById("esquinaEnvio");
+
+  if (calleInput.trim() === "") {
+      calleError.innerHTML = "Ingresa una calle";
+      document.getElementById("inputCalleEnvio").classList.add("incompleto");
+  } else {
+      calleError.innerHTML = "";
+      document.getElementById("inputCalleEnvio").classList.remove("incompleto");
+  }
+
+  if(numeroInput==""){
+    numError.innerHTML= "Ingresa un número"
+    document.getElementById("inputNumeroEnvio").classList.add("incompleto");
+  } else {
+    numError.innerHTML = "";
+      document.getElementById("inputNumeroEnvio").classList.remove("incompleto");
+  }
+
+  if(esquinaInput==""){
+    esquinaError.innerHTML= "Ingresa una esquina"
+    document.getElementById("inputEsquinaEnvio").classList.add("incompleto");
+  } else {
+    esquinaError.innerHTML = "";
+      document.getElementById("inputEsquinaEnvio").classList.remove("incompleto");
+  }
+  
+
+  
+
+
+})
