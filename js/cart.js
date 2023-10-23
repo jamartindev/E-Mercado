@@ -84,11 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <td>${carrito[i].currency} ${carrito[i].cost}</td>
             <td><input value="${carrito[i].quantity}" type="number" min="0" max="100" oninput="Subtotal(${carrito[i].cost}, this.value, ${i})"></td>
             <td class="subtotal">${carrito[i].currency} <span id="subtotal${i}">${carrito[i].cost * carrito[i].quantity}</span></td>
-<<<<<<< HEAD
             <td><button onclick="eliminarProducto(${i})"><i class="fa-regular fa-trash-can"></i></button></td>
-=======
-            <td><button  class="btneliminar" onclick="eliminarProducto(${i})">Eliminar</button></td>
->>>>>>> ded4d30370428dbc8aae4d45472f88debdc26078
           </tr>
       `;
     }
