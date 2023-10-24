@@ -122,13 +122,12 @@
             <div class="title"><h5 class="title">Premium</h5></div>
             <div class="price">
               <span class="span">2 a 5 días</span>
-            
-              
             </div>
           </label>
-        </div>
           </div>
-
+        </div>
+          <span id="formaPagoError"></span>
+          
           <div id="direccionEnvio" class="flex-container"> <!--contenedor para los datos de la dirección a enviar-->
             <h2 style="color: darkslategray;">Dirección de envío</h2>
             <input type="text" name="" class="inputDireccion"  id="inputCalleEnvio" placeholder="Calle" required>
@@ -143,6 +142,7 @@
           <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" style="color: darkslategrey; border: 1px solid darkslategrey">
             Selecciona un método de pago <i class="fa-solid fa-money-check-dollar fa-xl" style="color: darkslategrey"></i>
           </button>
+          <span id="errorMetodoPago"></span>
           <button id="finalizaCompra">Finalizar compra </button>     
         </div>
 
@@ -242,6 +242,8 @@
   <script src="js/cart.js"></script>
   <script src="https://kit.fontawesome.com/d765d1fb24.js" crossorigin="anonymous"></script>
   <script src="js/dark-mode.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </body>
 
 </html>

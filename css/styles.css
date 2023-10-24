@@ -1574,13 +1574,30 @@ transform: scale(1.05);
   }
 }
 
-
+/*estilos para los mensajes de error validaciones*/
 .incompleto {
   border: 2px solid red;
 }
 
 .error-message {
   color: red;
-  font-size: 12px;
   margin-top: 5px;
+}
+
+#finalizaCompra{
+  border: none;
+  background-color: white;
+  color: #db710e;
+  font-weight: 600;
+  font-size: large;
+  width: 50%;
+  height: 50px;
+  border-radius: 5px;
+}
+
+#finalizaCompra:hover{
+  background-color: transparent;
+  color:white;
+  border: 2px solid white;
+  transition: all 0.2s;
 }

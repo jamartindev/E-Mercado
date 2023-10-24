@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <tr>
             <td> <img src="${carrito[i].images[0]}" width="150vh"> ${carrito[i].name}</td>
             <td>${carrito[i].currency} ${carrito[i].cost}</td>
-            <td><input value="${carrito[i].quantity}" type="number" min="0" max="100" oninput="Subtotal(${carrito[i].cost}, this.value, ${i})"></td>
+            <td><input id="inputCantidad" value="${carrito[i].quantity}" type="number" min="0" max="100" oninput="Subtotal(${carrito[i].cost}, this.value, ${i})"></td>
             <td class="subtotal">${carrito[i].currency} <span id="subtotal${i}">${carrito[i].cost * carrito[i].quantity}</span></td>
             <td><button onclick="eliminarProducto(${i})"><i class="fa-regular fa-trash-can"></i></button></td>
           </tr>
@@ -132,23 +132,8 @@ function resetCreditCardDetails() {
   document.getElementById('expiryDate').value = '';
 }
 
-//Función para validar los datos ingresados por el usuario
-/*const calleInput = document.getElementById("inputCalleEnvio").value;
-const numeroInput = document.getElementById("inputNumeroEnvio");
-const esquinaInput = document.getElementById("inputEsquinaEnvio");
-const calleError= document.getElementById("calleEnvio")
+//VALIDACIONES AL DARLE BOTON "FINALIZAR COMPRA"
 
-document.getElementById("finalizaCompra").addEventListener("click", function () {
-  if (calleInput.trim() === "") {
-    // Mostrar el mensaje de error debajo del campo "Calle"
-    calleError.innerHTML = "Ingresa una calle";
-    // Cambiar el color del borde del campo "Calle" a rojo
-    document.getElementById("inputCalleEnvio").classList.add("incompleto");
-} else {
-    // Limpiar el mensaje de error y restaurar el color del borde si el campo no está vacío
-    calleError.innerHTML = "";
-    document.getElementById("inputCalleEnvio").classList.remove("incompleto");
-}*/
 
 document.getElementById("finalizaCompra").addEventListener("click", function () {
 
@@ -158,9 +143,21 @@ document.getElementById("finalizaCompra").addEventListener("click", function () 
   const esquinaInput = document.getElementById("inputEsquinaEnvio").value;
   const numError = document.getElementById("numeroEnvio");
   const esquinaError = document.getElementById("esquinaEnvio");
+  const inputCantidad = document.getElementById("inputCantidad").value;
+  const tipoEnvioError = document.getElementById("formaPagoError");
+  const formaEnvioElements = document.querySelectorAll("input[name=card]");
+  let seleccionadoEnvio = false;
+  const modoPago = document.querySelectorAll("input[name=paymentMethod");
+  let seleccionadoPago = false;
+  const errorModoPago = document.getElementById("errorMetodoPago");
+  const accountNumber = document.getElementById("accountNumber").value;
+  const cardNumber = document.getElementById("cardNumber").value;
+  const cvv = document.getElementById("cvv").value;
+  const expiryDate = document.getElementById("expiryDate").value;
 
   if (calleInput.trim() === "") {
       calleError.innerHTML = "Ingresa una calle";
+      calleError.style.color ="#b21111"
       document.getElementById("inputCalleEnvio").classList.add("incompleto");
   } else {
       calleError.innerHTML = "";
@@ -168,7 +165,8 @@ document.getElementById("finalizaCompra").addEventListener("click", function () 
   }
 
   if(numeroInput==""){
-    numError.innerHTML= "Ingresa un número"
+    numError.innerHTML= "Ingresa un número";
+    numError.style.color ="#b21111"
     document.getElementById("inputNumeroEnvio").classList.add("incompleto");
   } else {
     numError.innerHTML = "";
@@ -176,12 +174,72 @@ document.getElementById("finalizaCompra").addEventListener("click", function () 
   }
 
   if(esquinaInput==""){
-    esquinaError.innerHTML= "Ingresa una esquina"
+    esquinaError.innerHTML= "Ingresa una esquina";
+    esquinaError.style.color ="#b21111"
     document.getElementById("inputEsquinaEnvio").classList.add("incompleto");
   } else {
     esquinaError.innerHTML = "";
       document.getElementById("inputEsquinaEnvio").classList.remove("incompleto");
   }
+
+  if(inputCantidad=="0"){
+    document.getElementById("inputCantidad").classList.add("incompleto");
+  } else {
+    document.getElementById("inputCantidad").classList.remove("incompleto");
+  }
+
+  formaEnvioElements.forEach((element) => {
+    if (element.checked) {
+      seleccionadoEnvio = true;
+    }
+  });
+
+  if (!seleccionadoEnvio) {
+    tipoEnvioError.innerHTML = "Elija una opción de envío";
+    tipoEnvioError.style.color = "#b21111"
+  } else {
+    tipoEnvioError.innerHTML = "";
+  }
+
+  modoPago.forEach((element) => {
+    if (element.checked) {
+      seleccionadoPago = true;
+    }
+  });
+
+  if (!seleccionadoPago) {
+    errorModoPago.innerHTML = "Elija un método de pago";
+    errorModoPago.style.color = "#b21111"
+  } else {
+    errorModoPago.innerHTML = "";
+  }
+  
+  if (accountNumber === "" && cardNumber === "" && cvv === "" && expiryDate === "") {
+    errorModoPago.innerHTML = "Elija un método de pago";
+    errorModoPago.style.color = "#b21111"
+  } else {
+    errorModoPago.innerHTML = "";
+  }
+// VERIFICAR QUE TODAS LAS VALIDACIONES SON CORRECTAS:
+  if (
+    calleInput.trim() !== "" &&
+    numeroInput !== "" &&
+    esquinaInput !== "" &&
+    inputCantidad !== "0" &&
+    seleccionadoEnvio &&
+    seleccionadoPago &&
+    (accountNumber !== "" || cardNumber !== "" || cvv !== "" || expiryDate !== "")
+  ) {
+    Swal.fire(
+      'Compra exitosa',
+      'Gracias por comprar con nosotros!',
+      'success'
+    )
+  }
+  
+  
+
+  
   
 
   
