@@ -1,3 +1,6 @@
+// Variable de costo total establecida en 0
+let costoTotal = 0;
+
 // Para multiplicar precio de cantidad de articulos que el usuario vaya a comprar
 //global para poder acceder a ella desde product-info.js también
 let Subtotal = (precioUnit, cantidad, indice) => {
@@ -7,7 +10,7 @@ let Subtotal = (precioUnit, cantidad, indice) => {
   let carrito = JSON.parse(localStorage.getItem(carritoKey));
   carrito[indice].quantity = cantidad;
   localStorage.setItem(carritoKey, JSON.stringify(carrito))
-  subtotalCarrito()
+  
 };
 
 //Inicializamos el carrito como vacío si no existía
@@ -18,12 +21,6 @@ if (!localStorage.getItem(carritoKey)) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  let url = "https://japceibal.github.io/emercado-api/user_cart/25801.json";
-  // Fetch a la url para obtener los datos
-  fetch(url)
-    .then((res) => res.json())
-    .then((data) => mostrarData(data.articles))
-    .catch((error) => console.log(error));
   // Muestra datos de los articulos que agrego el usuario al carrito
   const mostrarData = (articles) => {
     let body = "";
@@ -51,9 +48,19 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.setItem(carritoKey, JSON.stringify(carrito));
     }
     dibujarCarrito();
+    costoTotal = 0;
     subtotalCarrito();
+    costoEnvio();
+    console.log(costoTotal)
+    document.getElementById("costoTotal").textContent = costoTotal
   };
 
+  let url = "https://japceibal.github.io/emercado-api/user_cart/25801.json";
+  // Fetch a la url para obtener los datos
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => mostrarData(data.articles))
+    .catch((error) => console.log(error));
   // button id="botonEnviar"
 
   //   Primero encontramos el elemento con ID=boton
@@ -75,8 +82,19 @@ document.addEventListener("DOMContentLoaded", () => {
   boton.addEventListener("mouseout", function handleMouseOut() {
     boton.style.color = "black";
   });
-});
 
+  // Evento usando queryselector para que al hacer click en cualquier tipo de envio me actualice los costes + envios
+  let radiobtns = document.querySelectorAll('input[name=tipoEnvio]');
+  for (const btn of radiobtns) {
+      btn.addEventListener("click", () => { 
+          costoTotal = 0;
+          subtotalCarrito();
+          costoEnvio();
+          document.getElementById("costoTotal").textContent = costoTotal
+      })
+  }
+
+});
 //Tomé el body que antes estaba en el fetch para ponerlo en una función que dibuja en cart.html el carrito del localStorage
 function dibujarCarrito() {
   let carrito = JSON.parse(localStorage.getItem(carritoKey));
@@ -107,18 +125,43 @@ function subtotalCarrito() {
       subTot += (item.cost * item.quantity);
     }
   }
+  costoTotal += subTot;
   dataCost[0].innerHTML = `USD ${subTot}`;
 }
 
-// Punto 1 entrega 6
-// Necesito armar una funcion que me tome los datos de cada arreglo aun asi se le agreguen
-// y los muestre en la lista
-
-/*function costesCarrito() {
+function costoEnvio() {
+  // Obtengo los botones de radio de tipo de envío.
+  let pocentajeEnvio = document.querySelectorAll('input[name=tipoEnvio]');
+  // Obtiengo los artículos del almacenamiento local.
   const items = JSON.parse(localStorage.getItem("carrito"));
-  const costs = items.map((item) => item.cost * item.quantity);
-  const totalCost = costs.reduce((a, b) => a + b, 0);
-  document.getElementById("subtotalGeneral").innerHTML = totalCost
-  console.log(costs);
-  console.log(totalCost);
-}*/
+  // Creo una variable llamando al queryselector para mostrar el costo de envio
+  let dataCost = document.querySelectorAll(".cost");
+  // Creo una variable llamada moneda y subtotal para armar un for of
+  let moneda;
+  let subTot = 0;
+  for (let item of items) {
+    moneda = item.currency;
+    if (moneda !== "USD") {
+      subTot += ((item.cost / 40) * item.quantity);
+    } else {
+      subTot += (item.cost * item.quantity);
+    }
+  }
+  // Armo una cadena if y else if para que al escoger el tipo de envio se calculen
+  // El total del coste de envio
+  if (pocentajeEnvio[0].checked) {
+    subTot = (subTot*5)/100;
+} else if (pocentajeEnvio[1].checked) {
+  subTot = (subTot*7)/100;
+} else if (pocentajeEnvio[2].checked) {
+  subTot = (subTot*15)/100;
+} 
+  else {
+    subTot = 0;
+  }
+  // Creo un costo total donde inicialmente sea 0 y cargue los datos hasta tener
+  // el coste de envio y articulos puestos
+  costoTotal += subTot;
+  dataCost[1].innerHTML = `USD ${subTot}`;
+}
+
