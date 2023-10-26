@@ -1400,26 +1400,26 @@ max-width: 70vh;
   border-radius: 50%;
 }
 
-.inputTipoEnvio[value="standar"]:checked + .check::after {
+.inputTipoEnvio[value="Standard"]:checked + .check::after {
   background-color: rgba(255, 0, 0, 0.7);
 }
 
-.inputTipoEnvio[value="premium"]:checked + .check::after {
+.inputTipoEnvio[value="Premium"]:checked + .check::after {
   background-color: rgba(0,128,0,0.7);
 }
-.inputTipoEnvio[value="express"]:checked + .check::after {
+.inputTipoEnvio[value="Express"]:checked + .check::after {
   background-color: rgb(248, 234, 38);
 }
 
-.inputTipoEnvio[value="express"]:checked {
+.inputTipoEnvio[value="Express"]:checked {
   border: 1.5px solid rgba(255, 230, 0, 0.7);
 }
 
-.inputTipoEnvio[value="standar"]:checked {
+.inputTipoEnvio[value="Standard"]:checked {
   border: 1.5px solid rgba(241, 86, 80, 0.7);
 }
 
-.inputTipoEnvio[value="premium"]:checked {
+.inputTipoEnvio[value="Premium"]:checked {
   border: 1.5px solid rgba(0,128,0,0.7);
 }
 
