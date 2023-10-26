@@ -10,7 +10,7 @@ let Subtotal = (precioUnit, cantidad, indice) => {
   let carrito = JSON.parse(localStorage.getItem(carritoKey));
   carrito[indice].quantity = cantidad;
   localStorage.setItem(carritoKey, JSON.stringify(carrito))
-  
+  subtotalCarrito();
 };
 
 //Inicializamos el carrito como vacío si no existía
@@ -62,7 +62,6 @@ document.addEventListener("DOMContentLoaded", () => {
     .then((data) => mostrarData(data.articles))
     .catch((error) => console.log(error));
   // button id="botonEnviar"
-
   //   Primero encontramos el elemento con ID=boton
   let boton = document.getElementById("botonEnviar");
 

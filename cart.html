@@ -93,35 +93,38 @@
         <div id="tipoEnvio"  class="container-fluid">
           
           <div class="cardCompras"> <!--tarjetitas de los tipos de envio con sus respectivos radiobuttons-->
-          <input class="inputTipoEnvio" type="radio" name="card" value="standar">
+          <input class="inputTipoEnvio" type="radio" name="tipoEnvio" value="Standard">
           <span class="check"></span>
           <label class="labelTipoEnvio">
             <div class="title"><h5 class="title">Standard</h5></div>
             <div class="price">
               <span class="span">12 a 15 días</span>
+              <span class="span">(5%)</span>
               
             </div>
           </label>
         </div>
         <div class="cardCompras"> <!--tarjetitas de los tipos de envio con sus respectivos radiobuttons-->
-          <input class="inputTipoEnvio" type="radio" name="card" value="express">
+          <input class="inputTipoEnvio" type="radio" name="tipoEnvio" value="Express">
           <span class="check"></span>
           <label class="labelTipoEnvio">
             <div class="title"><h5 class="title">Express</h5></div>
             <div class="price">
               <span class="span">5 a 8 días</span>
+              <span class="span">(7%)</span>
               
 
             </div>
           </label>
         </div>
         <div class="cardCompras"> <!--tarjetitas de los tipos de envio con sus respectivos radiobuttons-->
-          <input class="inputTipoEnvio" type="radio" name="card" value="premium">
+          <input class="inputTipoEnvio" type="radio" name="tipoEnvio" value="Premium">
           <span class="check"></span>
           <label class="labelTipoEnvio">
             <div class="title"><h5 class="title">Premium</h5></div>
             <div class="price">
-              <span class="span">2 a 5 días</span>
+            <span class="span">2 a 5 días</span>
+            <span class="span">(15%)</span>
             
               
             </div>
@@ -146,15 +149,15 @@
               <thead>
                 <tr>
                   <th><strong>Subtotal</strong><br><small class="text-muted">Costo unitario del producto por cantidad</small></th>
-                  <td class="cost"></td>
+                  <td class="cost">USD 0</td>
                 </tr>
                 <tr>
                   <th><strong>Costo de envío</strong><br><small class="text-muted">Según el tipo de envío</small></th>
-                  <td class="cost"></td>
+                  <td class="cost" id="subtotalEnvio">USD 0</td>
                 </tr>
                 <tr>
                   <th><strong>Total ($)</strong><br></th>
-                  <td class="cost"></td>
+                  <td class="cost" id="costoTotal">USD 0</td>
                 </tr>
               </thead>
             </table>
