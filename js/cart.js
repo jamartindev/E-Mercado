@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let carrito = JSON.parse(localStorage.getItem(carritoKey));
     //la variable está es para verificar si está agregado al carrito o no y agregarlo en caso negativo
-    
+    let esta = -1;
     for (let i = 0; i < carrito.length; i++) {
       if (carrito[i].id == articles[0].id) {
         esta = i;
