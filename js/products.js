@@ -21,13 +21,15 @@ document.addEventListener("DOMContentLoaded", async () => {
   let products = json.products;
   let productsDef = json.products;
 
+  //Variable que verifica si el tamaño de pantalla concuerda con pantallas chicas
+  let xMedia = window.matchMedia("(max-width: 786px)");
+
+
   // Función para mostrar los productos en el contenedor.
   function mostrarProductos() {
     container.innerHTML = "";
 
-    //Variable que verifica si el tamaño de pantalla concuerda con pantallas chicas
-    let xMedia = window.matchMedia("(max-width: 786px)");
-
+    
 
     for (let i = 0; i < products.length; i++) {
       let name = products[i].name;
@@ -53,8 +55,8 @@ document.addEventListener("DOMContentLoaded", async () => {
           <div class="card" id="${productID}" onclick="seleccionarProducto(id)">
           <img src="${image}" class="img-thumbnail" alt="${description}">
           <div class="card__content">
-            <p class="card__title" id=nameDiv${i}${name} - ${currency} ${cost}</p>
-            <p class="card__description" id=descDiv${i}> ${description} </p>
+            <p class="card__title" id=nameDivR${i}>${name} - ${currency} ${cost}</p>
+            <p class="card__description" id=descDivR${i}> ${description} </p>
             <small class="card__description"> ${soldCount} vendidos</small>
           </div>`
         } else {
@@ -155,22 +157,38 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     searchbar.addEventListener("input", () => {
       for (let i = 0; i < products.length; i++) {
-        let nameDiv = document.querySelectorAll(
-          "#nameDiv0, #nameDiv1, #nameDiv2, #nameDiv3, #nameDiv4"
-        );
-        let descDiv = document.querySelectorAll(
-          "#descDiv0, #descDiv1, #descDiv2, #descDiv3, #descDiv4"
-        );
+        
+        let nameDiv;
+        let descDiv;
 
+        if (xMedia.matches) {
+          nameDiv = document.querySelectorAll(
+            "#nameDivR0, #nameDivR1, #nameDivR2, #nameDivR3, #nameDivR4"
+          );
+          descDiv = document.querySelectorAll(
+            "#descDivR0, #descDivR1, #descDivR2, #descDivR3, #descDivR4"
+          );
+          
+        } else {
+          nameDiv = document.querySelectorAll(
+            "#nameDiv0, #nameDiv1, #nameDiv2, #nameDiv3, #nameDiv4"
+          );
+          descDiv = document.querySelectorAll(
+            "#descDiv0, #descDiv1, #descDiv2, #descDiv3, #descDiv4"
+          );
+          
+        }
         let inputSearch = searchbar.value.toUpperCase();
 
         let searchObj = nameDiv[i].innerText + descDiv[i].innerText;
 
-        if (searchObj.toUpperCase().indexOf(inputSearch) > -1) {
+        if (
+          searchObj.toUpperCase().indexOf(inputSearch) > -1 ) {
           divsHideShow[i].style.display = "";
         } else {
           divsHideShow[i].style.display = "none";
         }
+      
       }
     });
   }

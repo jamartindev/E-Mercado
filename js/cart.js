@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let carrito = JSON.parse(localStorage.getItem(carritoKey));
     //la variable está es para verificar si está agregado al carrito o no y agregarlo en caso negativo
-    let esta = -1;
+    
     for (let i = 0; i < carrito.length; i++) {
       if (carrito[i].id == articles[0].id) {
         esta = i;
@@ -90,8 +90,9 @@ document.addEventListener("DOMContentLoaded", () => {
       costoEnvio();
       document.getElementById("costoTotal").textContent = `USD ${costoTotal}`;
     });
-  }
-});
+    }
+  });
+  
 //Tomé el body que antes estaba en el fetch para ponerlo en una función que dibuja en cart.html el carrito del localStorage
 function dibujarCarrito() {
   let carrito = JSON.parse(localStorage.getItem(carritoKey));
@@ -101,8 +102,9 @@ function dibujarCarrito() {
         <tr>
           <td> <img src="${carrito[i].images[0]}" width="150vh"> ${carrito[i].name}</td>
           <td>${carrito[i].currency} ${carrito[i].cost}</td>
-          <td><input value="${carrito[i].quantity}" type="number" min="0" max="100" oninput="Subtotal(${carrito[i].cost}, this.value, ${i})"></td>
+          <td><input id="inputCantidad" value="${carrito[i].quantity}" type="number" min="0" max="100" oninput="Subtotal(${carrito[i].cost}, this.value, ${i})"></td>
           <td class="subtotal">${carrito[i].currency} <span id="subtotal${i}">${carrito[i].cost}</span></td>
+          <td><button class="btneliminar" onclick="eliminarProducto(${i})"><i class="fa-regular fa-trash-can"></i></button></td>
         </tr>
     `;
   }
@@ -153,3 +155,150 @@ function costoEnvio() {
   dataCost[1].innerHTML = `USD ${costoEnvio}`;
   document.getElementById("costoTotal").textContent = `USD ${costoTotal}`;
 }
+
+// Función para eliminar los articulos agrrgados a carrito...
+function eliminarProducto(indice) {
+  let carrito = JSON.parse(localStorage.getItem(carritoKey)) || []; // esto es por si ni tengo datos en el local storage
+  carrito.splice(indice, 1);
+  localStorage.setItem(carritoKey, JSON.stringify(carrito)); 
+  dibujarCarrito();
+  
+}
+
+dibujarCarrito();
+
+//Se crea una funcion para mostrar en el modal la eleccion de usuario, 
+//si selecciona Transferencia bancaria se "nonea" el display de opciones de credit card, y asi al reves.
+function detallePago(option) {
+const bankTransferDetails = document.getElementById('bankTransferDetails');
+const creditCardDetails = document.getElementById('creditCardDetails');
+
+if (option === 'bankTransfer') {
+  bankTransferDetails.style.display = 'block';
+  creditCardDetails.style.display = 'none';
+  resetCreditCardDetails();
+} else if (option === 'creditCard') {
+  bankTransferDetails.style.display = 'none';
+  creditCardDetails.style.display = 'block';
+  resetBankTransferDetails();
+}
+} 
+
+//Funcion para borrar datos cuando se escriba en otro medio de pago seleccionado 
+
+function resetBankTransferDetails() {
+document.getElementById('accountNumber').value = '';
+}
+
+function resetCreditCardDetails() {
+document.getElementById('cardNumber').value = '';
+document.getElementById('cvv').value = '';
+document.getElementById('expiryDate').value = '';
+}
+
+//VALIDACIONES AL DARLE BOTON "FINALIZAR COMPRA"
+
+
+document.getElementById("finalizaCompra").addEventListener("click", function () {
+
+const calleInput = document.getElementById("inputCalleEnvio").value;
+const calleError = document.getElementById("calleEnvio");
+const numeroInput = document.getElementById("inputNumeroEnvio").value;
+const esquinaInput = document.getElementById("inputEsquinaEnvio").value;
+const numError = document.getElementById("numeroEnvio");
+const esquinaError = document.getElementById("esquinaEnvio");
+const inputCantidad = document.getElementById("inputCantidad").value;
+const tipoEnvioError = document.getElementById("formaPagoError");
+const formaEnvioElements = document.querySelectorAll("input[name=card]");
+let seleccionadoEnvio = false;
+const modoPago = document.querySelectorAll("input[name=paymentMethod");
+let seleccionadoPago = false;
+const errorModoPago = document.getElementById("errorMetodoPago");
+const accountNumber = document.getElementById("accountNumber").value;
+const cardNumber = document.getElementById("cardNumber").value;
+const cvv = document.getElementById("cvv").value;
+const expiryDate = document.getElementById("expiryDate").value;
+
+if (calleInput.trim() === "") {
+    calleError.innerHTML = "Ingresa una calle";
+    calleError.style.color ="#b21111"
+    document.getElementById("inputCalleEnvio").classList.add("incompleto");
+} else {
+    calleError.innerHTML = "";
+    document.getElementById("inputCalleEnvio").classList.remove("incompleto");
+}
+
+if(numeroInput==""){
+  numError.innerHTML= "Ingresa un número";
+  numError.style.color ="#b21111"
+  document.getElementById("inputNumeroEnvio").classList.add("incompleto");
+} else {
+  numError.innerHTML = "";
+    document.getElementById("inputNumeroEnvio").classList.remove("incompleto");
+}
+
+if(esquinaInput==""){
+  esquinaError.innerHTML= "Ingresa una esquina";
+  esquinaError.style.color ="#b21111"
+  document.getElementById("inputEsquinaEnvio").classList.add("incompleto");
+} else {
+  esquinaError.innerHTML = "";
+    document.getElementById("inputEsquinaEnvio").classList.remove("incompleto");
+}
+
+if(inputCantidad=="0"){
+  document.getElementById("inputCantidad").classList.add("incompleto");
+} else {
+  document.getElementById("inputCantidad").classList.remove("incompleto");
+}
+
+formaEnvioElements.forEach((element) => {
+  if (element.checked) {
+    seleccionadoEnvio = true;
+  }
+});
+
+if (!seleccionadoEnvio) {
+  tipoEnvioError.innerHTML = "Elija una opción de envío";
+  tipoEnvioError.style.color = "#b21111"
+} else {
+  tipoEnvioError.innerHTML = "";
+}
+
+modoPago.forEach((element) => {
+  if (element.checked) {
+    seleccionadoPago = true;
+  }
+});
+
+if (!seleccionadoPago) {
+  errorModoPago.innerHTML = "Elija un método de pago";
+  errorModoPago.style.color = "#b21111"
+} else {
+  errorModoPago.innerHTML = "";
+}
+
+if (accountNumber === "" && cardNumber === "" && cvv === "" && expiryDate === "") {
+  errorModoPago.innerHTML = "Elija un método de pago";
+  errorModoPago.style.color = "#b21111"
+} else {
+  errorModoPago.innerHTML = "";
+}
+// VERIFICAR QUE TODAS LAS VALIDACIONES SON CORRECTAS:
+if (
+  calleInput.trim() !== "" &&
+  numeroInput !== "" &&
+  esquinaInput !== "" &&
+  inputCantidad !== "0" &&
+  seleccionadoEnvio &&
+  seleccionadoPago &&
+  (accountNumber !== "" || cardNumber !== "" || cvv !== "" || expiryDate !== "")
+) {
+  Swal.fire(
+    'Compra exitosa',
+    'Gracias por comprar con nosotros!',
+    'success'
+  )
+}
+
+})
