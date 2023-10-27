@@ -31,13 +31,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let carrito = JSON.parse(localStorage.getItem(carritoKey));
     //la variable está es para verificar si está agregado al carrito o no y agregarlo en caso negativo
-    let esta = -1;
+    //let esta = -1;
     for (let i = 0; i < carrito.length; i++) {
       if (carrito[i].id == articles[0].id) {
         esta = i;
       }
     }
-    if (esta == -1) {
+    if (!carrito) {
       //esto es para poner la info que viene de la API en la misma manera que lo pusimos para los productos que agrega el usuario
       carrito.push({
         quantity: 1,
@@ -62,26 +62,6 @@ document.addEventListener("DOMContentLoaded", () => {
     .then((res) => res.json())
     .then((data) => mostrarData(data.articles))
     .catch((error) => console.log(error));
-  // button id="botonEnviar"
-  //   Primero encontramos el elemento con ID=boton
-  let boton = document.getElementById("botonEnviar");
-
-  //   Agregamos EventListener para que al hacer Click,
-  //     se cambie  el boton a color blue
-  boton.addEventListener("click", function () {
-    boton.style.color = " #f19d57cb";
-    boton.disable = true;
-  });
-
-  // 👇️ Cambiar color al PONERLE el mouse arriba
-  boton.addEventListener("mouseover", function handleMouseOver() {
-    boton.style.color = " #f19d57cb"; // Esto cambia el color del texto
-  });
-
-  // 👇️ Cambiar color al SACARLE el mouse de arriba al mismo color
-  boton.addEventListener("mouseout", function handleMouseOut() {
-    boton.style.color = "black";
-  });
 
   // Evento usando queryselector para que al hacer click en cualquier tipo de envio me actualice los costes + envios
   let radiobtns = document.querySelectorAll("input[name=tipoEnvio]");
@@ -94,9 +74,10 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   
 //Tomé el body que antes estaba en el fetch para ponerlo en una función que dibuja en cart.html el carrito del localStorage
+let body = "";
 function dibujarCarrito() {
   let carrito = JSON.parse(localStorage.getItem(carritoKey));
-  let body = "";
+  
   for (let i = 0; i < carrito.length; i++) {
     body += `
         <tr>
@@ -107,8 +88,9 @@ function dibujarCarrito() {
           <td><button class="btneliminar" onclick="eliminarProducto(${i})"><i class="fa-regular fa-trash-can"></i></button></td>
         </tr>
     `;
+    
   }
-  document.getElementById("contenidoCarrito").innerHTML += body;
+  document.getElementById("contenidoCarrito").innerHTML = body;
 }
 // Punto 1 entrega 6 Subtotal
 function subtotalCarrito() {
@@ -157,15 +139,23 @@ function costoEnvio() {
 }
 
 // Función para eliminar los articulos agrrgados a carrito...
-function eliminarProducto(indice) {
+/*function eliminarProducto(indice) {
   let carrito = JSON.parse(localStorage.getItem(carritoKey)) || []; // esto es por si ni tengo datos en el local storage
   carrito.splice(indice, 1);
   localStorage.setItem(carritoKey, JSON.stringify(carrito)); 
+}*/
+
+function eliminarProducto(indice) {
+  body = "";
+  let carrito = JSON.parse(localStorage.getItem(carritoKey));
+  carrito.splice(indice, 1);
+  localStorage.setItem(carritoKey, JSON.stringify(carrito));
   dibujarCarrito();
-  
+  subtotalCarrito();
+  costoEnvio();
 }
 
-dibujarCarrito();
+
 
 //Se crea una funcion para mostrar en el modal la eleccion de usuario, 
 //si selecciona Transferencia bancaria se "nonea" el display de opciones de credit card, y asi al reves.
@@ -209,7 +199,7 @@ const numError = document.getElementById("numeroEnvio");
 const esquinaError = document.getElementById("esquinaEnvio");
 const inputCantidad = document.getElementById("inputCantidad").value;
 const tipoEnvioError = document.getElementById("formaPagoError");
-const formaEnvioElements = document.querySelectorAll("input[name=card]");
+const formaEnvioElements = document.querySelectorAll("input[name=tipoEnvio]");
 let seleccionadoEnvio = false;
 const modoPago = document.querySelectorAll("input[name=paymentMethod");
 let seleccionadoPago = false;
