@@ -88,6 +88,13 @@
     
 
 <!--DIVS PARA TIPO DE ENVIO Y DATOS DE ENVIO, punto 2 entrega 5-->
+<div class="container-flex" style="
+display: flex;
+justify-content: center;
+align-items: start;
+align-content: center;
+flex-direction: row;
+">
     <div id="datosCompra" class="container-fluid">
       <h2 style="color: darkslategray;">Tipo de envio</h2>
         <div id="tipoEnvio"  class="container-fluid">
@@ -146,9 +153,9 @@
             Selecciona un método de pago <i class="fa-solid fa-money-check-dollar fa-xl" style="color: darkslategrey"></i>
           </button>
           <span id="errorMetodoPago"></span>
-          <button id="finalizaCompra">Finalizar compra </button>     
+               
         </div>
-        <div id="datosCostos" class="container-fluid mt-4">
+        <div id="datosCostos" class="container-fluid">
           <div class="text-center">
             <h1>Costos</h1>
           </div>
@@ -170,6 +177,8 @@
               </thead>
             </table>
           </div>
+          <button id="finalizaCompra">Finalizar compra </button>
+        </div>
         </div>
             
           <!-- Modal -->

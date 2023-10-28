@@ -1275,13 +1275,13 @@ a:hover span {
 #datosCostos{
   display: flex;
   flex-direction: column;
-  justify-content: left;
-  align-items: left;
+  justify-content: center;
+  align-items: center;
   gap: 2rem;
-  background:rgb(255, 255, 255);
+  background:transparent;
   padding: 1rem;
   border-radius: 10px;
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  border: 2px solid #f09f53;
   color: #000;
   max-width: 70vh;
   
@@ -1350,8 +1350,8 @@ max-width: 70vh;
 
 .cardCompras {
   position: relative;
-  width: 16vh;
-  height: 11vh;
+  width: 18vh;
+  height: 15vh;
   background: #fff;
   border-radius: 1vh;
   transition: all 0.3s;
@@ -1459,15 +1459,7 @@ max-width: 70vh;
 transform: scale(1.05);
 }
 /*estilo de Costos*/
-.table-responsive {
-  margin-top: 40px;
-  margin-bottom: 40px;
-  box-shadow: 0 0 40px  rgba(17, 12, 8, 0.322);
-  padding: 50px;
-  background-color:rgb(255, 255, 255) ;
-  border-radius: 15px;
-  text-align: left;
-}
+
 
 /*METODO DE PAGO*/
 #payment-container{
@@ -1612,8 +1604,8 @@ transform: scale(1.05);
 
 #finalizaCompra{
   border: none;
-  background-color: white;
-  color: #db710e;
+  background-color: #f09f53;
+  color: white;
   font-weight: 600;
   font-size: large;
   width: 50%;
@@ -1623,7 +1615,7 @@ transform: scale(1.05);
 
 #finalizaCompra:hover{
   background-color: transparent;
-  color:white;
-  border: 2px solid white;
+  color:#f09f53;
+  border: 2px solid #f09f53;
   transition: all 0.2s;
 }
