@@ -92,30 +92,31 @@ function dibujarCarrito() {
   }
   document.getElementById("contenidoCarrito").innerHTML = body;
 }
-// Punto 1 entrega 6 Subtotal
+
+let dataCost = document.querySelectorAll(".cost"); //Obtengo un NodeList con los campos de costos del carrito desde el HTML
+// Función que determina el subtotal del carrito en tiempo real
 function subtotalCarrito() {
-  const items = JSON.parse(localStorage.getItem("carrito"));
-  let dataCost = document.querySelectorAll(".cost");
+  const items = JSON.parse(localStorage.getItem("carrito")); // Obtengo el carrito desde el localStorage
+  
   let moneda;
   let subTot = 0;
 
-  for (let item of items) {
+  for (let item of items) { // Utilizando un for...of itero sobre los elementos del carrito
     moneda = item.currency;
-    if (moneda !== "USD") {
+    if (moneda !== "USD") { // Si la moneda del elemento no es USD hago la conversión 
       subTot += (item.cost / 40) * item.quantity;
     } else {
-      subTot += item.cost * item.quantity;
+      subTot += item.cost * item.quantity; //Multiplico costo por cantidad
     }
   }
-  subTotal = subTot;
-  dataCost[0].innerHTML = `USD ${subTot}`;
+  subTotal = subTot; //Actualizo variable global
+  dataCost[0].innerHTML = `USD ${subTot}`; //Accedo al innerHTML del elemento del NodeList correspondiente a subtotal y añado el valor
 }
 
 function costoEnvio() {
   // Obtengo los botones de radio de tipo de envío.
   let pocentajeEnvio = document.querySelectorAll("input[name=tipoEnvio]");
   // Obtiengo los artículos del almacenamiento local.
-  let dataCost = document.querySelectorAll(".cost");
   const items = JSON.parse(localStorage.getItem("carrito"));
   let costoEnvio = 0;
   // Armo una cadena if y else if para que al escoger el tipo de envio se calculen
