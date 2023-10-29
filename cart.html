@@ -84,95 +84,189 @@
   
         </tbody>
       </table>
-      </div>
     </div>
+    
 
 <!--DIVS PARA TIPO DE ENVIO Y DATOS DE ENVIO, punto 2 entrega 5-->
+<div class="container-flex" style="
+display: flex;
+justify-content: center;
+align-items: start;
+align-content: center;
+flex-direction: row;
+">
     <div id="datosCompra" class="container-fluid">
-      <h2>Tipo de envio</h2>
+      <h2 style="color: darkslategray;">Tipo de envio</h2>
         <div id="tipoEnvio"  class="container-fluid">
           
           <div class="cardCompras"> <!--tarjetitas de los tipos de envio con sus respectivos radiobuttons-->
-          <input class="inputTipoEnvio" type="radio" name="card" value="standar">
+          <input class="inputTipoEnvio" type="radio" name="tipoEnvio" value="Standard" required>
           <span class="check"></span>
           <label class="labelTipoEnvio">
             <div class="title"><h5 class="title">Standard</h5></div>
             <div class="price">
               <span class="span">12 a 15 días</span>
+              <span class="span">(5%)</span>
               
             </div>
           </label>
         </div>
         <div class="cardCompras"> <!--tarjetitas de los tipos de envio con sus respectivos radiobuttons-->
-          <input class="inputTipoEnvio" type="radio" name="card" value="express">
+          <input class="inputTipoEnvio" type="radio" name="tipoEnvio" value="Express" required>
           <span class="check"></span>
           <label class="labelTipoEnvio">
             <div class="title"><h5 class="title">Express</h5></div>
             <div class="price">
               <span class="span">5 a 8 días</span>
+              <span class="span">(7%)</span>
               
 
             </div>
           </label>
         </div>
         <div class="cardCompras"> <!--tarjetitas de los tipos de envio con sus respectivos radiobuttons-->
-          <input class="inputTipoEnvio" type="radio" name="card" value="premium">
+          <input class="inputTipoEnvio" type="radio" name="tipoEnvio" value="Premium" required>
           <span class="check"></span>
           <label class="labelTipoEnvio">
             <div class="title"><h5 class="title">Premium</h5></div>
             <div class="price">
-              <span class="span">2 a 5 días</span>
-            
-              
+            <span class="span">2 a 5 días</span>
+            <span class="span">(15%)</span>
             </div>
           </label>
-        </div>
           </div>
-
-          <div id="direccionEnvio" class="flex-container"> <!--contenedor para los datos de la dirección a enviar-->
-            <h2>Direccion de envio</h2>
-            <input type="text" name="" class="inputDireccion" placeholder="Calle">
-            <input type="number" name="" class="inputDireccion" placeholder="Numero">
-            <input type="text" class="inputDireccion" placeholder="Esquina">
-                </div> 
-                <button id="botonEnviar">Comprar</button>
         </div>
-
-
-
-
-
-        
+          <span id="formaPagoError"></span>
           
+          <div id="direccionEnvio" class="flex-container"> <!--contenedor para los datos de la dirección a enviar-->
+            <h2 style="color: darkslategray;">Dirección de envío</h2>
+            <input type="text" name="" class="inputDireccion"  id="inputCalleEnvio" placeholder="Calle" required>
+            <span id="calleEnvio"></span>
+            <input type="number" name="" class="inputDireccion"  id="inputNumeroEnvio" placeholder="Numero" required>
+            <span id="numeroEnvio"></span>
+            <input type="text" class="inputDireccion"  id="inputEsquinaEnvio" placeholder="Esquina" required>
+            <span id="esquinaEnvio"></span>
+            <!--<button id="botonEnviar">Comprar</button>-->
+          
+          </div> 
+          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" style="color: darkslategrey; border: 1px solid darkslategrey">
+            Selecciona un método de pago <i class="fa-solid fa-money-check-dollar fa-xl" style="color: darkslategrey"></i>
+          </button>
+          <span id="errorMetodoPago"></span>
+               
+        </div>
+        <div id="datosCostos" class="container-fluid">
+          <div class="text-center">
+            <h1>Costos</h1>
+          </div>
+          <div class="table-responsive mt-4 shadow-lg p3 mb-5 bg-body border rounded">
+            <table class=" table table-responsive mx-auto w-100  text-left table-hover align-middle">
+              <thead>
+                <tr>
+                  <th><strong>Subtotal</strong><br><small class="text-muted">Costo unitario del producto por cantidad</small></th>
+                  <td class="cost">USD 0</td>
+                </tr>
+                <tr>
+                  <th><strong>Costo de envío</strong><br><small class="text-muted">Según el tipo de envío</small></th>
+                  <td class="cost" id="subtotalEnvio">USD 0</td>
+                </tr>
+                <tr>
+                  <th><strong>Total ($)</strong><br></th>
+                  <td class="cost" id="costoTotal">USD 0</td>
+                </tr>
+              </thead>
+            </table>
+          </div>
+          <button id="finalizaCompra">Finalizar compra </button>
+        </div>
+        </div>
+            
+          <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Forma de pago </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body"> 
+        <!--metodos de pago-->
+        <div id="payment-container" class="flex-container d-flex">
+          <div class="metodoPagoTituloTransferencia">
+          <label class="contenedorTituloPago">
+            <i class="fa-solid fa-money-bill-transfer" style="color: #f38d3a;"></i>
+            Transferencia Bancaria
+            <input type="radio" name="paymentMethod" value="bankTransfer"  required onclick="detallePago('bankTransfer')"> 
+          </label>
+        </div>
+        <div class="metodoPagoTitulo">
+          <label class="contenedorTituloPago">
+            <i class="fa-regular fa-credit-card" style="color: white"></i>
+            Tarjeta de Crédito
+            <input type="radio" name="paymentMethod" value="creditCard"  required onclick="detallePago('creditCard')" > 
+          </label>
+          </div>
+        </div>
+        
+        <div class="payment-details" id="bankTransferDetails">
+          <!-- Contenido para transferencia bancaria -->
+          <div class="contenidoPagoBanco">
+          <label for="accountNumber">Número de cuenta:</label>
+          <input class="inputPago" type="text" id="accountNumber" name="accountNumber" onchange="resetCreditCardDetails()" required>
+          </div>
+        </div>
         
         
-  
-    
+        
+        <div class="payment-details" id="creditCardDetails">
+          <!-- Contenido para tarjeta de crédito -->
+         <div class="contenidoPagoCredito">
 
-      
-  </main>
-  <footer class="text-muted">
-    <div class="container">
-      <p class="float-end">
-        <a href="#">Volver arriba</a>
-      </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
-    </div>
-  </footer>
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+          <label for="cardNumber">Número de tarjeta</label>
+          <input class="inputPago" type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9101" onchange="resetBankTransferDetails()" required>
+          <label for="cvv"> Código de seguridad</label>
+          <input class="inputPago" id="cvv" type="number" placeholder="123"  min="3" max="3" onchange="resetBankTransferDetails()" required>
+          <label for="expiryDate">Fecha de expiración</label>
+          <input class="inputPago" type="date" id="expiryDate" name="expiryDate" onchange="resetBankTransferDetails()" required>
+        </div>
+        </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn" data-bs-dismiss="modal" style="background-color: darkslategrey; color: white;">Confirmar</button>
+        
+      </div>
     </div>
   </div>
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/index.js"></script>
-  <script src="js/init.js"></script>
-  <script src="js/cart.js"></script>
-  <script src="https://kit.fontawesome.com/d765d1fb24.js" crossorigin="anonymous"></script>
-  <script src="js/dark-mode.js"></script>
+</div>
+
+          
+        
+      </div>
+    </main>
+    <footer class="text-muted">
+      <div class="container">
+        <p class="float-end">
+          <a href="#">Volver arriba</a>
+        </p>
+        <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
+      </div>
+    </footer>
+    <div id="spinner-wrapper">
+      <div class="lds-ring">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="https://kit.fontawesome.com/d765d1fb24.js" crossorigin="anonymous"></script>
+    <script src="js/dark-mode.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>

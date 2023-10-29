@@ -1270,6 +1270,23 @@ a:hover span {
   background-color: #3e8e41;
 }
 
+/*CARRITO DATOS DE COSTOS*/
+/*ESTILO DE LOS DIVS*/
+#datosCostos{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  background:transparent;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 2px solid #f09f53;
+  color: #000;
+  max-width: 70vh;
+  
+}
+
 /*CARRITO DATOS DE COMPRA*/
 /*ESTILO DE LOS DIVS*/
 #datosCompra{
@@ -1333,8 +1350,8 @@ max-width: 70vh;
 
 .cardCompras {
   position: relative;
-  width: 16vh;
-  height: 11vh;
+  width: 18vh;
+  height: 15vh;
   background: #fff;
   border-radius: 1vh;
   transition: all 0.3s;
@@ -1383,26 +1400,26 @@ max-width: 70vh;
   border-radius: 50%;
 }
 
-.inputTipoEnvio[value="standar"]:checked + .check::after {
+.inputTipoEnvio[value="Standard"]:checked + .check::after {
   background-color: rgba(255, 0, 0, 0.7);
 }
 
-.inputTipoEnvio[value="premium"]:checked + .check::after {
+.inputTipoEnvio[value="Premium"]:checked + .check::after {
   background-color: rgba(0,128,0,0.7);
 }
-.inputTipoEnvio[value="express"]:checked + .check::after {
+.inputTipoEnvio[value="Express"]:checked + .check::after {
   background-color: rgb(248, 234, 38);
 }
 
-.inputTipoEnvio[value="express"]:checked {
+.inputTipoEnvio[value="Express"]:checked {
   border: 1.5px solid rgba(255, 230, 0, 0.7);
 }
 
-.inputTipoEnvio[value="standar"]:checked {
+.inputTipoEnvio[value="Standard"]:checked {
   border: 1.5px solid rgba(241, 86, 80, 0.7);
 }
 
-.inputTipoEnvio[value="premium"]:checked {
+.inputTipoEnvio[value="Premium"]:checked {
   border: 1.5px solid rgba(0,128,0,0.7);
 }
 
@@ -1440,4 +1457,165 @@ max-width: 70vh;
 
 #botonEnviar:hover {
 transform: scale(1.05);
+}
+/*estilo de Costos*/
+
+
+/*METODO DE PAGO*/
+#payment-container{
+  gap: 20px;
+  justify-content: center;
+  padding: 3vh;
+}
+
+
+.payment-container label {
+  margin-right: 10px;
+}
+
+.payment-details {
+  display: none;
+}
+
+.metodoPagoTitulo{
+  background-color: #f09f53;
+  border: none;
+  border-radius: 10px;
+  padding: 5px;
+  color: white;
+}
+.metodoPagoTituloTransferencia{
+  background-color: transparent;
+  border: 1px solid #da7d27;
+  border-radius: 10px;
+  padding: 5px;
+  color: #da7d27;
+  
+}
+.metodoPagoTituloTransferencia:hover{
+  transform: scale(1.1);
+  transition: all 0.2s;
+}
+
+.metodoPagoTitulo:hover{
+  transform: scale(1.1);
+  transition: all 0.2s;
+}
+
+.metodoPagoTituloTransferencia:not(:hover){
+  transition: all 0.2s;
+}
+
+.metodoPagoTitulo:not(:hover){
+  transition: all 0.2s;
+}
+
+
+
+.contenidoPagoBanco,
+.contenidoPagoCredito{
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+  width: 50%;
+  margin-left: 25%;
+}
+
+.inputPago{
+  border: none;
+  border-bottom: 2px solid #e99c5e;
+  outline: none;
+
+}
+
+.inputPago[type="number"]{
+  width: 30%;
+}
+
+
+
+.contenedorTituloPago{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  
+}
+
+/* estilo button eliminar */
+.btneliminar {
+  background-color: rgb(248, 248, 253);
+  color: rgb(8, 7, 7);
+  border: none;
+  border-radius: 15px;
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.btneliminar:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: rgba(204, 9, 9, 0.8);
+  z-index: -1;
+  transition: all 0.5s ease;
+  opacity: 0;
+}
+
+.btneliminar:hover {
+  color: rgb(196, 13, 13);
+  transform: scale(1.1);
+  box-shadow: 0px 0px 4px rgb(167, 10, 10)
+}
+
+.btneliminar:hover:before {
+  animation: particles 1s infinite;
+  opacity: 1;
+}
+
+@keyframes particles {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(10);
+    opacity: 0;
+  }
+}
+
+/*estilos para los mensajes de error validaciones*/
+.incompleto {
+  border: 2px solid red;
+}
+
+.error-message {
+  color: red;
+  margin-top: 5px;
+}
+
+#finalizaCompra{
+  border: none;
+  background-color: #f09f53;
+  color: white;
+  font-weight: 600;
+  font-size: large;
+  width: 50%;
+  height: 50px;
+  border-radius: 5px;
+}
+
+#finalizaCompra:hover{
+  background-color: transparent;
+  color:#f09f53;
+  border: 2px solid #f09f53;
+  transition: all 0.2s;
 }

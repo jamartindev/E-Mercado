@@ -3,8 +3,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
   // Busco los botones y llamo sus id para vincularlos con la funcion del modo oscuro
   let btnDark = document.getElementById('btn-dark');
   let btnIcon = document.getElementById('btnIcon');
-  let logoDark = document.querySelectorAll('#megatron');
-  
+  let logoDark = document.getElementById('megatron');
   // Armo funcion que cambia si esta en un estilo claro o oscuro
   // Donde cambia el icono del sol y la luna para marcarlos
   // Tambien me cambia el estilo a oscuro o claro del CSS
@@ -34,12 +33,17 @@ document.addEventListener('DOMContentLoaded', ()=> {
   
   //Función que cambia ícono de sol/luna en cada página según el tema elegido
   function changeIcon() {
+    
     if (document.body.classList.contains("dark-theme")) {
       btnIcon.src = "img/sun.png";
-      logoDark[0].className = "megatron-light";
+      if (logoDark !== null) {
+      logoDark.className = "megatron-light";
+      }
     } else {
       btnIcon.src = "img/night-mode.png";
-      logoDark[0].className = "megatron";
+      if (logoDark !== null) {
+      logoDark.className = "megatron";
+      }
     }
   };
   
