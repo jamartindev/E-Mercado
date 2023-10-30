@@ -62,10 +62,48 @@
     </div>
   </nav>
   <main>
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+    <div class="container text-center mt-4">
+    <h1>Perfil</h1>
+  </div>
+    <div class="container d-flex mt-4" id="contenedoresPerfil">
+      
+      
+      <!--contenedor para la foto-->
+      <div class="container" id="containerFotoPerfil">
+        
+        <img src="img/img_perfil.png" alt="profilePic" id="imgPerfil">
+        <button id="addProfilePic"><i class="fa-solid fa-camera" style="color: #ffffff;"></i>  Añadir foto</button>
+
+        <!--armar funcion para que al guardar cambios se cambie el nombre de la persona y aparezca aquí-->
+        <div class="flex-container mt-3">
+          <strong><span id="nombreUser"></span></strong>
+          <strong><span id="apellidoUser"></span></strong>
+          
+        </div>
+
       </div>
+
+
+      <!--contenedor para los datos -->
+      <div class="container d-flex flex-column" id="containerDatosPerfil">
+        <label for="nombre">Nombre* </label>
+        <input class="inputDatosUser" type="text" id="nombreNuevoUser">
+        <label for="nombre">Segundo nombre </label>
+        <input class="inputDatosUser" type="text">
+        <label for="nombre">Apellido* </label>
+        <input class="inputDatosUser" type="text" id="apellidoNuevoUser">
+        <label for="nombre">Segundo apellido </label>
+        <input class="inputDatosUser" type="text">
+        <label for="nombre">E-mail* </label>
+        <input class="inputDatosUser" type="text" id="emailUser">
+        <label for="nombre"> Teléfono de contacto </label>
+        <input class="inputDatosUser" type="number">
+      </div>
+    </div>
+
+    <!--boton de guardar cambios-->
+    <div class="conntainer d-flex align-items-center justify-content-center mt-5">
+      <button type="button" class="btn btn-dark" id="guardarCambios"> Guardar cambios </button>
     </div>
   </main>
   <footer class="text-muted">
