@@ -89,15 +89,15 @@
         <label for="nombre">Nombre* </label>
         <input class="inputDatosUser" type="text" id="nombreNuevoUser">
         <label for="nombre">Segundo nombre </label>
-        <input class="inputDatosUser" type="text">
+        <input class="inputDatosUser" type="text" id="segundoNombreUser">
         <label for="nombre">Apellido* </label>
         <input class="inputDatosUser" type="text" id="apellidoNuevoUser">
         <label for="nombre">Segundo apellido </label>
-        <input class="inputDatosUser" type="text">
+        <input class="inputDatosUser" type="text" id="segundoApellidoUser">
         <label for="nombre">E-mail* </label>
         <input class="inputDatosUser" type="text" id="emailUser">
         <label for="nombre"> Teléfono de contacto </label>
-        <input class="inputDatosUser" type="number">
+        <input class="inputDatosUser" type="number" id="telefonoUser">
       </div>
     </div>
 
@@ -105,7 +105,7 @@
 
     <!--boton de guardar cambios-->
     <div class="conntainer d-flex align-items-center justify-content-center mt-5">
-      <button type="button" class="btn btn-dark" id="guardarCambios"> Guardar cambios </button>
+      <button type="button" class="btn btn-dark" id="guardarCambios" onclick="validarPerfil()"> Guardar cambios </button>
     </div>
   </main>
   <footer class="text-muted">
@@ -122,6 +122,7 @@
   <script src="js/my-profile.js"></script>
   <script src="https://kit.fontawesome.com/d765d1fb24.js" crossorigin="anonymous"></script>
   <script src="js/dark-mode.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>

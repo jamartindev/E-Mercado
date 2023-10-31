@@ -1,7 +1,7 @@
 //Para que se vea el email en el usuario 
 let user = localStorage.getItem("User");
 let userEmail = document.getElementById('emailUser');
-userEmail.value = user; 
+user.value = userEmail; 
 
 //Funcion al darle click al boton "guardar cambios" se actualice el nombre y apellido
 document.getElementById("guardarCambios").addEventListener("click", function() {
@@ -52,3 +52,58 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     });
   });
+  function validarPerfil(){
+    let userPrimerNombre = document.getElementById("nombreNuevoUser").value;
+    let userSegundoNombre = document.getElementById("segundoNombreUser").value;
+    let userPrimerApellido = document.getElementById("apellidoNuevoUser").value;
+    let userSegundoApellido = document.getElementById("segundoApellidoUser").value;
+    let userEmail = document.getElementById("emailUser").value;
+    let userTelefono = document.getElementById("telefonoUser").value;
+    
+    
+    if(
+        userPrimerNombre.trim() === "" ||
+        userPrimerApellido.trim() === "" ||
+        userEmail.trim() === "" ||
+        userTelefono.trim() === ""
+        ){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'No se permiten campos vacios!',
+            });
+            return false;
+        }
+        if (!validarEmail(userEmail)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'El Email debe de ser valido',
+            });
+            return false;
+        }
+        Swal.fire({
+            icon: 'success',
+            title: 'Registro exitoso',
+            text: '¡Tu registro ha sido exitoso!',
+        });
+        
+        let datosUsuario = {
+            userPrimerNombre,
+            userSegundoNombre,
+            userPrimerApellido,
+            userSegundoApellido,
+            userEmail,
+            userTelefono
+        };
+        localStorage.setItem("datosUsuario", JSON.stringify(datosUsuario));
+        console.log("enviado!");
+        console.log(datosUsuario)
+        return true;
+      }
+      function validarEmail(email) {
+        // Expresión regular para validar el formato del email
+        let regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regex.test(email);
+      }
+    
