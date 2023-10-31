@@ -1674,3 +1674,32 @@ transform: scale(1.05);
   
 }
 
+/*Estilos para los botones del perfil*/
+
+#guardarCambios {
+  
+  background-color: #da7d27; 
+  transition: transform 0.3s; */
+}
+
+#guardarCambios:hover {
+  transform: scale(1.2); 
+}
+
+#addProfilePic  {
+  
+  transition: transform 0.3s; 
+ }
+
+
+/* Estilo base de las cajas de texto */
+.inputDatosUser {
+  margin: 5px 0;
+  border: 1px solid #da7d27;
+  border-radius: 5px;
+}
+
+.inputDatosUser.active {
+  border: #da7d27;
+ }
+

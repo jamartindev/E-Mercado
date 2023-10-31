@@ -31,3 +31,24 @@ window.addEventListener("load", function() {
 });
 
 
+// Para cambiar el borde de las cajas de Perfil
+
+document.addEventListener("DOMContentLoaded", function() {
+    const cajasTexto = document.querySelectorAll(".inputDatosUser");
+  
+    cajasTexto.forEach(caja => {
+      caja.addEventListener("click", function () {
+        // Restablecer el borde de todas las cajas de texto
+        cajasTexto.forEach(c => c.classList.remove("active"));
+        // Establecer el borde de la caja de texto clicada
+        caja.classList.add("active");
+      });
+    });
+  
+    // Cuando se haga clic en cualquier lugar del documento, se restablece el borde de la caja de texto activa
+    document.addEventListener("click", function (event) {
+      if (!event.target.classList.contains("inputDatosUser")) {
+        cajasTexto.forEach(c => c.classList.remove("active"));
+      }
+    });
+  });
