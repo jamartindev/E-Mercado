@@ -64,8 +64,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if(
         userPrimerNombre.trim() === "" ||
         userPrimerApellido.trim() === "" ||
-        userEmail.trim() === "" ||
-        userTelefono.trim() === ""
+        userEmail.trim() === ""
         ){
             Swal.fire({
                 icon: 'error',
@@ -90,11 +89,8 @@ document.addEventListener("DOMContentLoaded", function() {
         
         let datosUsuario = {
             userPrimerNombre,
-            userSegundoNombre,
             userPrimerApellido,
-            userSegundoApellido,
-            userEmail,
-            userTelefono
+            userEmail
         };
         localStorage.setItem("datosUsuario", JSON.stringify(datosUsuario));
         console.log("enviado!");
