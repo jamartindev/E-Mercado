@@ -1691,6 +1691,9 @@ transform: scale(1.05);
   transition: transform 0.3s; 
  }
 
+ #addProfilePic:hover {
+  transform: scale(1.2); 
+ }
 
 /* Estilo base de las cajas de texto */
 .inputDatosUser {
@@ -1699,7 +1702,8 @@ transform: scale(1.05);
   border-radius: 5px;
 }
 
-.inputDatosUser.active {
-  border: #da7d27;
- }
 
+.inputDatosUser:focus {
+  border: 5px solid #da7d27;  /* Cambia el borde cuando se enfoca un campo de entrada */
+  background-color: rgba(240, 240, 240, 0.932); /* Cambia el fondo cuando se enfoca un campo de entrada */
+}
