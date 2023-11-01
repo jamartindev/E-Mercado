@@ -33,6 +33,36 @@ window.addEventListener("load", function() {
 
 
 
+// Función para verificar si el usuario está autenticado
+//function isUserAuthenticated() {
+ // return ;
+//}
+
+// Función para cargar el perfil del usuario
+//function loadUserProfile() {
+  // Obtener elementos HTML
+  //const nombreNuevoUser = document.getElementById('nombreNuevoUser');
+  //const apellidoNuevoUser = document.getElementById('apellidoNuevoUser');
+  //const emailUser = document.getElementById('emailUser');
+
+  // Verificar si el usuario está autenticado
+  //if (isUserAuthenticated()) {
+    
+  //} else {
+    // El usuario no está autenticado, redirigir al inicio de sesión
+  //  window.location.href = 'login.html';
+  //}
+//}
+
+// Función para guardar los cambios en el perfil
+//function guardarCambios() {
+  //}
+// Llama a la función para cargar el perfil cuando la página se carga
+//window.addEventListener('load', loadUserProfile);
+
+
+
+
 
 
   function validarPerfil(){
