@@ -1669,9 +1669,20 @@ transform: scale(1.05);
 .inputDatosUser{
   border: none;
   border-radius: 5px;
-  background-color: rgba(128, 128, 128, 0.637);
+  background-color: rgb(238, 233, 233);
+  outline: none;
+  padding: 2px;
   
+}
+
+.inputDatosUser:focus {
+  border: 1px solid #da7d27;  /* Cambia el borde cuando se enfoca un campo de entrada */
+  background-color: rgba(240, 240, 240, 0.932); /* Cambia el fondo cuando se enfoca un campo de entrada */
   
+}
+
+#containerDatosPerfil{
+  gap: 8px;
 }
 
 /*Estilos para los botones del perfil*/
@@ -1679,11 +1690,12 @@ transform: scale(1.05);
 #guardarCambios {
   
   background-color: #da7d27; 
+  border:none;
   transition: transform 0.3s; */
 }
 
 #guardarCambios:hover {
-  transform: scale(1.2); 
+  transform: scale(1.1); 
 }
 
 #addProfilePic  {
@@ -1692,18 +1704,11 @@ transform: scale(1.05);
  }
 
  #addProfilePic:hover {
-  transform: scale(1.2); 
+  transform: scale(1.1); 
+  transition: transform 0.3s;
  }
 
-/* Estilo base de las cajas de texto */
-.inputDatosUser {
-  margin: 5px 0;
-  border: 1px solid #da7d27;
-  border-radius: 5px;
-}
 
 
-.inputDatosUser:focus {
-  border: 5px solid #da7d27;  /* Cambia el borde cuando se enfoca un campo de entrada */
-  background-color: rgba(240, 240, 240, 0.932); /* Cambia el fondo cuando se enfoca un campo de entrada */
-}
+
+

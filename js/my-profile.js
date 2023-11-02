@@ -1,7 +1,12 @@
-//Para que se vea el email en el usuario 
+// Obtiene el usuario almacenado en el Local Storage
 let user = localStorage.getItem("User");
-let userEmail = document.getElementById('emailUser');
-user.value = userEmail; 
+
+// Verifica si el usuario existe en el Local Storage
+if (user) {
+  let userEmail = document.getElementById('emailUser');
+  userEmail.value = user;
+}
+
 
 //Funcion al darle click al boton "guardar cambios" se actualice el nombre y apellido
 document.getElementById("guardarCambios").addEventListener("click", function() {
