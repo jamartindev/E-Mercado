@@ -1,5 +1,6 @@
 // Obtiene el usuario almacenado en el Local Storage
 let user = localStorage.getItem("User");
+let usuarioTieneData = false;
 
 // Verifica si el usuario existe en el Local Storage
 if (user) {
@@ -7,31 +8,67 @@ if (user) {
   userEmail.value = user;
 }
 
-
-//Funcion al darle click al boton "guardar cambios" se actualice el nombre y apellido
+//Funcion al darle click al boton "guardar cambios" se actualice el nombre y apellido, y guardar todo en el local storage
+//tomar el valor de todos los inputs
+//guardarlos en un objeto y stringifiar y setItem al local
 document.getElementById("guardarCambios").addEventListener("click", function() {
-    const nuevoNombre = document.getElementById("nombreNuevoUser").value;
-    const nuevoApellido = document.getElementById("apellidoNuevoUser").value;
+
+    let nombre = document.getElementById("nombreNuevoUser").value;
+    let segundoNombre = document.getElementById("segundoNombreUser").value;
+    let apellido = document.getElementById("apellidoNuevoUser").value;
+    let segundoApellido = document.getElementById("segundoApellidoUser").value;
+    let mail = document.getElementById("emailUser").value;
+    let telefono = document.getElementById("telefonoUser").value;
+
+    let objetoDatosGuardados = {
+      nombre: nombre,
+      segundoNombre: segundoNombre,
+      apellido: apellido,
+      segundoApellido: segundoApellido,
+      mail: mail,
+      telefono: telefono
+    };
+
+    let datosGuardados = JSON.stringify(objetoDatosGuardados)
+
+    localStorage.setItem("datosGuardados", datosGuardados)
 
     // Guardar los nuevos datos en el localStorage
-    localStorage.setItem("nombreUsuario", nuevoNombre);
-    localStorage.setItem("apellidoUsuario", nuevoApellido);
+    //localStorage.setItem("nombreUsuario", nuevoNombre);
+    //localStorage.setItem("apellidoUsuario", nuevoApellido);
 
     // Actualizar el nombre y apellido ingresado en los inputs
-    document.getElementById("nombreUser").textContent = nuevoNombre;
-    document.getElementById("apellidoUser").textContent = nuevoApellido;
+    document.getElementById("nombreUser").innerHTML = nombre;
+    document.getElementById("apellidoUser").innerHTML = apellido;
 });
 
 // Comprobar si hay datos en el localStorage al cargar la página
+//en esta funcion gettear el objeto y parsearlo (ponerlo en json)
+//chequear si existe en el local y sisi tirarlo pa los inputs
 window.addEventListener("load", function() {
-    const nombreGuardado = localStorage.getItem("nombreUsuario");
-    const apellidoGuardado = localStorage.getItem("apellidoUsuario");
+
+    /*let nombreGuardado = localStorage.getItem("nombreUsuario");
+    let apellidoGuardado = localStorage.getItem("apellidoUsuario");
 
     if (nombreGuardado) {
-        document.getElementById("nombreUser").textContent = nombreGuardado;
+        document.getElementById("nombreUser").innerHTML = nombreGuardado;
     }
     if (apellidoGuardado) {
-        document.getElementById("apellidoUser").textContent = apellidoGuardado;
+        document.getElementById("apellidoUser").innerHTML = apellidoGuardado;
+    }*/
+
+    let datosDelLS = localStorage.getItem("datosGuardados");
+    
+    if(datosDelLS){
+
+      let datosParseados = JSON.parse(datosDelLS);
+
+      document.getElementById("nombreNuevoUser").value = datosParseados.nombre;
+      document.getElementById("segundoNombreUser").value = datosParseados.segundoNombre;
+      document.getElementById("apellidoNuevoUser").value = datosParseados.apellido;
+      document.getElementById("segundoApellidoUser").value = datosParseados.segundoApellido;
+      document.getElementById("emailUser").value = datosParseados.mail;
+      document.getElementById("telefonoUser").value = datosParseados.telefono;
     }
 });
 
