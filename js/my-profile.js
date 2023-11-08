@@ -8,6 +8,7 @@ if (user) {
   userEmail.value = user;
 }
 
+
 //Funcion al darle click al boton "guardar cambios" se actualice el nombre y apellido, y guardar todo en el local storage
 //tomar el valor de todos los inputs
 //guardarlos en un objeto y stringifiar y setItem al local
@@ -19,6 +20,7 @@ document.getElementById("guardarCambios").addEventListener("click", function() {
     let segundoApellido = document.getElementById("segundoApellidoUser").value;
     let mail = document.getElementById("emailUser").value;
     let telefono = document.getElementById("telefonoUser").value;
+    let imgPerfil = document.getElementById('imgPerfil').src;
 
     let objetoDatosGuardados = {
       nombre: nombre,
@@ -26,7 +28,8 @@ document.getElementById("guardarCambios").addEventListener("click", function() {
       apellido: apellido,
       segundoApellido: segundoApellido,
       mail: mail,
-      telefono: telefono
+      telefono: telefono,
+      imgPerfil: imgPerfil,
     };
 
     let datosGuardados = JSON.stringify(objetoDatosGuardados)
@@ -58,7 +61,7 @@ window.addEventListener("load", function() {
     }*/
 
     let datosDelLS = localStorage.getItem("datosGuardados");
-    let imgPerfil = localStorage.getItem('imgPerfil') || ''; //imagenperfil en el dom
+  
     if(datosDelLS){
 
       let datosParseados = JSON.parse(datosDelLS);
@@ -69,7 +72,8 @@ window.addEventListener("load", function() {
       document.getElementById("segundoApellidoUser").value = datosParseados.segundoApellido;
       document.getElementById("emailUser").value = datosParseados.mail;
       document.getElementById("telefonoUser").value = datosParseados.telefono;
-      document.getElementById('imgPerfil').src = imgPerfil;
+      document.getElementById('imgPerfil').src = datosParseados.imgPerfil;
+     
     }
 });
 
@@ -173,6 +177,4 @@ window.addEventListener("load", function() {
           reader.readAsDataURL(file);
     
       }});
-       // me falta guardar los datos, no se como mandarlos al LocalStorage
-       // pense en hacer un if aparte en el dom o cambiar datos usuario y hacerlo un objeto.
-       //ayuda
+      
