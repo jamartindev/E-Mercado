@@ -71,8 +71,10 @@
       <div class="container" id="containerFotoPerfil">
         
         <img src="img/img_perfil.png" alt="profilePic" id="imgPerfil">
-        <button id="addProfilePic"><i class="fa-solid fa-camera" style="color: #ffffff;"></i>  Añadir foto</button>
-
+        <label  id="addProfilePic">
+          <input type="file" accept="image/*" style="display: none;">
+          <i class="fa-solid fa-camera" style="color: #ffffff;"></i> Añadir foto 
+        </label>
         <!--al guardar cambios se cambie el nombre de la persona y aparezca aquí-->
         <div class="flex-container mt-3">
           <strong><span id="nombreUser"></span></strong>

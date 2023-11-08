@@ -158,3 +158,17 @@ window.addEventListener("load", function() {
         return regex.test(email);
       }
     
+      var addProfilePic = document.getElementById('addProfilePic');
+     var imgPerfil = document.getElementById('imgPerfil');
+      
+      addProfilePic.addEventListener('change', function(event) {
+        var file = event.target.files[0];
+        if (file) {
+          var reader = new FileReader();
+          reader.onload = function(e) {
+            imgPerfil.src = e.target.result;
+          };
+          reader.readAsDataURL(file);
+    
+      }});
+       // me falta guardar los datos, no se como mandarlos al LocalStorage
