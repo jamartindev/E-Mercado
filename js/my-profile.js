@@ -58,7 +58,7 @@ window.addEventListener("load", function() {
     }*/
 
     let datosDelLS = localStorage.getItem("datosGuardados");
-    
+    let imgPerfil = localStorage.getItem('imgPerfil') || ''; //imagenperfil en el dom
     if(datosDelLS){
 
       let datosParseados = JSON.parse(datosDelLS);
@@ -69,6 +69,7 @@ window.addEventListener("load", function() {
       document.getElementById("segundoApellidoUser").value = datosParseados.segundoApellido;
       document.getElementById("emailUser").value = datosParseados.mail;
       document.getElementById("telefonoUser").value = datosParseados.telefono;
+      document.getElementById('imgPerfil').src = imgPerfil;
     }
 });
 
@@ -161,14 +162,17 @@ window.addEventListener("load", function() {
       var addProfilePic = document.getElementById('addProfilePic');
      var imgPerfil = document.getElementById('imgPerfil');
       
-      addProfilePic.addEventListener('change', function(event) {
-        var file = event.target.files[0];
+      addProfilePic.addEventListener('change', function(iPerfil) {
+        var file = iPerfil.target.files[0];
         if (file) {
           var reader = new FileReader();
           reader.onload = function(e) {
             imgPerfil.src = e.target.result;
+            localStorage.setItem('imgPerfil', e.target.result);
           };
           reader.readAsDataURL(file);
     
       }});
        // me falta guardar los datos, no se como mandarlos al LocalStorage
+       // pense en hacer un if aparte en el dom o cambiar datos usuario y hacerlo un objeto.
+       //ayuda
