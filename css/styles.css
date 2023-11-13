@@ -1619,3 +1619,96 @@ transform: scale(1.05);
   border: 2px solid #f09f53;
   transition: all 0.2s;
 }
+
+/*SECCION FOTO DE PERFIL*/
+#contenedoresPerfil{
+  gap: 5vh;
+}
+
+
+#imgPerfil{
+  width: 45%;
+  border-radius: 50%;
+  box-shadow: 0 0px 5px rgb(87, 86, 86);
+  
+}
+
+#containerFotoPerfil{
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  padding-top: 5vh;
+  gap: 3vh;
+  border-right: 1px solid #da7d27;
+ 
+  
+
+}
+
+/*boton para añadir una foto nueva*/
+#addProfilePic{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 20px;
+  background-color: #da7d27;
+  border: none;
+  color: white;
+  padding: 9px 12px;
+  
+}
+
+#containerDatosPerfil{
+  padding: 5vh;
+  
+  
+}
+
+.inputDatosUser{
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(238, 233, 233);
+  outline: none;
+  padding: 2px;
+  
+}
+
+.inputDatosUser:focus {
+  border: 1px solid #da7d27;  /* Cambia el borde cuando se enfoca un campo de entrada */
+  background-color: rgba(240, 240, 240, 0.932); /* Cambia el fondo cuando se enfoca un campo de entrada */
+  
+}
+
+#containerDatosPerfil{
+  gap: 8px;
+}
+
+/*Estilos para los botones del perfil*/
+
+#guardarCambios {
+  
+  background-color: #da7d27; 
+  border:none;
+  transition: transform 0.3s; */
+}
+
+#guardarCambios:hover {
+  transform: scale(1.1); 
+}
+
+#addProfilePic  {
+  
+  transition: transform 0.3s; 
+ }
+
+ #addProfilePic:hover {
+  transform: scale(1.1); 
+  transition: transform 0.3s;
+ }
+
+
+
+
+
