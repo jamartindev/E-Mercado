@@ -35,11 +35,6 @@ document.getElementById("guardarCambios").addEventListener("click", function() {
     let datosGuardados = JSON.stringify(objetoDatosGuardados)
 
     localStorage.setItem("datosGuardados", datosGuardados)
-
-    // Guardar los nuevos datos en el localStorage
-    //localStorage.setItem("nombreUsuario", nuevoNombre);
-    //localStorage.setItem("apellidoUsuario", nuevoApellido);
-
     // Actualizar el nombre y apellido ingresado en los inputs
     document.getElementById("nombreUser").innerHTML = nombre;
     document.getElementById("apellidoUser").innerHTML = apellido;
@@ -49,16 +44,6 @@ document.getElementById("guardarCambios").addEventListener("click", function() {
 //en esta funcion gettear el objeto y parsearlo (ponerlo en json)
 //chequear si existe en el local y sisi tirarlo pa los inputs
 window.addEventListener("load", function() {
-
-    /*let nombreGuardado = localStorage.getItem("nombreUsuario");
-    let apellidoGuardado = localStorage.getItem("apellidoUsuario");
-
-    if (nombreGuardado) {
-        document.getElementById("nombreUser").innerHTML = nombreGuardado;
-    }
-    if (apellidoGuardado) {
-        document.getElementById("apellidoUser").innerHTML = apellidoGuardado;
-    }*/
 
     let datosDelLS = localStorage.getItem("datosGuardados");
   
@@ -76,41 +61,6 @@ window.addEventListener("load", function() {
      
     }
 });
-
-
-
-
-// Función para verificar si el usuario está autenticado
-//function isUserAuthenticated() {
- // return ;
-//}
-
-// Función para cargar el perfil del usuario
-//function loadUserProfile() {
-  // Obtener elementos HTML
-  //const nombreNuevoUser = document.getElementById('nombreNuevoUser');
-  //const apellidoNuevoUser = document.getElementById('apellidoNuevoUser');
-  //const emailUser = document.getElementById('emailUser');
-
-  // Verificar si el usuario está autenticado
-  //if (isUserAuthenticated()) {
-    
-  //} else {
-    // El usuario no está autenticado, redirigir al inicio de sesión
-  //  window.location.href = 'login.html';
-  //}
-//}
-
-// Función para guardar los cambios en el perfil
-//function guardarCambios() {
-  //}
-// Llama a la función para cargar el perfil cuando la página se carga
-//window.addEventListener('load', loadUserProfile);
-
-
-
-
-
 
   function validarPerfil(){
     let userPrimerNombre = document.getElementById("nombreNuevoUser").value;
