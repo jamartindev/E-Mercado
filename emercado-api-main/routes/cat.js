@@ -6,6 +6,6 @@ const cat = require("../cats/cat.json");
 //routes
 router.get("/", (req, res) => {
     res.json(cat)
-})
+});
 
 module.exports = router;

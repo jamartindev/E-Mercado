@@ -2,38 +2,40 @@ const { Router } = require("express");
 
 const router = Router();
 
-
-// uso fs y path para que me haga la misma particion
-const fs = require('fs');
-const path = require('path');
-
-// Aca creo constante para que me de todos los datos json de cada producto en el mismo llamado
-// osea que van a estar todas los productos juntos pero separadas por [{ dato }] e id de los productos
-const files = [
-    "../cats_products/101.json",
-    "../cats_products/102.json",
-    "../cats_products/103.json",
-    "../cats_products/104.json",
-    "../cats_products/105.json",
-    "../cats_products/106.json",
-    "../cats_products/107.json",
-    "../cats_products/108.json",
-    "../cats_products/109.json",
-];
-
-const contents = [];
-
-for (const file of files) {
- const content = fs.readFileSync(path.join(__dirname, file));
- contents.push(JSON.parse(content));
-}
+// llamado simple ya que es un solo json y usamos get
+const cat = require("../cats_products/101.json");
+const cat1 = require("../cats_products/102.json");
+const cat2 = require("../cats_products/103.json");
+const cat3 = require("../cats_products/104.json");
+const cat4 = require("../cats_products/105.json");
+const cat5 = require( "../cats_products/106.json");
+const cat6 = require("../cats_products/107.json");
+const cat7 = require("../cats_products/108.json");
+const cat8 = require("../cats_products/109.json");
 
 
 //routes
-// es una peticion get para que me arme el llamado
-router.get("/", (req, res) => {
-    res.json(contents)
-})
+const categorias = {
+    '101.json': cat,
+    '102.json': cat1,
+    '103.json': cat2,
+    '104.json': cat3,
+    '105.json': cat4,
+    '106.json': cat5,
+    '107.json': cat6,
+    '108.json': cat7,
+    '109.json': cat8,
+  };
+  
+  router.get('/:catID', function(req, res) {
+    const { catID } = req.params;
+  
+    // Verificar si la categoría existe
+    if (categorias.hasOwnProperty(catID)) {
+      res.send(categorias[catID]);
+    } else {
+      res.status(404).send('Categoría no encontrada');
+    }
+  });
 
-// aca se exportan
 module.exports = router;
