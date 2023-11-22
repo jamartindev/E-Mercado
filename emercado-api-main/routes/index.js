@@ -3,7 +3,8 @@ const router = Router();
 
 //routes
 router.get("/", (req, res) => {
-    res.send("Categoria");
-})
+    res.send("Servidor Grupo 5");
+});
+
 
 module.exports = router; 
