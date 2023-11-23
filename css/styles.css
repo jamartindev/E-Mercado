@@ -9,6 +9,16 @@
   --title-color:#fff;
 }
 
+.dark-theme .shadow {
+  box-shadow: 0 .5rem 1rem rgba(243 178 124) !important;
+}
+
+.dark-theme h1,h2{
+  -webkit-text-stroke: 0.7px #f3b27c;
+  color: black;
+  font-size:4em !important;
+}
+
 
 body {
   background-color: var(--background-color);
