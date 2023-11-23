@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>eMercado - Todo lo que busques está aquí</title>
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark p-1">
+    <div class="container-fluid w-100">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav flex-row w-100 justify-content-between">
+          <li class="nav-item  px-lg-5 px-sm-3 px-1">
+
+            <a class="nav-link active" href="index.html"> <!--AGREGUÉ ICONOS AL NAVBAR-->
+              <i class="fa-solid fa-house fa-lg" style="color: #f38d3a;"></i>
+              <span class="homeIcon">Inicio</span>
+
+            </a>
+          </li>
+          <li class="nav-item  px-lg-5 px-sm-3 px-1">
+            <a class="nav-link" href="categories.html">
+              <i class="fa-solid fa-list fa-lg" style="color: #f5c49c;"></i>
+              <span class="categoryIcon">Categorias</span>
+            </a>
+          </li>
+          <li class="nav-item  px-lg-5 px-sm-3 px-1">
+            <a class="nav-link" href="sell.html">
+              <i class="fa-solid fa-handshake fa-lg" style="color: #f5c49c;"></i>
+              <span class="venderIcon">Vender</span>
+            </a>
+          </li>
+          <li class="nav-item  px-lg-5 px-sm-3 px-1">
+            <div class="toggle-btn" id="btn-dark">
+              <img src="img/night-mode.png" id="btnIcon">
+            </div>
+          </li>
+          <li class="nav-item  px-lg-5 px-sm-3 px-1">
+
+            <div class="dropdown">
+              <i class="fa-solid fa-user"></i>
+              <a class="nav-link" id="spaceUser" href="my-profile.html"></a>
+              <div class="dropdown-content">
+                <a href="cart.html"> <i class="fa-solid fa-cart-shopping"></i> Mi carrito</a>
+                <a href="my-profile.html"><i class="fa-solid fa-user"></i> Mi perfil </a>
+                <a id="salir" href=""><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</a>
+              </div>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container-fluid">
+    <div class="btnAtras">
+      <button onclick="goBack()" id="btnAtrasProductInfo"><i class="fa-solid fa-arrow-left fa-l"
+          style="color: white;"></i> Volver </button>
+    </div>
+    <div class="text-center mt-3">
+      <h1>Carrito</h1>
+    </div>
+    <div class="table-responsive mt-4 shadow-lg p3 mb-5 bg-body rounded">
+      <table class=" table table-responsive mx-auto w-100  text-center table-hover align-middle">
+        <thead>
+          <tr>
+            <th><strong>Nombre</strong></th>
+            <th><strong>Costo</strong></th>
+            <th><strong>Cantidad</strong></th>
+            <th><strong>Subtotal</strong></th>
+          </tr>
+        </thead>
+        <tbody id="contenidoCarrito">
+
+        </tbody>
+      </table>
+    </div>
+
+
+    <!--DIVS PARA TIPO DE ENVIO Y DATOS DE ENVIO, punto 2 entrega 5-->
+    <div class="container-flex" style="
+      display: flex;
+      justify-content: center;
+      align-items: start;
+      align-content: center;
+      flex-direction: row;
+      ">
+      <div id="datosCompra" class="container-fluid">
+        <h2 style="color: darkslategray;">Tipo de envio</h2>
+        <div id="tipoEnvio" class="container-fluid">
+
+          <div class="cardCompras"> <!--tarjetitas de los tipos de envio con sus respectivos radiobuttons-->
+            <input class="inputTipoEnvio" type="radio" name="tipoEnvio" value="Standard" required>
+            <span class="check"></span>
+            <label class="labelTipoEnvio">
+              <div class="title">
+                <h5 class="title">Standard</h5>
+              </div>
+              <div class="price">
+                <span class="span">12 a 15 días</span>
+                <span class="span">(5%)</span>
+
+              </div>
+            </label>
+          </div>
+          <div class="cardCompras"> <!--tarjetitas de los tipos de envio con sus respectivos radiobuttons-->
+            <input class="inputTipoEnvio" type="radio" name="tipoEnvio" value="Express" required>
+            <span class="check"></span>
+            <label class="labelTipoEnvio">
+              <div class="title">
+                <h5 class="title">Express</h5>
+              </div>
+              <div class="price">
+                <span class="span">5 a 8 días</span>
+                <span class="span">(7%)</span>
+
+
+              </div>
+            </label>
+          </div>
+          <div class="cardCompras"> <!--tarjetitas de los tipos de envio con sus respectivos radiobuttons-->
+            <input class="inputTipoEnvio" type="radio" name="tipoEnvio" value="Premium" required>
+            <span class="check"></span>
+            <label class="labelTipoEnvio">
+              <div class="title">
+                <h5 class="title">Premium</h5>
+              </div>
+              <div class="price">
+                <span class="span">2 a 5 días</span>
+                <span class="span">(15%)</span>
+              </div>
+            </label>
+          </div>
+        </div>
+        <span id="formaPagoError"></span>
+
+        <form id="direccionEnvio" class="needs-validation flex-container" novalidate>
+          <!--contenedor para los datos de la dirección a enviar-->
+          <h2 style="color: darkslategray;">Dirección de envío</h2>
+          <div class="form-group">
+            <input type="text" name="" class="form-control inputDireccion" id="inputCalleEnvio" placeholder="Calle"
+              required>
+            <div class="invalid-feedback">
+              Ingresa una calle
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="number" name="" class="form-control inputDireccion" id="inputNumeroEnvio" placeholder="Numero"
+              required>
+            <div class="invalid-feedback">
+              Ingresa un número
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control inputDireccion" id="inputEsquinaEnvio" placeholder="Esquina"
+              required>
+            <div class="invalid-feedback">
+              Ingresa una esquina
+            </div>
+          </div>
+
+        </form>
+
+        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal"
+          style="color: darkslategrey; border: 1px solid darkslategrey">
+          Selecciona un método de pago <i class="fa-solid fa-money-check-dollar fa-xl" style="color: darkslategrey"></i>
+        </button>
+        <span id="errorMetodoPago"></span>
+
+      </div>
+      <div id="datosCostos" class="container-fluid">
+        <div class="text-center">
+          <h1>Costos</h1>
+        </div>
+        <div class="table-responsive mt-4 shadow-lg p3 mb-5 bg-body border rounded">
+          <table class=" table table-responsive mx-auto w-100  text-left table-hover align-middle">
+            <thead>
+              <tr>
+                <th><strong>Subtotal</strong><br><small class="text-muted">Costo unitario del producto por
+                    cantidad</small></th>
+                <td class="cost">USD 0</td>
+              </tr>
+              <tr>
+                <th><strong>Costo de envío</strong><br><small class="text-muted">Según el tipo de envío</small></th>
+                <td class="cost" id="subtotalEnvio">USD 0</td>
+              </tr>
+              <tr>
+                <th><strong>Total ($)</strong><br></th>
+                <td class="cost" id="costoTotal">USD 0</td>
+              </tr>
+            </thead>
+          </table>
+        </div>
+        <button id="finalizaCompra">Finalizar compra </button>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Forma de pago </h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!--metodos de pago-->
+            <div id="payment-container" class="flex-container d-flex">
+              <div class="metodoPagoTituloTransferencia">
+                <label class="contenedorTituloPago">
+                  <i class="fa-solid fa-money-bill-transfer" style="color: #f38d3a;"></i>
+                  Transferencia Bancaria
+                  <input type="radio" name="paymentMethod" value="bankTransfer" required
+                    onclick="detallePago('bankTransfer')">
+                </label>
+              </div>
+              <div class="metodoPagoTitulo">
+                <label class="contenedorTituloPago">
+                  <i class="fa-regular fa-credit-card" style="color: white"></i>
+                  Tarjeta de Crédito
+                  <input type="radio" name="paymentMethod" value="creditCard" required
+                    onclick="detallePago('creditCard')">
+                </label>
+              </div>
+            </div>
+
+            <div class="payment-details" id="bankTransferDetails">
+              <!-- Contenido para transferencia bancaria -->
+              <form class="contenidoPagoBanco needs-validation" novalidate>
+                <label for="accountNumber">Número de cuenta:</label>
+                <input class="form-control inputPago" type="text" id="accountNumber" placeholder="xxxxxxxxxx"
+                  pattern="^\d+$" name="accountNumber" onchange="resetCreditCardDetails()" required>
+                <div class="invalid-feedback">
+                  Debe introducir números
+                </div>
+                <button type="button" id="btnBank" class="btn" data-bs-dismiss="modal"
+                  style="background-color: darkslategrey; color: white;">Confirmar</button>
+              </form>
+            </div>
+
+
+            <div class="payment-details" id="creditCardDetails">
+              <!-- Contenido para tarjeta de crédito -->
+              <form class="contenidoPagoCredito needs-validation" novalidate>
+                <div class="form-group">
+                  <label for="form-label cardNumber">Número de tarjeta</label>
+                  <input class="form-control inputPago" type="text" id="cardNumber" name="cardNumber"
+                    pattern="^\d{4}-\d{4}-\d{4}-\d{4}$" placeholder="1234-5678-9101-4869"
+                    onchange="resetBankTransferDetails()" required>
+                  <div class="invalid-feedback">
+                    Formato de tarjeta inválido
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="cvv"> Código de seguridad</label>
+                  <input class="form-control inputPago" id="cvv" type="text" placeholder="123" minlength="3"
+                    maxlength="3" pattern="^\d{3}$" onchange="resetBankTransferDetails()" required>
+                  <div class="invalid-feedback">
+                    Código inválido
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="expiryDate">Fecha de expiración</label>
+                  <input class="form-control inputPago" type="text" id="expiryDate" name="expiryDate"
+                    placeholder="dd/mm/aaaa" pattern="^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/\d{4}$"
+                    onchange="resetBankTransferDetails()" required>
+                  <div class="invalid-feedback">
+                    Fecha inválida
+                  </div>
+                </div>
+                <button type="button" id="btnCred" class="btn" data-bs-dismiss="modal"
+                  style="background-color: darkslategrey; color: white;">Confirmar</button>
+              </form>
+            </div>
+
+          </div>
+          <!--<div class="modal-footer">
+        <button type="submit" class="btn" data-bs-dismiss="modal" style="background-color: darkslategrey; color: white;">Confirmar</button>
+        
+      </div>-->
+        </div>
+      </div>
+    </div>
+
+
+
+    </div>
+  </main>
+  <footer class="text-muted">
+    <div class="container">
+      <p class="float-end">
+        <a href="#">Volver arriba</a>
+      </p>
+      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a>
+      </p>
+    </div>
+  </footer>
+  <div id="spinner-wrapper">
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <script src="js/cart.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/index.js"></script>
+  <script src="js/init.js"></script>
+  <script src="https://kit.fontawesome.com/d765d1fb24.js" crossorigin="anonymous"></script>
+  <script src="js/dark-mode.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>

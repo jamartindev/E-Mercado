@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>eMercado - Todo lo que busques está aquí</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+</head>
+
+<body>
+  <!--Clases de Bootstrap navbar y container-fluid para responsive design-->
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark p-1">
+    <div class="container-fluid w-100" >
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav flex-row w-100 justify-content-between">
+          <!--Clases bootstrap del nav-item que ajustan padding de acuerdo a tamaño de pantalla-->
+          <li class="nav-item  px-lg-5 px-sm-3 px-1">
+
+            <a class="nav-link active" href="index.html"> <!--AGREGUÉ ICONOS AL NAVBAR-->
+              <i class="fa-solid fa-house fa-lg" style="color: #f38d3a;"></i>
+              <span class="homeIcon">Inicio</span>
+
+            </a>
+          </li>
+          <li class="nav-item  px-lg-5 px-sm-3 px-1">
+            <a class="nav-link" href="categories.html">
+              <i class="fa-solid fa-list fa-lg" style="color: #f5c49c;"></i>
+              <span class="categoryIcon">Categorias</span>
+            </a>
+          </li>
+          <li class="nav-item  px-lg-5 px-sm-3 px-1">
+            <a class="nav-link" href="sell.html">
+              <i class="fa-solid fa-handshake fa-lg" style="color: #f5c49c;"></i>
+              <span class="venderIcon">Vender</span>
+            </a>
+          </li>
+          <li class="nav-item  px-lg-5 px-sm-3 px-1">
+            <div class="toggle-btn" id="btn-dark">
+              <img src="img/night-mode.png" id="btnIcon">
+            </div>
+          </li>
+          <li class="nav-item  px-lg-5 px-sm-3 px-1">
+
+            <div class="dropdown">
+              <i class="fa-solid fa-user"></i>
+              <a class="nav-link" id="spaceUser" href="my-profile.html"></a>
+              <div class="dropdown-content">
+                <a href="cart.html"> <i class="fa-solid fa-cart-shopping"></i> Mi carrito</a>
+                <a href="my-profile.html"><i class="fa-solid fa-user"></i> Mi perfil </a>
+                <a id="salir" href=""><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</a>
+              </div>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <main>
+    <div class="btnAtras">
+      <button  onclick="goBack()" id="btnAtrasProductInfo"><i class="fa-solid fa-arrow-left fa-l" style="color: white;"></i> Volver </button>
+    </div>
+    <div class="container-fluid" id="product-info">
+    </div>
+  </main>
+  <footer class="text-muted">
+    <div class="container">
+      <p class="float-end">
+        <a href="#">Volver arriba</a>
+      </p>
+      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
+    </div>
+  </footer>
+  <div id="spinner-wrapper">
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/product-info.js"></script>
+  <script src="https://kit.fontawesome.com/d765d1fb24.js" crossorigin="anonymous"></script>
+  <script src="js/index.js"></script>
+  <script src="js/dark-mode.js"></script>
+  
+
+</body>
+
+</html>
