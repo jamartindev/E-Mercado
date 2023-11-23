@@ -175,11 +175,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         for (let i = 0; i < comments.length; i++) {
             let estrellas = `<div class="rating">`;
             for (let j = 0; j < comments[i].score; j++) {
-                estrellas += `<i class="bi bi-star-fill star"></i>`
+                estrellas += `<i class="bi bi-star-fill star" style="pointer-events: none;"></i>`
             }
             let estrellasVacias = 5 - comments[i].score;
             for ( let k = 0; k < estrellasVacias; k++) {
-                estrellas += `<i class="bi bi-star star"></i>`
+                estrellas += `<i class="bi bi-star star" style="pointer-events: none;"></i>`
             }
             estrellas += "</div> "
 
@@ -285,12 +285,12 @@ document.addEventListener("DOMContentLoaded", async () => {
                                     <input type='text' id="commentUser">
                                     <textarea id="txtComment" name="comentarios" placeholder="Escribe aquí tu comentario"></textarea>
                                     <label> Tu puntuación</label>
-                                    <div class="rating">
-                                    <button id='userScore1' class="bi bi-star-fill star" value='1 Estrella'></button>
-                                    <button id='userScore2' class="bi bi-star-fill star" value='2 Estrellas'></button>
-                                    <button id='userScore3' class="bi bi-star-fill star" value='3 Estrellas'></button>
-                                    <button id='userScore4' class="bi bi-star-fill star" value='4 Estrellas'></button>
-                                    <button id='userScore5' class="bi bi-star-fill star" value='5 Estrellas'></button>
+                                    <div class="new-comment-rating">
+                                    <button id='userScore1' class="bi bi-star star" value='1 Estrella'></button>
+                                    <button id='userScore2' class="bi bi-star star" value='2 Estrellas'></button>
+                                    <button id='userScore3' class="bi bi-star star" value='3 Estrellas'></button>
+                                    <button id='userScore4' class="bi bi-star star" value='4 Estrellas'></button>
+                                    <button id='userScore5' class="bi bi-star star" value='5 Estrellas'></button>
                                     </div>
                                     
                                     
@@ -307,6 +307,40 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     }; commentBox();
     
+    function estrellasComentarioNuevo() {
+        // Obtener la fila de estrellas y los botones de estrellas
+        const newRating = document.querySelector(".new-comment-rating");
+        const starButtons = newRating.querySelectorAll(".star");
+    
+        // Definicion de funcion auxiliar para borrar todas las estrellas cada vez que se clickea.
+        function borrarEstrellas() {
+          for (let i = 0; i < starButtons.length; i++) {
+            const star = starButtons[i];
+            star.classList.remove("bi-star-fill");
+            star.classList.add("bi-star");
+          }
+        }
+    // Manejar el clic en las estrellas
+    starButtons.forEach(function (button, index) {
+        // index es la posicion del elemento en el arreglo
+        button.addEventListener("click", function () {
+          // Primero dejo todas las estrellas vacias
+          borrarEstrellas();
+  
+          // Obtener el índice de la estrella clicada
+          const clickedIndex = index + 1;
+  
+          // Actualizar las clases de las estrellas
+          for (let i = 0; i < clickedIndex; i++) {
+            const star = starButtons[i];
+            star.classList.remove("bi-star"); // Borro la clase de la estrella VACIA
+            star.classList.add("bi-star-fill"); // Agrego la clase de la estrella RELLENA
+          }
+        });
+      });
+    }
+    estrellasComentarioNuevo();
+
     //TERMINA PUNTO 3 Y 4
 
     //DESAFIATE
