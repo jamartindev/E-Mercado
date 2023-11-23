@@ -1,5 +1,6 @@
 const { Router } = require("express");
 const router = Router();
+const verificarToken = require("./index");
 
 // llamado simple ya que es un solo json y usamos get
 const cart = require("../cart/buy.json");
@@ -9,18 +10,14 @@ router.get("/", (req, res) => {
     res.send(cart)
 });
 
-/*const {verificarToken} = require("./index").verificarToken; 
-const jwt = require('jsonwebtoken'); 
-const SECRET_KEY = "clavesecreta"; 
+router.use('/cart', verificarToken);
 
-// Middleware de autorización
-router.use(verificarToken);
+//ruta cart
+router.get('/cart', (req, res) => {
+  
+  res.json({ mensaje: 'Acceso autorizado a /cart', usuario: req.usuario });
+});
 
-// Funciones de manejo específicas para /api/cart
-router.get('/', (req, res) => {
-  // Acceso autorizado, la información del usuario está disponible en req.usuario
-  res.json({ mensaje: 'Acceso autorizado a /api/cart', usuario: req.usuario });
-});*/
 
 
 

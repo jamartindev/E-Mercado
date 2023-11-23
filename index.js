@@ -23,6 +23,24 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.json()); // for parsing application/json
 
 
+//funcion middleware para cart
+function verificarToken(req, res, next) {
+    const token = req.header('Authorization');
+  
+    if (!token) {
+      return res.status(401).json({ mensaje: 'Acceso no autorizado. Token no proporcionado.' });
+    }
+  
+    try {
+      const decoded = jwt.verify(token, SECRET_KEY);
+      req.usuario = decoded.username;
+      next();
+    } catch (error) {
+      return res.status(401).json({ mensaje: 'Token no válido.' });
+    }
+  }
+
+  
 //routes
 app.use(require("./emercado-api-main/routes/index")); // Creo que es innecesario
 app.use("/api/cats" ,require("./emercado-api-main/routes/cat")); // Hecho
@@ -32,6 +50,7 @@ app.use("/api/products" ,require("./emercado-api-main/routes/productos")); // He
 app.use("/api/products_comments" ,require("./emercado-api-main/routes/comments")); // Hecho
 app.use("/api/publish" ,require("./emercado-api-main/routes/sell")); // Hecho
 app.use("/api/25801" ,require("./emercado-api-main/routes/usercart")); // Hecho
+app.use(verificarToken)
  
 
 // armo un array donde me tome los usuarios
