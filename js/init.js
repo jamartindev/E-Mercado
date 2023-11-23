@@ -97,7 +97,7 @@ async function updateCart(produc, quantity) {
           count: quantity,
           cost: produc.cost,
           currency: produc.currency,
-          images: produc.images[0]
+          images: produc.images
       })
     })
     .then(response => console.log(response))
@@ -108,4 +108,11 @@ async function redirectToCart() {
   setTimeout(() => {
     window.location = "cart.html";
   }, 500);
+}
+
+async function deleteCart(id) {
+  fetch(`http://localhost:3000/api/25801/${id}/`, {
+      method: 'DELETE'
+  })
+  .then(response => console.log(response))
 }

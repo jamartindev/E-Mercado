@@ -1,29 +1,37 @@
 // Variable de costo total establecida en 0
 let costoTotal = 0;
 let subTotal = 0;
+let carritoSQL;
 
 // Para multiplicar precio de cantidad de articulos que el usuario vaya a comprar
 //global para poder acceder a ella desde product-info.js también
 let Subtotal = (precioUnit, cantidad, indice) => {
   let subtotal = precioUnit * cantidad;
   document.getElementById(`subtotal${indice}`).textContent = subtotal;
-
-  let carrito = JSON.parse(localStorage.getItem(carritoKey));
-  carrito[indice].quantity = cantidad;
-  localStorage.setItem(carritoKey, JSON.stringify(carrito));
+  updateCart(carritoSQL[indice], cantidad);
+  
+  //let carrito = JSON.parse(localStorage.getItem(carritoKey));
+  //carrito[indice].quantity = cantidad;
+  //localStorage.setItem(carritoKey, JSON.stringify(carrito));
   subtotalCarrito();
   costoEnvio();
 };
 
+
+//body = "";
+/*dibujarCarrito();
+  subtotalCarrito();
+  costoEnvio(); */
+
 //Inicializamos el carrito como vacío si no existía
-let carritoKey = "carrito";
+/*let carritoKey = "carrito";
 
 if (!localStorage.getItem(carritoKey)) {
   localStorage.setItem(carritoKey, JSON.stringify([]));
-}
+}*/
 
 document.addEventListener("DOMContentLoaded", async () => {
-  let carritoSQL;
+  
   let url = "http://localhost:3000/api/25801/";
   // Fetch a la url para obtener los datos
   await fetch(url)
@@ -146,6 +154,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
   dibujarCarrito();
+  for (let i = 0; i < carritoSQL.length; i++) {
+    Subtotal(carritoSQL[i].cost, carritoSQL[i].count, i)
+  }
   costoTotal = 0;
   subtotalCarrito();
   costoEnvio();
@@ -162,40 +173,46 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   //Tomé el body que antes estaba en el fetch para ponerlo en una función que dibuja en cart.html el carrito del localStorage
 
-  function dibujarCarrito() {
-    let body = "";
-    //let carrito = JSON.parse(localStorage.getItem(carritoKey));
+  
 
-    for (let i = 0; i < carritoSQL.length; i++) {
-      body += `
-        <tr>
-          <td> <img src="${carritoSQL[i].images}" width="150vh"> ${carritoSQL[i].name}</td>
-          <td>${carritoSQL[i].currency} ${carritoSQL[i].cost}</td>
-          <td><input id="inputCantidad" value="${carritoSQL[i].count}" type="number" min="0" max="100" oninput="Subtotal(${carritoSQL[i].cost}, this.value, ${i})"></td>
-          <td class="subtotal">${carritoSQL[i].currency} <span id="subtotal${i}">${carritoSQL[i].cost}</span></td>
-          <td><button class="btneliminar" onclick="eliminarProducto(${i})"><i class="fa-regular fa-trash-can"></i></button></td>
-        </tr>
-    `;
-    }
-    document.getElementById("contenidoCarrito").innerHTML = body;
+ 
+});
+
+function dibujarCarrito() {
+  let body = "";
+  //let carrito = JSON.parse(localStorage.getItem(carritoKey));
+
+  for (let i = 0; i < carritoSQL.length; i++) {
+    body += `
+      <tr>
+        <td> <img src="${carritoSQL[i].images}" width="150vh"> ${carritoSQL[i].name}</td>
+        <td>${carritoSQL[i].currency} ${carritoSQL[i].cost}</td>
+        <td><input id="inputCantidad" value="${carritoSQL[i].count}" type="number" min="0" max="100" oninput="Subtotal(${carritoSQL[i].cost}, this.value, ${i})"></td>
+        <td class="subtotal">${carritoSQL[i].currency} <span id="subtotal${i}">${carritoSQL[i].cost}</span></td>
+        <td><button class="btneliminar" onclick="eliminarProducto(${carritoSQL[i].id})"><i class="fa-regular fa-trash-can"></i></button></td>
+      </tr>
+  `;
   }
+  document.getElementById("contenidoCarrito").innerHTML = body;
+}
+
 
   function subtotalCarrito() {
     let dataCost = document.querySelectorAll(".cost"); //Obtengo un NodeList con los campos de costos del carrito desde el HTML
     // Función que determina el subtotal del carrito en tiempo real
-    const items = JSON.parse(localStorage.getItem("carrito")); // Obtengo el carrito desde el localStorage
+    //const items = JSON.parse(localStorage.getItem("carrito")); // Obtengo el carrito desde el localStorage
 
     let moneda;
     let subTot = 0;
 
-    for (let item of items) {
+    for (let carrito of carritoSQL) {
       // Utilizando un for...of itero sobre los elementos del carrito
-      moneda = item.currency;
+      moneda = carrito.currency;
       if (moneda !== "USD") {
         // Si la moneda del elemento no es USD hago la conversión
-        subTot += (item.cost / 40) * item.quantity;
+        subTot += (carrito.cost / 40) * carrito.count;
       } else {
-        subTot += item.cost * item.quantity; //Multiplico costo por cantidad
+        subTot += carrito.cost * carrito.count; //Multiplico costo por cantidad
       }
     }
     subTotal = subTot; //Actualizo variable global
@@ -208,7 +225,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Obtengo los botones de radio de tipo de envío.
     let pocentajeEnvio = document.querySelectorAll("input[name=tipoEnvio]");
     // Obtiengo los artículos del almacenamiento local.
-    const items = JSON.parse(localStorage.getItem("carrito"));
+    //const items = JSON.parse(localStorage.getItem("carrito"));
     let costoEnvio = 0;
     // Armo una cadena if y else if para que al escoger el tipo de envio se calculen
     // El total del coste de envio
@@ -231,21 +248,24 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   // Función para eliminar los articulos agrrgados a carrito...
+  function eliminarProducto(productoID) { 
+    deleteCart(productoID);
+    dibujarCarrito();
+    subtotalCarrito();
+    costoEnvio()
+  }
+
   /*function eliminarProducto(indice) {
+    //let carrito = JSON.parse(localStorage.getItem(carritoKey));
+    //carrito.splice(indice, 1);
+    //localStorage.setItem(carritoKey, JSON.stringify(carrito))
+
   let carrito = JSON.parse(localStorage.getItem(carritoKey)) || []; // esto es por si ni tengo datos en el local storage
   carrito.splice(indice, 1);
   localStorage.setItem(carritoKey, JSON.stringify(carrito)); 
 }*/
 
-  function eliminarProducto(indice) {
-    body = "";
-    let carrito = JSON.parse(localStorage.getItem(carritoKey));
-    carrito.splice(indice, 1);
-    localStorage.setItem(carritoKey, JSON.stringify(carrito));
-    dibujarCarrito();
-    subtotalCarrito();
-    costoEnvio();
-  }
+ 
 
   //Se crea una funcion para mostrar en el modal la eleccion de usuario,
   //si selecciona Transferencia bancaria se "nonea" el display de opciones de credit card, y asi al reves.
@@ -275,4 +295,4 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.getElementById("cvv").value = "";
     document.getElementById("expiryDate").value = "";
   }
-});
+

@@ -73,6 +73,22 @@ module.exports = (pool) => {
         }
     });
 
+    router.delete("/:id", async (req, res) => {
+        let conn;
+        try {
+            conn = await pool.getConnection();
+            const rows = await conn.query(
+            `DELETE FROM cartproducts WHERE id=?`, [req.params.id,]
+            );
+            res.json({message: `Se ha eliminado el elemento ${req.params.name} del carrito`});
+        } catch (error) {
+            console.log(error)
+            res.status(500).json({ message: "Error al recibir solicitud" });
+        } finally {
+            if (conn) conn.release(); //release to pool
+        }
+    });
+
     
 
     return router;
