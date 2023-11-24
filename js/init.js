@@ -116,3 +116,13 @@ async function deleteCart(id) {
   })
   .then(response => console.log(response))
 }
+
+/*async function updateCartHTML() {
+  fetch('http://127.0.0.1:5501/cart.html', {
+    headers: { "Content-Type": "application/json; charset=utf-8" },
+    method: 'POST',
+    body: JSON.stringify(dibujarCarrito())
+  })
+  .then(response => console.log(response.json()))
+  //document.getElementById('contenidoCarrito').innerHTML = req.responseText;
+  };*/
